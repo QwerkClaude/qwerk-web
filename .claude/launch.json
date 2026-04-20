@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "qwerk-web",
+      "runtimeExecutable": "/usr/bin/ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/Users/claudeqwerk/Desktop/qwerk-web", "-p", "3456"],
+      "port": 3456
+    }
+  ]
+}
