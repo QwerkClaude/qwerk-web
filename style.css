@@ -128,18 +128,21 @@ h2.light { color: var(--white); }
    HERO — split layout
 ════════════════════════════ */
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  background: var(--darker);
   min-height: 80vh;
-  padding-top: 52px; /* nav height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 52px;
 }
 
 .hero-text {
-  background: var(--dark);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 4rem 3rem 4rem 2rem;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 2rem;
+  max-width: 700px;
 }
 
 .hero-label {
@@ -187,21 +190,58 @@ h2.light { color: var(--white); }
   color: var(--white);
 }
 
-.hero-image {
-  background: #ebebeb;
+/* ════════════════════════════
+   SECCIÓN VERDE — PILARES
+════════════════════════════ */
+.section-green {
+  background: var(--green);
+}
+
+.section-green .label-light {
+  color: rgba(255,255,255,0.6);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pillar-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  overflow: hidden;
+  margin-bottom: 0.25rem;
 }
 
-.hero-image img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-height: 400px;
-  drop-shadow: 0 8px 30px rgba(0,0,0,0.15);
+.pillar-icon svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.pillar h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.01em;
+}
+
+.pillar p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.65;
 }
 
 /* ════════════════════════════
@@ -509,23 +549,8 @@ footer {
    RESPONSIVE
 ════════════════════════════ */
 @media (max-width: 860px) {
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .hero-text {
-    padding: 5rem 2rem 3rem;
-    order: 1;
-  }
-  .hero-image {
-    order: 2;
-    padding: 2.5rem 1.5rem;
-  }
-  .hero-image img {
-    max-height: 260px;
-  }
   .hero-text h1 { font-size: 3rem; }
-  .btn { align-self: auto; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 @media (max-width: 768px) {
