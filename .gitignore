@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Claude Code
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+
+# Secretos locales (nunca commitear)
+.env
+.env.*
+config.local.*
+
+# Logs / basura
+*.log
+.vscode/
+.idea/
