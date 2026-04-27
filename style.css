@@ -638,3 +638,115 @@ footer {
   line-height: 1.7;
   margin: 0;
 }
+
+/* ═══ FICHAS TÉCNICAS — MODALES ═══ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 900;
+}
+.modal-overlay.active { display: block; }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(680px, 94vw);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  z-index: 901;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.modal.active { display: block; }
+
+.modal-close {
+  position: sticky;
+  float: right;
+  top: 0;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover { background: #e0e0e0; }
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+.modal-code { font-weight: 800; font-size: 1rem; }
+.modal-ph {
+  font-size: 0.75rem;
+  background: #f5f5f5;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  color: #666;
+}
+.modal-title {
+  font-size: 1.4rem;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.modal-body { margin-top: 1.5rem; }
+
+.modal-section { margin-bottom: 1.5rem; }
+.modal-section h5 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-bottom: 0.6rem;
+}
+.modal-section p,
+.modal-section li { font-size: 0.95rem; line-height: 1.7; color: #333; }
+.modal-section ol,
+.modal-section ul { padding-left: 1.2rem; }
+.modal-section li { margin-bottom: 0.3rem; }
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.modal-table th {
+  background: #f5f5f5;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+}
+.modal-table td { padding: 0.5rem 0.75rem; border-top: 1px solid #eee; }
+.modal-table tr:hover td { background: #fafafa; }
+
+.modal-warning {
+  background: #fff8f0;
+  border-left: 3px solid #f57c00;
+  padding: 0.75rem 1rem;
+  border-radius: 0 6px 6px 0;
+}
+.modal-warning h5 { color: #f57c00; }
+
+.btn-ficha {
+  margin-top: 1rem;
+  background: none;
+  border: 1.5px solid #2e2e2e;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-ficha:hover { background: #2e2e2e; color: #fff; }
