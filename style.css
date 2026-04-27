@@ -848,3 +848,30 @@ footer {
   .steps-grid { flex-direction: column; }
   .step-arrow { transform: rotate(90deg); align-self: center; }
 }
+
+/* ═══ BOTÓN FLOTANTE WHATSAPP ═══ */
+.wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.75rem 1.2rem 0.75rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+}
+.wa-float-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
