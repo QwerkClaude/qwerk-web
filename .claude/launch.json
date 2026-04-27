@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "qwerk-web",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "serve", "-l", "3000", "/Users/claudeqwerk/Desktop/qwerk-web"],
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/claudeqwerk/Desktop/qwerk-web/.claude/serve.py"],
       "port": 3000
     }
   ]
