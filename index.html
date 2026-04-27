@@ -94,6 +94,7 @@
   </script>
 
   <link rel="stylesheet" href="style.css">
+  <script src="/main.js" defer></script>
 </head>
 <body>
 
@@ -103,14 +104,14 @@
       <a href="#inicio" class="nav-logo">
         <img src="assets/logo-white.png" alt="Q-WERK" height="32">
       </a>
-      <button class="nav-toggle" aria-label="Menú" onclick="toggleMenu()">
+      <button class="nav-toggle" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
-        <li><a href="#mision" onclick="closeMenu()">Misión</a></li>
-        <li><a href="#productos" onclick="closeMenu()">Productos</a></li>
-        <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#mision">Misión</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
   </nav>
@@ -230,7 +231,7 @@
             <h4>Snow Foam Concentrado</h4>
             <span class="product-tag">Alta espuma · High Foam</span>
             <p>Shampoo de prelavado de alta concentración que genera una espuma densa y adherente, capaz de encapsular y aflojar la suciedad antes del contacto manual. Compatible con cañón de espuma y pulverizador de presión.</p>
-            <button class="btn-ficha" onclick="openModal('snf7')">Ver ficha técnica</button>
+            <button class="btn-ficha" data-modal="snf7">Ver ficha técnica</button>
           </div>
         </div>
 
@@ -246,7 +247,7 @@
             <h4>All Purpose Cleaner</h4>
             <span class="product-tag">Uso general · Interior automotriz</span>
             <p>Limpiador multiusos de pH neutro para superficies interiores del vehículo. Elimina polvo, grasa ligera y suciedad en plásticos, viniles, consolas y paneles sin dañar los materiales.</p>
-            <button class="btn-ficha" onclick="openModal('apc7')">Ver ficha técnica</button>
+            <button class="btn-ficha" data-modal="apc7">Ver ficha técnica</button>
           </div>
         </div>
 
@@ -262,7 +263,7 @@
             <h4>Desengrasante Alcalino</h4>
             <span class="product-tag">Grado industrial · Motores y talleres</span>
             <p>Desengrasante de grado industrial para disolver grasa pesada de motores, aceites y residuos de alta contaminación. Ideal para autolavados y talleres mecánicos.</p>
-            <button class="btn-ficha" onclick="openModal('dsgt250')">Ver ficha técnica</button>
+            <button class="btn-ficha" data-modal="dsgt250">Ver ficha técnica</button>
           </div>
         </div>
 
@@ -278,7 +279,7 @@
             <h4>Limpiador Textil Alcalino</h4>
             <span class="product-tag">Tapicerías · Alfombras automotrices</span>
             <p>Limpiador alcalino de baja generación de espuma para tapicerías y alfombras automotrices. Ideal para uso con máquina extractora o aplicación manual con cepillo.</p>
-            <button class="btn-ficha" onclick="openModal('alk200')">Ver ficha técnica</button>
+            <button class="btn-ficha" data-modal="alk200">Ver ficha técnica</button>
           </div>
         </div>
 
@@ -294,7 +295,7 @@
             <h4>Crema Acondicionadora de Interiores</h4>
             <span class="product-tag">Hidrata · Restaura · Anti-fog</span>
             <p>Crema de silicones para el cuidado de interiores automotrices. Protege plásticos, tableros y viniles contra los rayos UV con acabado de brillo natural sin sensación grasosa.</p>
-            <button class="btn-ficha" onclick="openModal('vnl2')">Ver ficha técnica</button>
+            <button class="btn-ficha" data-modal="vnl2">Ver ficha técnica</button>
           </div>
         </div>
 
@@ -316,7 +317,7 @@
             <h4>Jabón Líquido para Lavandería</h4>
             <span class="product-tag">Fragancia fresca · Todos los tipos de lavadora</span>
             <p>Jabón líquido de fórmula High Efficiency compatible con todo tipo de lavadoras: carga frontal y carga superior. Fragancia fresca y limpia que perdura en la ropa lavado tras lavado.</p>
-            <button class="btn-ficha" onclick="openModal('ld100')">Ver ficha técnica</button>
+            <button class="btn-ficha" data-modal="ld100">Ver ficha técnica</button>
           </div>
         </div>
 
@@ -402,11 +403,11 @@
   </footer>
 
   <!-- ═══ MODALES FICHAS TÉCNICAS ═══ -->
-  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal-overlay" id="modal-overlay"></div>
 
   <!-- SNF 7 -->
   <div class="modal" id="modal-snf7">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close">✕</button>
     <div class="modal-header" style="--accent:#1a5dc8">
       <span class="modal-code" style="color:#1a5dc8">SNF 7</span>
       <span class="modal-ph">PH Neutro</span>
@@ -457,7 +458,7 @@
 
   <!-- APC 7 -->
   <div class="modal" id="modal-apc7">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close">✕</button>
     <div class="modal-header" style="--accent:#3aaa35">
       <span class="modal-code" style="color:#3aaa35">APC 7</span>
       <span class="modal-ph">PH Neutro</span>
@@ -507,7 +508,7 @@
 
   <!-- DSGT 250 -->
   <div class="modal" id="modal-dsgt250">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close">✕</button>
     <div class="modal-header" style="--accent:#c0392b">
       <span class="modal-code" style="color:#c0392b">DSGT 250</span>
       <span class="modal-ph">PH Alcalino</span>
@@ -559,7 +560,7 @@
 
   <!-- ALK 200 -->
   <div class="modal" id="modal-alk200">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close">✕</button>
     <div class="modal-header" style="--accent:#e91e8c">
       <span class="modal-code" style="color:#e91e8c">ALK 200</span>
       <span class="modal-ph">PH Alcalino</span>
@@ -615,7 +616,7 @@
 
   <!-- VNL 2 -->
   <div class="modal" id="modal-vnl2">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close">✕</button>
     <div class="modal-header" style="--accent:#f57c00">
       <span class="modal-code" style="color:#f57c00">VNL 2</span>
       <span class="modal-ph">Silicones</span>
@@ -659,7 +660,7 @@
 
   <!-- LD 100 -->
   <div class="modal" id="modal-ld100">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close">✕</button>
     <div class="modal-header" style="--accent:#0097a7">
       <span class="modal-code" style="color:#0097a7">LD 100</span>
       <span class="modal-ph">High Efficiency</span>
@@ -707,29 +708,6 @@
     </div>
   </div>
 
-  <script>
-    function openModal(id) {
-      document.getElementById('modal-' + id).classList.add('active');
-      document.getElementById('modal-overlay').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
-      document.getElementById('modal-overlay').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
-    function closeMenu() {
-      document.getElementById('navLinks').classList.remove('open');
-    }
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-    });
-  </script>
 
 </body>
 </html>
