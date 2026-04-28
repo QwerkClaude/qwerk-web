@@ -40,23 +40,6 @@ document.querySelectorAll('.nav-links a').forEach(function(link) {
   });
 });
 
-// ═══ WIDGET WHATSAPP ═══
-const waBtn = document.getElementById('waBtn');
-const waBubble = document.getElementById('waBubble');
-const waBubbleClose = document.getElementById('waBubbleClose');
-
-if (waBtn && waBubble) {
-  waBtn.addEventListener('click', function() {
-    waBubble.classList.toggle('open');
-  });
-  if (waBubbleClose) {
-    waBubbleClose.addEventListener('click', function(e) {
-      e.stopPropagation();
-      waBubble.classList.remove('open');
-    });
-  }
-}
-
 // ═══ SCROLL ═══
 window.addEventListener('scroll', function() {
   const navbar = document.getElementById('navbar');
