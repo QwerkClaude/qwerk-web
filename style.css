@@ -992,3 +992,61 @@ footer {
   transform: scale(1.1);
   box-shadow: 0 8px 30px rgba(37,211,102,0.6);
 }
+
+/* ════════════════════════════
+   PÁGINAS INTERNAS (SEO landing / blog)
+════════════════════════════ */
+.page-hero {
+  background: var(--darker);
+  padding: 8rem 0 4.5rem;
+}
+.page-hero .breadcrumbs {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.25rem;
+}
+.page-hero .breadcrumbs a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.page-hero .breadcrumbs a:hover { color: var(--white); }
+.page-hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  max-width: 850px;
+}
+.page-hero .lead {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+.page-hero .btn { align-self: auto; }
+
+.page-content h2 {
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+}
+.page-content h2:first-child { margin-top: 0; }
+.page-content p, .page-content li {
+  color: var(--text-soft);
+  max-width: 760px;
+  margin-bottom: 1rem;
+}
+.page-content ul, .page-content ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+.page-content li { margin-bottom: 0.5rem; }
+.page-content a { color: var(--green); font-weight: 600; }
+.page-content strong { color: var(--text); }
+
+.related-links {
+  list-style: none !important;
+  padding-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
