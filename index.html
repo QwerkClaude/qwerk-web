@@ -29,63 +29,95 @@
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Q-WERK">
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD · Organization + LocalBusiness + WebSite + BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Q-WERK",
-    "url": "https://qwerk.mx",
-    "logo": "https://qwerk.mx/assets/logo-dark.png",
-    "image": "https://qwerk.mx/assets/logo-dark.png",
-    "telephone": "+523222202407",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Tondoroque",
-      "addressRegion": "Nayarit",
-      "postalCode": "63735",
-      "addressCountry": "MX"
-    },
-    "description": "Proveedor de detergente para lavanderías y productos de limpieza para autolavados en Puerto Vallarta y Bahía de Banderas. Jabón líquido en presentación de 20 litros, reforzador de aromas, desengrasantes y más. Venta a lavanderías, autolavados y negocios con precios por volumen.",
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61589076414894",
-      "https://www.instagram.com/quimicoswerk"
-    ],
-    "knowsAbout": [
-      "Detergente para lavanderías",
-      "Jabón líquido para lavandería en 20 litros",
-      "Productos de limpieza para autolavados",
-      "Reforzador de aromas para ropa",
-      "Desengrasantes industriales"
-    ],
-    "areaServed": [
+    "@graph": [
       {
-        "@type": "City",
-        "name": "Puerto Vallarta"
+        "@type": "Organization",
+        "@id": "https://qwerk.mx/#organization",
+        "name": "Q-WERK",
+        "url": "https://qwerk.mx/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://qwerk.mx/assets/logo-dark.png"
+        },
+        "image": "https://qwerk.mx/assets/banner.png",
+        "email": "contacto@qwerk.mx",
+        "telephone": "+523222202407",
+        "description": "Q-WERK suministra detergentes y productos de limpieza para negocios: lavanderías y autolavados en Puerto Vallarta y Bahía de Banderas. Venta a negocios con precios por volumen y envíos a toda la República Mexicana.",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61589076414894",
+          "https://www.instagram.com/quimicoswerk"
+        ]
       },
       {
-        "@type": "Place",
-        "name": "Bahía de Banderas"
+        "@type": "LocalBusiness",
+        "@id": "https://qwerk.mx/#localbusiness",
+        "name": "Q-WERK",
+        "url": "https://qwerk.mx/",
+        "parentOrganization": { "@id": "https://qwerk.mx/#organization" },
+        "logo": "https://qwerk.mx/assets/logo-dark.png",
+        "image": "https://qwerk.mx/assets/banner.png",
+        "telephone": "+523222202407",
+        "email": "contacto@qwerk.mx",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Tondoroque",
+          "addressRegion": "Nayarit",
+          "postalCode": "63735",
+          "addressCountry": "MX"
+        },
+        "description": "Proveedor local de detergente para lavanderías, jabón líquido en bidón de 20 litros y productos de limpieza para autolavados en Puerto Vallarta y Bahía de Banderas. Venta a negocios con precios por volumen.",
+        "knowsAbout": [
+          "Detergente para lavanderías",
+          "Jabón líquido para lavandería en 20 litros",
+          "Productos de limpieza para autolavados",
+          "Reforzador de aromas para ropa",
+          "Desengrasantes industriales"
+        ],
+        "areaServed": [
+          { "@type": "City", "name": "Puerto Vallarta" },
+          { "@type": "Place", "name": "Bahía de Banderas" },
+          { "@type": "State", "name": "Jalisco" },
+          { "@type": "State", "name": "Nayarit" }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+523222202407",
+          "email": "contacto@qwerk.mx",
+          "areaServed": ["MX"],
+          "availableLanguage": "Spanish"
+        }
       },
       {
-        "@type": "State",
-        "name": "Jalisco"
+        "@type": "WebSite",
+        "@id": "https://qwerk.mx/#website",
+        "url": "https://qwerk.mx/",
+        "name": "Q-WERK",
+        "inLanguage": "es-MX",
+        "publisher": { "@id": "https://qwerk.mx/#organization" }
       },
       {
-        "@type": "State",
-        "name": "Nayarit"
+        "@type": "BreadcrumbList",
+        "@id": "https://qwerk.mx/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://qwerk.mx/"
+          }
+        ]
       }
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "areaServed": ["MX"],
-      "availableLanguage": "Spanish"
-    }
+    ]
   }
   </script>
 
-  <!-- Schema FAQ -->
+  <!-- Schema FAQ · refleja las 6 preguntas visibles en la home -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -93,10 +125,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "¿Venden detergente para lavanderías en Puerto Vallarta?",
+        "name": "¿Venden productos para lavanderías?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Q-WERK vende detergente líquido para lavanderías (LD 100) en presentaciones de 10 y 20 litros, con entrega en Puerto Vallarta, Bahía de Banderas y zonas cercanas."
+          "text": "Sí. Vendemos detergente y jabón líquido para lavanderías, además de reforzador de aromas y otros productos de limpieza, con precios por volumen para negocios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Venden productos para autolavados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Manejamos shampoo de prelavado (snow foam), limpiador multiusos, desengrasante alcalino, limpiador textil y crema acondicionadora de interiores para autolavados y detallado."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Entregan en Puerto Vallarta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Hacemos entrega local en Puerto Vallarta, Jalisco y zonas cercanas."
         }
       },
       {
@@ -104,39 +152,15 @@
         "name": "¿Entregan en Bahía de Banderas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Tenemos base en Tondoroque, Bahía de Banderas, Nayarit, y entregamos en toda la zona y en Puerto Vallarta. También enviamos al resto de la República Mexicana."
+          "text": "Sí. Tenemos base en Tondoroque, Bahía de Banderas, Nayarit, y entregamos en toda la zona. También enviamos al resto de la República Mexicana."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Venden jabón líquido en presentación de 20 litros?",
+        "name": "¿Manejan presentaciones de 20 litros?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. El jabón líquido para lavandería LD 100 está disponible en bidón de 20 litros desde $490 MXN con IVA incluido, y también en presentación de 10 litros."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿El envase es a cambio?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Las opciones de envase dependen de la presentación y del pedido. Escríbenos por WhatsApp al +52 322 220 2407 y te confirmamos las opciones disponibles para tu caso."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Tienen productos para autolavados?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí. Manejamos shampoo de prelavado (snow foam), limpiador multiusos, desengrasante alcalino, limpiador textil para tapicerías y crema acondicionadora de interiores, en presentaciones de 1 a 20 litros."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Tienen reforzador de aroma para ropa?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, manejamos reforzador de aromas para lavanderías. Pide presentaciones disponibles y precios por WhatsApp al +52 322 220 2407."
+          "text": "Sí. El jabón líquido para lavandería LD 100 está disponible en bidón de 20 litros, y varios productos se manejan también en presentación de 20 litros para negocios."
         }
       },
       {
@@ -145,46 +169,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Sí. Escríbenos por WhatsApp al +52 322 220 2407 y te enviamos precios y presentaciones disponibles. Respondemos rápido."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Atienden negocios o solo venta al público?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Atendemos ambos. Trabajamos principalmente con lavanderías, autolavados y negocios que compran por volumen, con precios especiales de mayoreo, y también vendemos al público en general."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué zonas cubre Q-WERK?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Atendemos con entrega local Puerto Vallarta (Jalisco), Bahía de Banderas (Nayarit) y zonas cercanas. Para el resto de la República Mexicana enviamos por paquetería."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Manejan precios para lavanderías?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí. Manejamos precios por volumen para lavanderías, pensados para reducir el costo por lavada. Escríbenos por WhatsApp con tu consumo aproximado y te cotizamos."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Los productos Q-WERK son concentrados?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí. La mayoría de nuestros productos son concentrados de alta eficiencia. El SNF 7 se diluye hasta 1:20, el DSGT 250 hasta 1:10 en trabajos ligeros y el LD 100 está formulado para rendir más por litro."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Hacen envíos a toda la República?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, enviamos a toda la República Mexicana. Contáctanos por WhatsApp o correo para cotizar tu pedido y coordinar el envío."
         }
       }
     ]
@@ -408,7 +392,7 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#productos">Productos</a></li>
         <li><a href="#faq">Preguntas</a></li>
         <li><a href="/blog/">Blog</a></li>
@@ -421,11 +405,11 @@
   <section class="hero" id="inicio">
     <div class="hero-text">
       <span class="hero-label">Q-WERK · Puerto Vallarta · Bahía de Banderas</span>
-      <h1>Detergente para<br>lavanderías y<br>autolavados.</h1>
-      <p class="hero-sub">Q-WERK vende detergente para lavanderías, jabón líquido en presentación de 20 litros, reforzador de aromas y productos de limpieza para autolavados en Puerto Vallarta, Bahía de Banderas y zonas cercanas. Atendemos negocios con entrega local y opciones pensadas para reducir el costo por lavada o por servicio.</p>
+      <h1>Detergentes y productos<br>de limpieza para negocios</h1>
+      <p class="hero-sub">Suministro local para lavanderías y autolavados en Puerto Vallarta y Bahía de Banderas.</p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
         <a href="#productos" class="btn btn-green">Ver productos</a>
-        <a href="https://wa.me/523222202407?text=Hola%2C%20quiero%20cotizar%20productos%20Q-WERK" target="_blank" rel="noopener" class="btn btn-white">Cotizar por WhatsApp</a>
+        <a href="https://wa.me/523222202407?text=Hola%2C%20me%20interesa%20la%20lista%20de%20precios%20de%20Q-WERK" target="_blank" rel="noopener" class="btn btn-white">Pedir lista por WhatsApp</a>
       </div>
     </div>
   </section>
@@ -440,74 +424,38 @@
     <span style="background:#0097a7"></span>
   </div>
 
-  <!-- ═══ QUIÉNES SOMOS ═══ -->
-  <section id="nosotros" class="section">
-    <div class="container two-col">
-      <div class="col-text">
-        <span class="label">Quiénes somos</span>
-        <h2>Ciencia aplicada<br>a la limpieza</h2>
-        <p>Q-WERK es una empresa mexicana con base en Bahía de Banderas, Nayarit, dedicada al desarrollo y fabricación de productos de limpieza de alto rendimiento. Proveemos detergente y jabón líquido a lavanderías, y productos de limpieza a autolavados y negocios de Puerto Vallarta, Bahía de Banderas y zonas cercanas.</p>
-        <p>Nacimos del detallado automotriz y diseñamos cada fórmula con un propósito claro: que el producto haga el trabajo, no el esfuerzo. Atendemos negocios con precios por volumen y también al público en general. Enviamos a toda la República Mexicana.</p>
-      </div>
-      <div class="col-stats">
-        <div class="stat-card">
-          <strong>6+</strong>
-          <span>Productos en línea</span>
-        </div>
-        <div class="stat-card">
-          <strong>2</strong>
-          <span>Líneas de productos</span>
-        </div>
-        <div class="stat-card">
-          <strong>MX</strong>
-          <span>Fabricación nacional</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ ATENCIÓN AL CLIENTE ═══ -->
-  <section class="section section-green">
+  <!-- ═══ SOLUCIONES POR NEGOCIO ═══ -->
+  <section id="soluciones" class="section">
     <div class="container">
-      <span class="label label-light">Nuestro compromiso</span>
-      <h2 class="light">Más que productos,<br>una relación de confianza.</h2>
-      <div class="pillars-grid">
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-          </div>
-          <h3>Te escuchamos</h3>
-          <p>Cada cliente tiene necesidades distintas. Antes de recomendarte un producto, queremos entender qué necesitas y cómo trabajas.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-          </div>
-          <h3>Respuesta rápida</h3>
-          <p>Puedes contactarnos por WhatsApp, correo o teléfono. Nos importa que no te quedes sin respuesta cuando más lo necesitas.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-          </div>
-          <h3>Compromiso real</h3>
-          <p>No terminamos en la venta. Si un producto no te funciona como esperabas, lo resolvemos juntos. Tu satisfacción es lo que nos mueve.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <span class="label">Soluciones</span>
+      <h2>Para lavanderías y autolavados</h2>
+      <p class="section-intro">Dos líneas de productos pensadas para el día a día de tu negocio.</p>
+      <div class="sol-grid">
 
-  <!-- ═══ MISIÓN / VISIÓN ═══ -->
-  <section id="mision" class="section section-dark">
-    <div class="container mv-grid">
-      <div class="mv-card">
-        <span class="label label-light">Misión</span>
-        <p>Proveer soluciones de limpieza de alta calidad, formuladas con precisión técnica para el sector automotriz y del hogar. Impulsamos el trabajo del detallador profesional y del usuario final con productos confiables, eficientes y accesibles.</p>
-      </div>
-      <div class="mv-divider"></div>
-      <div class="mv-card">
-        <span class="label label-light">Visión</span>
-        <p>Ser la marca de referencia en productos de limpieza automotriz en México, reconocida por la innovación en sus fórmulas, la consistencia en su rendimiento y el compromiso con quien exige resultados profesionales.</p>
+        <div class="sol-card">
+          <div class="sol-icon" style="--accent:#0097a7">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.11.9 2 2 2h12c1.1 0 2-.89 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5.5a1 1 0 11-2 0 1 1 0 012 0zM12 19a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"/></svg>
+          </div>
+          <h3>Lavanderías</h3>
+          <p>Detergente y jabón líquido de alto rendimiento, reforzador de aromas y más, en presentaciones de 10 y 20 litros para bajar el costo por lavada.</p>
+          <div class="sol-actions">
+            <a href="#productos" class="btn-text">Ver productos</a>
+            <a href="https://wa.me/523222202407?text=Hola%2C%20tengo%20una%20lavander%C3%ADa%20y%20quiero%20la%20lista%20de%20precios" target="_blank" rel="noopener" class="btn btn-green btn-sm">Pedir por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="sol-card">
+          <div class="sol-icon" style="--accent:#1a5dc8">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+          </div>
+          <h3>Autolavados</h3>
+          <p>Shampoo de prelavado, multiusos, desengrasante, limpiador textil y acondicionador de interiores para un acabado profesional en cada servicio.</p>
+          <div class="sol-actions">
+            <a href="#productos" class="btn-text">Ver productos</a>
+            <a href="https://wa.me/523222202407?text=Hola%2C%20tengo%20un%20autolavado%20y%20quiero%20la%20lista%20de%20precios" target="_blank" rel="noopener" class="btn btn-green btn-sm">Pedir por WhatsApp</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -516,8 +464,8 @@
   <section id="productos" class="section">
     <div class="container">
       <span class="label">Catálogo</span>
-      <h2>Nuestros productos</h2>
-      <p class="section-intro">Cada producto Q-WERK tiene una función específica y una fórmula optimizada. Sin rellenos, sin atajos.</p>
+      <h2>Productos principales</h2>
+      <p class="section-intro">Productos concentrados con una función clara. Pide presentaciones y precios por WhatsApp.</p>
 
       <!-- Línea Automotriz -->
       <h3 class="line-title"><span>Línea Automotriz</span></h3>
@@ -692,12 +640,104 @@
     </div>
   </section>
 
-  <!-- ═══ SOLUCIONES POR ZONA Y NEGOCIO ═══ -->
+  <!-- ═══ GUÍA RÁPIDA · ¿QUÉ PRODUCTO NECESITO? ═══ -->
+  <section class="section section-gray" id="guia">
+    <div class="container">
+      <span class="label">Guía rápida</span>
+      <h2>¿Qué producto necesito?</h2>
+      <p class="section-intro">Elige según lo que hace tu negocio. Si tienes dudas, te orientamos por WhatsApp.</p>
+      <div class="guide-grid">
+
+        <div class="guide-card" style="--accent:#0097a7">
+          <span class="guide-code">LD 100</span>
+          <h3>Jabón Líquido para Lavandería</h3>
+          <p class="guide-row"><strong>Uso principal:</strong> lavar ropa con fragancia duradera y alto rendimiento.</p>
+          <p class="guide-row"><strong>Cliente ideal:</strong> lavanderías.</p>
+          <button class="btn-ficha" data-modal="ld100">Ver ficha</button>
+        </div>
+
+        <div class="guide-card" style="--accent:#1a5dc8">
+          <span class="guide-code">SNF 7</span>
+          <h3>Snow Foam Concentrado</h3>
+          <p class="guide-row"><strong>Uso principal:</strong> prelavado de carrocería con espuma densa.</p>
+          <p class="guide-row"><strong>Cliente ideal:</strong> autolavados y detallado.</p>
+          <button class="btn-ficha" data-modal="snf7">Ver ficha</button>
+        </div>
+
+        <div class="guide-card" style="--accent:#3aaa35">
+          <span class="guide-code">APC 7</span>
+          <h3>All Purpose Cleaner</h3>
+          <p class="guide-row"><strong>Uso principal:</strong> limpiar interiores: plásticos, viniles y consolas.</p>
+          <p class="guide-row"><strong>Cliente ideal:</strong> autolavados y uso doméstico.</p>
+          <button class="btn-ficha" data-modal="apc7">Ver ficha</button>
+        </div>
+
+        <div class="guide-card" style="--accent:#c0392b">
+          <span class="guide-code">DSGT 250</span>
+          <h3>Desengrasante Alcalino</h3>
+          <p class="guide-row"><strong>Uso principal:</strong> disolver grasa pesada de motores y piezas.</p>
+          <p class="guide-row"><strong>Cliente ideal:</strong> autolavados y talleres.</p>
+          <button class="btn-ficha" data-modal="dsgt250">Ver ficha</button>
+        </div>
+
+        <div class="guide-card" style="--accent:#e91e8c">
+          <span class="guide-code">ALK 200</span>
+          <h3>Limpiador Textil Alcalino</h3>
+          <p class="guide-row"><strong>Uso principal:</strong> lavar tapicería y alfombras sin dañar la tela.</p>
+          <p class="guide-row"><strong>Cliente ideal:</strong> detallado con extractora.</p>
+          <button class="btn-ficha" data-modal="alk200">Ver ficha</button>
+        </div>
+
+        <div class="guide-card" style="--accent:#f57c00">
+          <span class="guide-code">VNL 2</span>
+          <h3>Crema Acondicionadora</h3>
+          <p class="guide-row"><strong>Uso principal:</strong> proteger y dar brillo a plásticos y viniles.</p>
+          <p class="guide-row"><strong>Cliente ideal:</strong> autolavados y uso doméstico.</p>
+          <button class="btn-ficha" data-modal="vnl2">Ver ficha</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ POR QUÉ COMPRAR CON Q-WERK ═══ -->
+  <section class="section section-green" id="por-que">
+    <div class="container">
+      <span class="label label-light">Por qué comprar con Q-WERK</span>
+      <h2 class="light">Un proveedor local en quien apoyarte</h2>
+      <p class="section-intro" style="color:rgba(255,255,255,0.6)">Somos una empresa mexicana con base en Bahía de Banderas. Fabricamos productos de limpieza de alto rendimiento y atendemos negocios con precios por volumen.</p>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm-2 15l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <h3>Precio por volumen</h3>
+          <p>Presentaciones de hasta 20 litros y precios de mayoreo pensados para bajar tu costo por lavada o por servicio.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"/></svg>
+          </div>
+          <h3>Entrega local</h3>
+          <p>Entregamos en Puerto Vallarta, Bahía de Banderas y zonas cercanas. Enviamos al resto de la República.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+          </div>
+          <h3>Respuesta rápida</h3>
+          <p>Escríbenos por WhatsApp y te pasamos precios, presentaciones y disponibilidad sin vueltas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ZONAS DE ENTREGA ═══ -->
   <section class="section section-dark" id="zonas">
     <div class="container">
-      <span class="label label-light">Zona de servicio</span>
-      <h2 class="light">Atendemos Puerto Vallarta y Bahía de Banderas</h2>
-      <p class="section-intro" style="color:rgba(255,255,255,0.55)">Entrega local para lavanderías, autolavados y negocios en la zona. Conoce nuestras soluciones:</p>
+      <span class="label label-light">Zonas de entrega</span>
+      <h2 class="light">Puerto Vallarta y Bahía de Banderas</h2>
+      <p class="section-intro" style="color:rgba(255,255,255,0.55)">Entrega local para lavanderías, autolavados y negocios en la zona. También enviamos a toda la República. Conoce más:</p>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.65rem;margin-top:1.5rem">
         <li><a href="/detergente-para-lavanderias-puerto-vallarta/" style="color:#3aaa35;font-weight:600">→ Detergente para lavanderías en Puerto Vallarta</a></li>
         <li><a href="/jabon-liquido-20-litros-bahia-de-banderas/" style="color:#3aaa35;font-weight:600">→ Jabón líquido de 20 litros en Bahía de Banderas</a></li>
@@ -737,71 +777,6 @@
     </div>
   </section>
 
-  <!-- ═══ TABLA COMPARATIVA ═══ -->
-  <section class="section" id="comparativa">
-    <div class="container">
-      <span class="label">Guía rápida</span>
-      <h2>¿Qué producto necesito?</h2>
-      <p class="section-intro">Si no sabes cuál elegir, esta tabla te orienta en segundos.</p>
-      <div class="compare-wrap">
-        <table class="compare-table">
-          <colgroup>
-            <col style="width:15%">
-            <col style="width:35%">
-            <col style="width:26%">
-            <col style="width:24%">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Para qué sirve</th>
-              <th>Dónde se usa</th>
-              <th>¿Quién lo usa?</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="--accent:#1a5dc8">
-              <td><span class="cmp-code" style="color:#1a5dc8">SNF 7</span><br><small>Snow Foam</small></td>
-              <td data-label="Para qué sirve">Prelavado — afloja suciedad antes del lavado a mano</td>
-              <td data-label="Dónde se usa">Carrocería, vidrios, llantas</td>
-              <td data-label="¿Quién lo usa?">Detallador, autolavado</td>
-            </tr>
-            <tr style="--accent:#3aaa35">
-              <td><span class="cmp-code" style="color:#3aaa35">APC 7</span><br><small>All Purpose Cleaner</small></td>
-              <td data-label="Para qué sirve">Limpiar interiores: plásticos, viniles, consolas</td>
-              <td data-label="Dónde se usa">Interior del vehículo</td>
-              <td data-label="¿Quién lo usa?">Detallador, uso doméstico</td>
-            </tr>
-            <tr style="--accent:#c0392b">
-              <td><span class="cmp-code" style="color:#c0392b">DSGT 250</span><br><small>Desengrasante</small></td>
-              <td data-label="Para qué sirve">Eliminar grasa pesada de motores y piezas mecánicas</td>
-              <td data-label="Dónde se usa">Motor, taller, pisos industriales</td>
-              <td data-label="¿Quién lo usa?">Taller mecánico, autolavado</td>
-            </tr>
-            <tr style="--accent:#e91e8c">
-              <td><span class="cmp-code" style="color:#e91e8c">ALK 200</span><br><small>Limpiador Textil</small></td>
-              <td data-label="Para qué sirve">Lavar tapicería y alfombras sin dañar la tela</td>
-              <td data-label="Dónde se usa">Asientos, alfombras, techo interior</td>
-              <td data-label="¿Quién lo usa?">Detallador con extractora</td>
-            </tr>
-            <tr style="--accent:#f57c00">
-              <td><span class="cmp-code" style="color:#f57c00">VNL 2</span><br><small>Crema Acondicionadora</small></td>
-              <td data-label="Para qué sirve">Proteger y dar brillo a plásticos y viniles interiores</td>
-              <td data-label="Dónde se usa">Tablero, consola, paneles</td>
-              <td data-label="¿Quién lo usa?">Detallador, uso doméstico</td>
-            </tr>
-            <tr style="--accent:#0097a7">
-              <td><span class="cmp-code" style="color:#0097a7">LD 100</span><br><small>Jabón Lavandería</small></td>
-              <td data-label="Para qué sirve">Lavar ropa con fragancia duradera y alto rendimiento</td>
-              <td data-label="Dónde se usa">Lavadora carga frontal y superior</td>
-              <td data-label="¿Quién lo usa?">Lavanderías, uso doméstico</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══ FAQ ═══ -->
   <section class="section" id="faq">
     <div class="container">
@@ -810,34 +785,28 @@
       <div class="faq-list">
 
         <details class="faq-item">
-          <summary>¿Venden detergente para lavanderías en Puerto Vallarta?</summary>
-          <p>Sí. Q-WERK vende detergente líquido para lavanderías (LD 100) en presentaciones de 10 y 20 litros, con entrega en Puerto Vallarta, Bahía de Banderas y zonas cercanas. Más información en <a href="/detergente-para-lavanderias-puerto-vallarta/">detergente para lavanderías en Puerto Vallarta</a>.</p>
+          <summary>¿Venden productos para lavanderías?</summary>
+          <p>Sí. Vendemos detergente y jabón líquido para lavanderías, además de reforzador de aromas y otros productos de limpieza, con precios por volumen para negocios. Más información en <a href="/detergente-para-lavanderias-puerto-vallarta/">detergente para lavanderías</a>.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Venden productos para autolavados?</summary>
+          <p>Sí. Manejamos shampoo de prelavado (snow foam), limpiador multiusos, desengrasante alcalino, limpiador textil y crema acondicionadora de interiores. Conoce la línea en <a href="/productos-para-autolavado-puerto-vallarta/">productos para autolavado</a>.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Entregan en Puerto Vallarta?</summary>
+          <p>Sí. Hacemos entrega local en Puerto Vallarta, Jalisco y zonas cercanas.</p>
         </details>
 
         <details class="faq-item">
           <summary>¿Entregan en Bahía de Banderas?</summary>
-          <p>Sí. Tenemos base en Tondoroque, Bahía de Banderas, Nayarit, y entregamos en toda la zona y en Puerto Vallarta. También enviamos al resto de la República Mexicana.</p>
+          <p>Sí. Tenemos base en Tondoroque, Bahía de Banderas, Nayarit, y entregamos en toda la zona. También enviamos al resto de la República Mexicana.</p>
         </details>
 
         <details class="faq-item">
-          <summary>¿Venden jabón líquido en presentación de 20 litros?</summary>
-          <p>Sí. El jabón líquido para lavandería LD 100 está disponible en bidón de 20 litros desde $490 MXN con IVA incluido, y también en presentación de 10 litros. Detalles en <a href="/jabon-liquido-20-litros-bahia-de-banderas/">jabón líquido de 20 litros</a>.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿El envase es a cambio?</summary>
-          <!-- TODO: confirmar política de envases (retornable / a cambio / incluido) y actualizar esta respuesta -->
-          <p>Las opciones de envase dependen de la presentación y del pedido. Escríbenos por WhatsApp al +52 322 220 2407 y te confirmamos las opciones disponibles para tu caso.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Tienen productos para autolavados?</summary>
-          <p>Sí. Manejamos shampoo de prelavado (snow foam), limpiador multiusos, desengrasante alcalino, limpiador textil para tapicerías y crema acondicionadora de interiores, en presentaciones de 1 a 20 litros. Conoce la línea completa en <a href="/productos-para-autolavado-puerto-vallarta/">productos para autolavado</a>.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Tienen reforzador de aroma para ropa?</summary>
-          <p>Sí, manejamos reforzador de aromas para lavanderías. Pide presentaciones disponibles y precios por WhatsApp al +52 322 220 2407. Más información en <a href="/reforzador-de-aroma-para-lavanderias/">reforzador de aroma para lavanderías</a>.</p>
+          <summary>¿Manejan presentaciones de 20 litros?</summary>
+          <p>Sí. El jabón líquido para lavandería LD 100 está disponible en bidón de 20 litros, y varios productos se manejan también en 20 litros para negocios. Detalles en <a href="/jabon-liquido-20-litros-bahia-de-banderas/">jabón líquido de 20 litros</a>.</p>
         </details>
 
         <details class="faq-item">
@@ -845,32 +814,17 @@
           <p>Sí. Escríbenos por <a href="https://wa.me/523222202407" target="_blank" rel="noopener">WhatsApp al +52 322 220 2407</a> y te enviamos precios y presentaciones disponibles. Respondemos rápido.</p>
         </details>
 
-        <details class="faq-item">
-          <summary>¿Atienden negocios o solo venta al público?</summary>
-          <p>Atendemos ambos. Trabajamos principalmente con lavanderías, autolavados y negocios que compran por volumen, con precios especiales de mayoreo, y también vendemos al público en general.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Qué zonas cubre Q-WERK?</summary>
-          <p>Atendemos con entrega local Puerto Vallarta (Jalisco), Bahía de Banderas (Nayarit) y zonas cercanas. Para el resto de la República Mexicana enviamos por paquetería.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Manejan precios para lavanderías?</summary>
-          <p>Sí. Manejamos precios por volumen para lavanderías, pensados para reducir el costo por lavada. Escríbenos por WhatsApp con tu consumo aproximado y te cotizamos.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Los productos Q-WERK son concentrados?</summary>
-          <p>Sí. La mayoría de nuestros productos son concentrados de alta eficiencia. El SNF 7 se diluye hasta 1:20, el DSGT 250 hasta 1:10 en trabajos ligeros y el LD 100 está formulado para rendir más por litro. En cada ficha de producto encontrarás las diluciones recomendadas.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>¿Hacen envíos a toda la República?</summary>
-          <p>Sí, enviamos a toda la República Mexicana. Contáctanos por WhatsApp o correo para cotizar tu pedido y coordinar el envío.</p>
-        </details>
-
       </div>
+      <p style="margin-top:1.75rem;color:var(--text-soft);font-size:0.95rem">¿Más dudas? Visita nuestro <a href="/blog/">blog</a> o escríbenos por <a href="https://wa.me/523222202407" target="_blank" rel="noopener">WhatsApp</a>.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CTA FINAL ═══ -->
+  <section class="section section-green cta-final">
+    <div class="container">
+      <h2 class="light">¿Listo para tu pedido?</h2>
+      <p class="cta-sub">Pide tu lista de precios por WhatsApp. Te respondemos rápido con presentaciones y disponibilidad.</p>
+      <a href="https://wa.me/523222202407?text=Hola%2C%20me%20interesa%20la%20lista%20de%20precios%20de%20Q-WERK" target="_blank" rel="noopener" class="btn btn-white btn-lg">Pedir lista por WhatsApp</a>
     </div>
   </section>
 
@@ -905,7 +859,7 @@
   <footer>
     <div class="container footer-inner">
       <img src="assets/logo-white.png" alt="Q-WERK" height="22" class="footer-logo">
-      <span class="footer-copy">© 2025 Q-WERK · Hecho en México</span>
+      <span class="footer-copy">© 2026 Q-WERK · Hecho en México</span>
       <span class="footer-domain">qwerk.mx</span>
     </div>
   </footer>
