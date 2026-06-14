@@ -1161,7 +1161,75 @@ footer {
   line-height: 1.6;
 }
 
+/* ════════════════════════════
+   HERO · texto de apoyo
+════════════════════════════ */
+.hero-support {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  max-width: 540px;
+  margin: -1rem auto 2.25rem;
+  line-height: 1.6;
+}
+
+/* ════════════════════════════
+   PILARES · variante 4 columnas
+════════════════════════════ */
+.pillars-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ════════════════════════════
+   ACCIONES EN TARJETA DE PRODUCTO
+════════════════════════════ */
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.card-actions .btn-ficha { margin-top: 0; }
+
+/* ════════════════════════════
+   SOMOS DE LA ZONA
+════════════════════════════ */
+.trust-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.trust-text h2 { margin-bottom: 1rem; }
+.trust-text p { color: var(--text-soft); line-height: 1.7; }
+.trust-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.media-placeholder {
+  aspect-ratio: 1 / 1;
+  border: 2px dashed var(--gray-mid);
+  border-radius: 14px;
+  background: var(--gray-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (max-width: 860px) {
+  .pillars-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
   .sol-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .guide-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .pillars-grid--4 { grid-template-columns: 1fr; }
 }
