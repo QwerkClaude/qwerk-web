@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 520" role="img" aria-label="Reforzador de Aroma Textil Q-WERK">
+  <defs>
+    <linearGradient id="ra-body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="0.5" stop-color="#d97706"/>
+      <stop offset="1" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+  <!-- Trigger -->
+  <rect x="108" y="28" width="34" height="28" rx="4" fill="#3a3a3a"/>
+  <rect x="142" y="34" width="36" height="16" rx="3" fill="#555"/>
+  <!-- Nozzle -->
+  <rect x="174" y="38" width="24" height="8" rx="2" fill="#333"/>
+  <!-- Neck -->
+  <rect x="118" y="56" width="20" height="50" fill="#b45309"/>
+  <!-- Spray bottle body -->
+  <path d="M82 106h136a18 18 0 0 1 18 18v332a24 24 0 0 1-24 24H88a24 24 0 0 1-24-24V124a18 18 0 0 1 18-18z" fill="url(#ra-body)"/>
+  <path d="M82 106h136a18 18 0 0 1 18 18v332a24 24 0 0 1-24 24H88a24 24 0 0 1-24-24V124a18 18 0 0 1 18-18z" fill="none" stroke="#92400e" stroke-width="2" opacity="0.4"/>
+  <!-- Shoulder highlight -->
+  <rect x="76" y="120" width="18" height="340" rx="9" fill="#ffffff" opacity="0.16"/>
+  <!-- White label -->
+  <rect x="74" y="196" width="152" height="220" rx="10" fill="#ffffff"/>
+  <rect x="74" y="196" width="152" height="46" rx="10" fill="#d97706"/>
+  <rect x="74" y="230" width="152" height="12" fill="#d97706"/>
+  <text x="150" y="227" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800" fill="#ffffff" letter-spacing="0.5">REFORZADOR</text>
+  <text x="150" y="272" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800" fill="#2e2e2e" letter-spacing="0.5">DE AROMA</text>
+  <line x1="100" y1="292" x2="200" y2="292" stroke="#e3e3e3" stroke-width="2"/>
+  <text x="150" y="314" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#777" letter-spacing="0.4">AROMA FINAL TEXTIL</text>
+  <text x="150" y="332" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8.5" font-weight="700" fill="#777" letter-spacing="0.2">ANTES DE DOBLAR O EMPACAR</text>
+  <text x="150" y="350" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8.5" font-weight="700" fill="#777" letter-spacing="0.2">SPRAY · ROPA LIMPIA</text>
+  <text x="150" y="388" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="900" fill="#d97706" letter-spacing="2">Q-WERK</text>
+</svg>
