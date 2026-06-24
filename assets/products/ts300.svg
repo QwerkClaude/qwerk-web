@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 520" role="img" aria-label="TS 300 Abrillantador de Llantas Q-WERK">
+  <defs>
+    <linearGradient id="ts300-body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b51f5"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#6526c9"/>
+    </linearGradient>
+  </defs>
+  <!-- Trigger sprayer -->
+  <path d="M150 36h70a14 14 0 0 1 14 14v20a14 14 0 0 1-14 14h-18l-22 24h-30z" fill="#3a3a3a"/>
+  <path d="M150 60h64v8h-64z" fill="#2a2a2a"/>
+  <rect x="138" y="36" width="26" height="118" rx="9" fill="#4a4a4a"/>
+  <!-- Bottle body -->
+  <rect x="58" y="150" width="184" height="338" rx="26" fill="url(#ts300-body)"/>
+  <rect x="58" y="150" width="184" height="338" rx="26" fill="none" stroke="#5a1fb8" stroke-width="2" opacity="0.4"/>
+  <!-- Shoulder highlight -->
+  <rect x="72" y="162" width="22" height="312" rx="11" fill="#ffffff" opacity="0.16"/>
+  <!-- White label -->
+  <rect x="78" y="232" width="144" height="178" rx="10" fill="#ffffff"/>
+  <rect x="78" y="232" width="144" height="40" rx="10" fill="#7c3aed"/>
+  <rect x="78" y="262" width="144" height="10" fill="#7c3aed"/>
+  <text x="150" y="259" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff" letter-spacing="1">TS 300</text>
+  <text x="150" y="302" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="800" fill="#2e2e2e">ABRILLANTADOR</text>
+  <text x="150" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="800" fill="#2e2e2e">DE LLANTAS</text>
+  <line x1="104" y1="336" x2="196" y2="336" stroke="#e3e3e3" stroke-width="2"/>
+  <text x="150" y="358" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#777" letter-spacing="0.5">BRILLO INMEDIATO</text>
+  <text x="150" y="373" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#777" letter-spacing="0.5">ATOMIZABLE</text>
+  <text x="150" y="397" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="900" fill="#7c3aed" letter-spacing="2">Q-WERK</text>
+</svg>

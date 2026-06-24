@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 520" role="img" aria-label="TS 300 Gel Abrillantador de Llantas Q-WERK">
+  <defs>
+    <linearGradient id="ts300gel-body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="0.5" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#3a32c4"/>
+    </linearGradient>
+  </defs>
+  <!-- Lid -->
+  <rect x="56" y="118" width="188" height="34" rx="12" fill="#3a3a3a"/>
+  <rect x="64" y="100" width="172" height="26" rx="11" fill="#4a4a4a"/>
+  <!-- Handle -->
+  <path d="M84 104c12-44 120-44 132 0" fill="none" stroke="#5a5a5a" stroke-width="9" stroke-linecap="round"/>
+  <!-- Tub body (tapered bucket) -->
+  <path d="M64 150h172l-16 320a14 14 0 0 1-14 13H94a14 14 0 0 1-14-13z" fill="url(#ts300gel-body)"/>
+  <path d="M64 150h172l-16 320a14 14 0 0 1-14 13H94a14 14 0 0 1-14-13z" fill="none" stroke="#322bb0" stroke-width="2" opacity="0.4"/>
+  <!-- Shoulder highlight -->
+  <path d="M78 162l-4 300a10 10 0 0 0 0 1h16l4-301z" fill="#ffffff" opacity="0.16"/>
+  <!-- White label -->
+  <rect x="80" y="226" width="140" height="190" rx="10" fill="#ffffff"/>
+  <rect x="80" y="226" width="140" height="42" rx="10" fill="#4f46e5"/>
+  <rect x="80" y="258" width="140" height="10" fill="#4f46e5"/>
+  <text x="150" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#ffffff" letter-spacing="1">TS 300</text>
+  <text x="150" y="263" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="900" fill="#c7d2fe" letter-spacing="3">GEL</text>
+  <text x="150" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="800" fill="#2e2e2e">ABRILLANTADOR</text>
+  <text x="150" y="318" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="800" fill="#2e2e2e">DE LLANTAS</text>
+  <line x1="106" y1="334" x2="194" y2="334" stroke="#e3e3e3" stroke-width="2"/>
+  <text x="150" y="356" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#777" letter-spacing="0.5">ALTO BRILLO</text>
+  <text x="150" y="371" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700" fill="#777" letter-spacing="0.5">APLICACIÓN CON ESPONJA</text>
+  <text x="150" y="398" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="900" fill="#4f46e5" letter-spacing="2">Q-WERK</text>
+</svg>
