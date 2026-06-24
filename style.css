@@ -730,6 +730,13 @@ footer {
 .modal-table td { padding: 0.5rem 0.75rem; border-top: 1px solid #eee; }
 .modal-table tr:hover td { background: #fafafa; }
 
+.modal-tip {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
 .modal-warning {
   background: #fff8f0;
   border-left: 3px solid #f57c00;
