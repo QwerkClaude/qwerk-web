@@ -82,6 +82,9 @@ window.addEventListener('scroll', function() {
   }
 
   function baseMessage() {
+    // Una página puede fijar su propio mensaje con <meta name="wa-message" content="...">
+    var meta = document.querySelector('meta[name="wa-message"]');
+    if (meta && meta.content) return meta.content;
     var path = (location.pathname || '').toLowerCase();
     for (var i = 0; i < WA_RULES.length; i++) {
       if (path.indexOf(WA_RULES[i][0]) !== -1) return WA_RULES[i][1];
