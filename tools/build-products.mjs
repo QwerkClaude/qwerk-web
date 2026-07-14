@@ -35,12 +35,12 @@ const META = {
   'abrillantador-llantas':     { cat:'automotriz', code:'TS 300',     name:'Abrillantador de Llantas (Uso Diario)', img:'/assets/products/ts300.png',   accent:'#7c3aed', price:{low:350,high:650},  pres:'10 L · 20 L',             wa:'Hola, quiero información del abrillantador de llantas TS 300 y sus presentaciones.' },
   'abrillantador-llantas-gel': { cat:'automotriz', code:'TS 300 Gel', name:'Gel Abrillantador de Llantas',          img:'/assets/products/ts300gel.png',accent:'#4f46e5', price:{low:160,high:650},  pres:'4 kg · 19 kg',            wa:'Hola, quiero información del gel abrillantador de llantas TS 300 Gel.' },
   'abrillantador-premium-llantas':{cat:'automotriz',code:'Premium',   name:'Abrillantador Premium para Llantas',    img:null,                           accent:'#4f46e5', price:null,                pres:'Consulta disponibilidad', wa:'Hola, quiero información y precio del Abrillantador Premium para Llantas.', star:true },
-  'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'LD 100',     name:'LD 100 · Detergente Líquido para Lavandería', img:'/assets/products/ld100.png', accent:'#0097a7', price:{low:280,high:490}, pres:'10 L · 20 L',           wa:'Hola, quiero información y precios de los productos QWERK para lavandería.' },
-  'detergente-con-vinagre':    { cat:'lavanderia', code:'Con Vinagre',name:'Detergente con Vinagre',                img:'/assets/products/detergente-vinagre.png', accent:'#059669', price:null,     pres:'Consulta disponibilidad', wa:'Hola, quiero información del Detergente con Vinagre para lavandería.' },
+  'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'LD 100',     name:'LD 100 · Detergente Líquido para Lavandería', img:'/assets/products/ld100.png', accent:'#0097a7', price:{low:280,high:490}, retornable:true, pres:'10 L · 20 L', wa:'Hola, quiero información y precios de los productos QWERK para lavandería.' },
+  'detergente-con-vinagre':    { cat:'lavanderia', code:'Con Vinagre',name:'Detergente con Vinagre',                img:'/assets/products/detergente-vinagre.png', accent:'#059669', price:null,     priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente con Vinagre para lavandería.' },
   'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de Aroma Textil',            img:'/assets/products/reforzador-aroma.png', accent:'#d97706', price:null,       pres:'Consulta disponibilidad', wa:'Hola, me interesa el reforzador de aroma. ¿Cómo se usa y cuánto rinde?' },
-  'detergente-ropa-color':     { cat:'lavanderia', code:'Color',      name:'Detergente para Ropa de Color',         img:null,                           accent:'#db2777', price:null,                pres:'Consulta disponibilidad', wa:'Hola, quiero información del Detergente para Ropa de Color de QWERK.' },
-  'detergente-con-bicarbonato':{ cat:'lavanderia', code:'Bicarbonato',name:'Detergente con Bicarbonato',            img:null,                           accent:'#0284c7', price:null,                pres:'Consulta disponibilidad', wa:'Hola, quiero información del Detergente con Bicarbonato de QWERK.' },
-  'detergente-con-pino':       { cat:'lavanderia', code:'Pino',       name:'Detergente con Pino',                   img:null,                           accent:'#16a34a', price:null,                pres:'Consulta disponibilidad', wa:'Hola, quiero información del Detergente con Pino de QWERK.' },
+  'detergente-ropa-color':     { cat:'lavanderia', code:'Color',      name:'Detergente para Ropa de Color',         img:null,                           accent:'#db2777', price:null,                priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente para Ropa de Color de QWERK.' },
+  'detergente-con-bicarbonato':{ cat:'lavanderia', code:'Bicarbonato',name:'Detergente con Bicarbonato',            img:null,                           accent:'#0284c7', price:null,                priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente con Bicarbonato de QWERK.' },
+  'detergente-con-pino':       { cat:'lavanderia', code:'Pino',       name:'Detergente con Pino',                   img:null,                           accent:'#16a34a', price:null,                priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente con Pino de QWERK.' },
 };
 
 const GUIDES = {
@@ -136,6 +136,7 @@ function productPage(slug, c) {
   };
   if (m.img) product.image = SITE + m.img;
   if (m.price) product.offers = { '@type': 'AggregateOffer', priceCurrency: 'MXN', lowPrice: m.price.low, highPrice: m.price.high, seller: { '@type': 'Organization', name: 'Q-WERK' } };
+  else if (m.priceFrom) product.offers = { '@type': 'Offer', priceCurrency: 'MXN', price: m.priceFrom, availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'Q-WERK' } };
   const breadcrumb = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
@@ -171,7 +172,7 @@ ${NAV(m.cat)}
           <h1>${htmlEsc(m.name)}</h1>
           <p class="lead">${htmlEsc(c.mainBenefit)}</p>
           <ul class="hero-benefits">${c.benefits.map(b => `<li>${htmlEsc(b)}</li>`).join('')}</ul>
-          <p class="hero-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}</p>
+          <p class="hero-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${m.priceFrom ? ` — <strong>desde $${m.priceFrom} MXN</strong>` : ''}${m.retornable ? ' · envase retornable' : ''}</p>
           <div class="hero-cta">
             <a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Consultar precio y presentación</a>
             <a href="#ficha" class="btn-text">Ver ficha técnica</a>
@@ -241,7 +242,7 @@ function hubPage(cat) {
           ${media}
           <div class="featured-body">
             <h3>${htmlEsc(m.name)}</h3>
-            <p class="featured-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}</p>
+            <p class="featured-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${m.priceFrom ? ` · desde $${m.priceFrom}` : ''}${m.retornable ? ' · retornable' : ''}</p>
             <div class="featured-actions">
               <a href="/${cat}/${slug}/" class="btn btn-green btn-sm" data-ev="view_product_details" data-ev-product="${htmlEsc(m.name)}">Ver ficha</a>
               <a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn-text" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Cotizar</a>
