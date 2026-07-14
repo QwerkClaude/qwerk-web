@@ -8,8 +8,12 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// Versión de assets (?v=<hash>) para forzar recarga tras cada deploy.
+const assetV = f => createHash('sha256').update(readFileSync(join(ROOT, f))).digest('hex').slice(0, 8);
+const V_JS = assetV('main.js'), V_CSS = assetV('style.css');
 const SITE = 'https://qwerk.mx';
 const PHONE = '523222202407';
 const PUB = '2026-07-13', MOD = '2026-07-13', PUB_H = '13 de julio de 2026';
@@ -98,8 +102,8 @@ function guidePage(slug, c) {
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Q-WERK">
 ${[article, breadcrumb, faqLd].map(jsonld).join('\n')}
-  <link rel="stylesheet" href="/style.css">
-  <script src="/main.js" defer></script>
+  <link rel="stylesheet" href="/style.css?v=${V_CSS}">
+  <script src="/main.js?v=${V_JS}" defer></script>
 </head>
 <body>
 ${NAV}

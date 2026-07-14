@@ -154,6 +154,14 @@ window.addEventListener('scroll', function() {
 
   // ── Ventana flotante contextual ──
   var panelToggled = false;
+  // Al cerrar con la X, la ventana se vuelve a abrir sola tras unos segundos.
+  var REOPEN_MS = 20000;
+  var reopenTimer = null;
+  function clearReopen() { if (reopenTimer) { clearTimeout(reopenTimer); reopenTimer = null; } }
+  function scheduleReopen() {
+    clearReopen();
+    reopenTimer = setTimeout(function () { togglePanel(true); setTimeout(refresh, 0); }, REOPEN_MS);
+  }
   function ensurePanel() {
     var p = document.querySelector('.wa-panel');
     if (!p) {
@@ -174,6 +182,7 @@ window.addEventListener('scroll', function() {
     var willOpen = (open === undefined) ? !p.classList.contains('open') : open;
     p.classList.toggle('open', willOpen);
     panelToggled = true;
+    if (willOpen) clearReopen(); // si ya está abierta, no hay reapertura pendiente
     try { sessionStorage.setItem('waPanelSeen', '1'); } catch (e) {}
   }
 
@@ -201,7 +210,7 @@ window.addEventListener('scroll', function() {
   function onClick(e) {
     var fab = e.target.closest('.wa-fixed');
     if (fab) { e.preventDefault(); togglePanel(); return; }
-    if (e.target.closest('.wa-close')) { togglePanel(false); return; }
+    if (e.target.closest('.wa-close')) { togglePanel(false); scheduleReopen(); return; }
     var ev = e.target.closest('[data-ev]');
     if (ev) trackFromEl(ev);
     setTimeout(refresh, 50); // por si se abrió/cerró una ficha técnica
