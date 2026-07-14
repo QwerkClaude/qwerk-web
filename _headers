@@ -7,11 +7,21 @@
   Cross-Origin-Opener-Policy: same-origin
   Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
 
+# JS/CSS se referencian sin versión (/main.js, /style.css). El HTML se
+# revalida siempre (max-age=0), pero Cloudflare cachea estos assets 4 h por
+# defecto → tras un deploy, un visitante recurrente puede ejecutar JS/CSS
+# viejo contra HTML nuevo (p. ej. el botón de WhatsApp abre el enlace directo
+# en vez de la ventana de chat). Forzamos revalidación con ETag (304 barato).
 /main.js
   Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+/style.css
+  Cache-Control: public, max-age=0, must-revalidate
 
 /gtag-init.js
   Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
 
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
