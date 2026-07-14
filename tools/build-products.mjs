@@ -304,7 +304,11 @@ function sitemap() {
     'que-detergente-conviene-para-una-lavanderia', 'como-bajar-el-costo-por-lavada',
     'jabon-con-vinagre-jabon-con-pino-y-detergente-para-color', 'que-productos-basicos-necesita-una-lavanderia',
     'reforzador-de-aroma-como-lo-usan-las-lavanderias', 'productos-de-limpieza-para-autolavados-puerto-vallarta',
-  ].map(s => [`/blog/${s}/`, '0.6', 'yearly']);
+    // Guías nuevas (Fase 3)
+    'como-diluir-apc-correctamente', 'que-es-ph-neutro-en-un-shampoo', 'como-usar-snow-foam-en-autolavado',
+    'limpiar-interiores-sin-sensacion-grasosa', 'como-aplicar-abrillantador-de-llantas',
+    'abrillantador-de-llantas-base-agua-vs-mayor-duracion', 'calcular-rendimiento-de-un-producto-concentrado',
+  ].map(s => [`/blog/${s}/`, '0.6', 'monthly']);
   const products = Object.keys(META).map(slug => [`/${META[slug].cat}/${slug}/`, '0.8', 'monthly']);
   const all = [...staticUrls, ...products, ...blog];
   const body = all.map(([loc, pr, cf]) =>
