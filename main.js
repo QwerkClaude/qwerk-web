@@ -82,6 +82,9 @@ window.addEventListener('scroll', function() {
   }
 
   function baseMessage() {
+    // Una página puede fijar su propio mensaje con <meta name="wa-message" content="...">
+    var meta = document.querySelector('meta[name="wa-message"]');
+    if (meta && meta.content) return meta.content;
     var path = (location.pathname || '').toLowerCase();
     for (var i = 0; i < WA_RULES.length; i++) {
       if (path.indexOf(WA_RULES[i][0]) !== -1) return WA_RULES[i][1];
@@ -122,19 +125,141 @@ window.addEventListener('scroll', function() {
     return btn;
   }
 
+  // ── Analítica (GA4 vía gtag, si está presente) ──
+  function track(name, params) {
+    if (typeof window.gtag === 'function') { try { window.gtag('event', name, params || {}); } catch (e) {} }
+  }
+  window.qwerkTrack = track;
+  function trackFromEl(el) {
+    var name = el.getAttribute('data-ev'); if (!name) return;
+    var p = { page_path: location.pathname };
+    if (el.getAttribute('data-ev-cat')) p.category = el.getAttribute('data-ev-cat');
+    if (el.getAttribute('data-ev-product')) p.product = el.getAttribute('data-ev-product');
+    if (el.getAttribute('data-ev-ctx')) p.context = el.getAttribute('data-ev-ctx');
+    track(name, p);
+  }
+
+  // ── Copia contextual de la ventana ──
+  var COPY_AUTO = { g: '¿Tienes un autolavado o haces detallado? Te ayudamos a elegir los productos adecuados.', c: 'Recibir recomendación' };
+  var COPY_LAV  = { g: '¿Buscas controlar el costo por carga? Conoce nuestras opciones para lavandería.', c: 'Solicitar información' };
+  var COPY_PROD = { g: '¿Quieres conocer presentaciones, precio y forma de aplicación?', c: 'Preguntar por este producto' };
+  var COPY_DEF  = { g: '¿Tienes dudas? Te ayudamos a elegir el producto adecuado para tu negocio.', c: 'Recibir asesoría' };
+  function panelCopy(hasProduct) {
+    if (hasProduct) return COPY_PROD;
+    var path = (location.pathname || '').toLowerCase();
+    if (/autolavado|automotriz|abrillantador|snow-foam|silicones|desengrasante/.test(path)) return COPY_AUTO;
+    if (/lavander|detergente|reforzador|jabon|proveedor/.test(path)) return COPY_LAV;
+    return COPY_DEF;
+  }
+
+  // ── Ventana flotante contextual ──
+  var panelToggled = false;
+  function ensurePanel() {
+    var p = document.querySelector('.wa-panel');
+    if (!p) {
+      p = document.createElement('div');
+      p.className = 'wa-panel';
+      p.innerHTML =
+        '<div class="wa-panel-head"><span class="wa-avatar">' + WA_SVG + '</span>' +
+        '<div><strong>QWERK</strong><br><span>Normalmente responde en minutos</span></div>' +
+        '<button class="wa-close" type="button" aria-label="Cerrar ventana">✕</button></div>' +
+        '<div class="wa-panel-body"><div class="wa-greeting"></div>' +
+        '<a class="wa-panel-cta" target="_blank" rel="noopener" data-ev="whatsapp_click" data-ev-ctx="ventana">' + WA_SVG + '<span></span></a></div>';
+      document.body.appendChild(p);
+    }
+    return p;
+  }
+  function togglePanel(open) {
+    var p = ensurePanel();
+    var willOpen = (open === undefined) ? !p.classList.contains('open') : open;
+    p.classList.toggle('open', willOpen);
+    panelToggled = true;
+    try { sessionStorage.setItem('waPanelSeen', '1'); } catch (e) {}
+  }
+
   function refresh() {
-    var btn = ensureButton();
     var prod = openModalProduct();
-    btn.href = buildHref(prod ? productMessage(prod) : baseMessage());
+    var href = buildHref(prod ? productMessage(prod) : baseMessage());
+    ensureButton().href = href;
+    var p = ensurePanel();
+    var copy = panelCopy(!!prod);
+    p.querySelector('.wa-greeting').textContent = copy.g;
+    var cta = p.querySelector('.wa-panel-cta');
+    cta.href = href;
+    cta.querySelector('span').textContent = copy.c;
+    if (prod) cta.setAttribute('data-ev-product', prod); else cta.removeAttribute('data-ev-product');
+  }
+
+  // ── Enlaces contextuales en contenido (tarjetas, CTAs, hero) ──
+  function wireDataWa() {
+    var links = document.querySelectorAll('a[data-wa-msg]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].href = buildHref(links[i].getAttribute('data-wa-msg'));
+    }
+  }
+
+  function onClick(e) {
+    var fab = e.target.closest('.wa-fixed');
+    if (fab) { e.preventDefault(); togglePanel(); return; }
+    if (e.target.closest('.wa-close')) { togglePanel(false); return; }
+    var ev = e.target.closest('[data-ev]');
+    if (ev) trackFromEl(ev);
+    setTimeout(refresh, 50); // por si se abrió/cerró una ficha técnica
   }
 
   function init() {
+    wireDataWa();
     refresh();
-    // Recalcular cuando se abre/cierra una ficha técnica (corre tras el handler de modales)
-    document.addEventListener('click', function () { setTimeout(refresh, 50); }, false);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setTimeout(refresh, 50); }, false);
+    document.addEventListener('click', onClick, false);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { togglePanel(false); setTimeout(refresh, 50); } }, false);
+    // Teaser: abre la ventana una vez por sesión en escritorio (no invasivo en móvil)
+    try {
+      if (!sessionStorage.getItem('waPanelSeen') && window.innerWidth > 640) {
+        setTimeout(function () { if (!panelToggled) togglePanel(true); }, 3200);
+      }
+    } catch (e) {}
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+})();
+
+/* ═══════════════════════════════════════════════════════════════════
+   SELECTOR RÁPIDO · ¿qué necesitas limpiar?
+   Recomienda producto(s) + abre WhatsApp con el contexto elegido.
+   ═══════════════════════════════════════════════════════════════════ */
+(function () {
+  var opts = document.querySelectorAll('.selector-opt');
+  var out = document.getElementById('selectorResult');
+  if (!opts.length || !out) return;
+  var WA = 'https://wa.me/523222202407?text=';
+  var SEL = {
+    exterior: { t: 'Exterior del vehículo', chips: ['Snow Foam', 'APC'], p: 'Para lavar la carrocería sin rayarla: prelava con Snow Foam (pH neutro, seguro para pintura, cera y sellador) y termina con APC diluido.', msg: 'Hola, quiero limpiar el exterior de vehículos. ¿Qué productos me recomiendas?', cat: 'automotriz' },
+    interior: { t: 'Interior del vehículo', chips: ['APC', 'Crema de Silicones'], p: 'Limpia plásticos, viniles y tableros con APC, y protégelos con la Crema de Silicones: acabado seco al tacto, sin engrasar ni empañar los cristales.', msg: 'Hola, quiero limpiar y proteger interiores de vehículos. ¿Qué me recomiendas?', cat: 'automotriz' },
+    llantas: { t: 'Llantas', chips: ['Abrillantador TS 300', 'TS 300 Gel', 'Premium'], p: 'Del uso diario y alto volumen (TS 300) al acabado húmedo hidrofóbico de mayor duración (Premium).', msg: 'Hola, me interesa el abrillantador de llantas. ¿Cuál me recomiendas, el normal o el premium?', cat: 'automotriz' },
+    motor: { t: 'Motor o grasa pesada', chips: ['Desengrasante concentrado'], p: 'El desengrasante concentrado corta grasa de motores, rines, chasis y piso; se diluye según la suciedad para rendir más.', msg: 'Hola, tengo suciedad o grasa pesada. ¿Me recomiendas el desengrasante y cómo se usa?', cat: 'automotriz' },
+    ropa: { t: 'Ropa', chips: ['LD 100', 'Reforzador de aroma'], p: 'Detergente líquido HE de baja espuma (LD 100) y reforzador de aroma, para que la ropa entregada huela increíble y el cliente regrese.', msg: 'Hola, quiero información y precios de los productos QWERK para lavandería.', cat: 'lavanderia' },
+    equipo: { t: 'Equipo de lavandería', chips: ['Línea de lavandería'], p: 'Detergentes y auxiliares diseñados para controlar el costo por carga y mantener un desempeño constante.', msg: 'Hola, quiero información de productos para mi lavandería y controlar el costo por carga.', cat: 'lavanderia' },
+    duda: { t: 'No estoy seguro', chips: [], p: 'Cuéntanos qué hace tu negocio y te recomendamos el proceso completo, con producto y dilución adecuados.', msg: 'Hola, quiero ayuda para elegir los productos adecuados para mi negocio.', cat: 'general' }
+  };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function render(key) {
+    var d = SEL[key]; if (!d) return;
+    var chips = d.chips.map(function (c) { return '<span class="selector-chip">' + esc(c) + '</span>'; }).join('');
+    out.innerHTML =
+      '<h3>' + esc(d.t) + '</h3>' +
+      (chips ? '<div class="selector-rec">' + chips + '</div>' : '') +
+      '<p>' + esc(d.p) + '</p>' +
+      '<a class="btn btn-green btn-sm" target="_blank" rel="noopener" href="' + WA + encodeURIComponent(d.msg) + '" data-ev="whatsapp_click" data-ev-ctx="selector:' + key + '">Preguntar por WhatsApp</a>';
+    out.hidden = false;
+    if (window.qwerkTrack) window.qwerkTrack('select_product_category', { category: d.cat, context: 'selector:' + key });
+  }
+  for (var i = 0; i < opts.length; i++) {
+    opts[i].addEventListener('click', function () {
+      for (var j = 0; j < opts.length; j++) opts[j].classList.remove('active');
+      this.classList.add('active');
+      render(this.getAttribute('data-sel'));
+      out.scrollIntoView({ block: 'nearest' });
+    });
+  }
 })();

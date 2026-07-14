@@ -447,8 +447,9 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#soluciones">Soluciones</a></li>
-        <li><a href="#productos">Productos</a></li>
+        <li><a href="#rutas">Líneas</a></li>
+        <li><a href="#destacados">Destacados</a></li>
+        <li><a href="#productos">Catálogo</a></li>
         <li><a href="#faq">Preguntas</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -457,15 +458,16 @@
     </div>
   </nav>
 
-  <!-- ═══ HERO ═══ -->
+  <!-- ═══ HERO · conversión ═══ -->
   <section class="hero" id="inicio">
     <div class="hero-text">
       <span class="hero-label">Q-WERK · Puerto Vallarta · Bahía de Banderas</span>
-      <h1>Detergentes y productos<br>de <span class="accent">limpieza</span> para negocios</h1>
-      <p class="hero-sub">Suministro local para lavanderías y autolavados en Puerto Vallarta y Bahía de Banderas.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
-        <a href="#productos" class="btn btn-green">Ver productos</a>
-        <a href="https://wa.me/523222202407?text=Hola%2C%20me%20interesa%20la%20lista%20de%20precios%20de%20Q-WERK" target="_blank" rel="noopener" class="btn btn-white">Pedir lista por WhatsApp</a>
+      <h1>Productos profesionales para <span class="accent">autolavados, detalladores y lavanderías</span></h1>
+      <p class="hero-sub">Fórmulas concentradas, alto rendimiento y asesoría directa para elegir el producto adecuado para tu negocio.</p>
+      <div class="hero-cta">
+        <a href="/automotriz/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="automotriz">Ver productos para autolavado</a>
+        <a href="/lavanderia/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="lavanderia">Ver productos para lavandería</a>
+        <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-white" data-wa-msg="Hola, quiero saber qué productos QWERK son adecuados para mi negocio." data-ev="whatsapp_click" data-ev-ctx="hero">Recibir asesoría por WhatsApp</a>
       </div>
     </div>
   </section>
@@ -480,39 +482,199 @@
     <span style="background:#0097a7"></span>
   </div>
 
-  <!-- ═══ SOLUCIONES POR NEGOCIO ═══ -->
-  <section id="soluciones" class="section">
+  <!-- ═══ RUTAS PRINCIPALES · elige tu línea ═══ -->
+  <section id="rutas" class="section">
     <div class="container">
-      <span class="label">Soluciones</span>
-      <h2>Para lavanderías y autolavados</h2>
-      <p class="section-intro">Dos líneas de productos pensadas para el día a día de tu negocio.</p>
-      <div class="sol-grid">
+      <span class="label">Elige tu línea</span>
+      <h2>Llega a tu producto en un clic</h2>
+      <p class="section-intro">Dos líneas de fórmulas concentradas, cada una pensada para un tipo de negocio.</p>
+      <div class="route-grid">
 
-        <div class="sol-card">
-          <div class="sol-icon" style="--accent:#0097a7">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.11.9 2 2 2h12c1.1 0 2-.89 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5.5a1 1 0 11-2 0 1 1 0 012 0zM12 19a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"/></svg>
+        <div class="route-card">
+          <div class="route-icon" style="--accent:#1a5dc8">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
           </div>
-          <h3>Lavanderías</h3>
-          <p>Detergente y jabón líquido de alto rendimiento, reforzador de aromas y más, en presentaciones de 10 y 20 litros para bajar el costo por lavada.</p>
-          <div class="sol-actions">
-            <a href="#productos" class="btn-text">Ver productos</a>
-            <a href="https://wa.me/523222202407?text=Hola%2C%20tengo%20una%20lavander%C3%ADa%20y%20quiero%20la%20lista%20de%20precios" target="_blank" rel="noopener" class="btn btn-green btn-sm">Pedir por WhatsApp</a>
+          <span class="route-tag">Línea automotriz</span>
+          <h3>Autolavados y detalladores</h3>
+          <p>Productos para limpieza, cuidado y presentación de vehículos, desarrollados para autolavados y detalladores.</p>
+          <div class="route-actions">
+            <a href="/automotriz/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="automotriz">Ver línea automotriz</a>
+            <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn-text" data-wa-msg="Hola, quiero información sobre sus productos para autolavado y detallado. ¿Cuál es el proceso completo que recomiendas?" data-ev="whatsapp_click" data-ev-ctx="ruta-automotriz">Pedir recomendación</a>
           </div>
         </div>
 
-        <div class="sol-card">
-          <div class="sol-icon" style="--accent:#1a5dc8">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+        <div class="route-card">
+          <div class="route-icon" style="--accent:#0097a7">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.11.9 2 2 2h12c1.1 0 2-.89 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5.5a1 1 0 11-2 0 1 1 0 012 0zM12 19a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"/></svg>
           </div>
-          <h3>Autolavados</h3>
-          <p>Shampoo de prelavado, multiusos, desengrasante, limpiador textil y acondicionador de interiores para un acabado profesional en cada servicio.</p>
-          <div class="sol-actions">
-            <a href="#productos" class="btn-text">Ver productos</a>
-            <a href="https://wa.me/523222202407?text=Hola%2C%20tengo%20un%20autolavado%20y%20quiero%20la%20lista%20de%20precios" target="_blank" rel="noopener" class="btn btn-green btn-sm">Pedir por WhatsApp</a>
+          <span class="route-tag">Línea de lavandería</span>
+          <h3>Lavanderías y negocios de lavado</h3>
+          <p>Detergentes y auxiliares de lavado diseñados para controlar costos y mantener un desempeño constante.</p>
+          <div class="route-actions">
+            <a href="/lavanderia/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="lavanderia">Ver línea de lavandería</a>
+            <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn-text" data-wa-msg="Hola, quiero información y precios de los productos QWERK para lavandería." data-ev="whatsapp_click" data-ev-ctx="ruta-lavanderia">Pedir recomendación</a>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRODUCTOS DESTACADOS ═══ -->
+  <section id="destacados" class="section section-gray">
+    <div class="container">
+      <span class="label">Productos destacados</span>
+      <h2>Los favoritos de los negocios</h2>
+      <p class="section-intro">Lo esencial para arrancar. Cada ficha completa, con diluciones y usos, está más abajo y en su página.</p>
+      <div class="featured-grid">
+
+        <!-- Abrillantador Premium (producto estrella · sin foto/precio aún) -->
+        <article class="featured-card featured-star">
+          <div class="featured-img is-placeholder" style="--accent:#4f46e5">
+            <span class="featured-badge">Premium</span>
+            <span class="ph-code">Abrillantador<br>Premium</span>
+          </div>
+          <div class="featured-body">
+            <h3>Abrillantador Premium para Llantas</h3>
+            <p class="featured-benefit">Brillo húmedo de larga duración con efecto hidrofóbico.</p>
+            <ul class="featured-benefits">
+              <li>Acabado intenso tipo “llanta mojada”.</li>
+              <li>Seco al tacto.</li>
+              <li>Resistente al agua: no se cae con el primer enjuague.</li>
+            </ul>
+            <p class="featured-sizes"><strong>Presentaciones:</strong> consulta disponibilidad.</p>
+            <div class="featured-actions">
+              <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-green btn-sm" data-wa-msg="Hola, quiero información y precio del Abrillantador Premium para Llantas." data-ev="product_whatsapp_click" data-ev-product="Abrillantador Premium para Llantas">Consultar precio</a>
+              <a class="btn-text" href="/automotriz/abrillantador-premium-llantas/" data-ev="view_product_details" data-ev-product="Abrillantador Premium para Llantas">Ver ficha completa</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Snow Foam -->
+        <article class="featured-card">
+          <div class="featured-img" style="--accent:#1a5dc8">
+            <img src="assets/products/snf7.png" alt="Snow Foam SNF 7 Q-WERK, shampoo de prelavado de alta espuma pH neutro" loading="lazy">
+          </div>
+          <div class="featured-body">
+            <h3>Snow Foam · Espuma pH neutro</h3>
+            <p class="featured-benefit">Espuma densa que encapsula la suciedad y es segura para la pintura.</p>
+            <ul class="featured-benefits">
+              <li>pH neutro: no daña cera ni sellador.</li>
+              <li>Reduce el riesgo de rayones en el prelavado.</li>
+              <li>Rinde en cañón de espuma.</li>
+            </ul>
+            <p class="featured-sizes"><strong>Presentaciones:</strong> 1 L · 5 L · 10 L · 20 L.</p>
+            <div class="featured-actions">
+              <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-green btn-sm" data-wa-msg="Hola, quiero información del Snow Foam QWERK y sus presentaciones." data-ev="product_whatsapp_click" data-ev-product="Snow Foam SNF 7">Consultar precio</a>
+              <a class="btn-text" href="/automotriz/snow-foam-ph-neutro/" data-ev="view_product_details" data-ev-product="Snow Foam SNF 7">Ver ficha completa</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- APC -->
+        <article class="featured-card">
+          <div class="featured-img" style="--accent:#3aaa35">
+            <img src="assets/products/apc7.png" alt="APC 7 Q-WERK, limpiador multiusos de pH neutro para interiores de vehículos" loading="lazy">
+          </div>
+          <div class="featured-body">
+            <h3>APC · Limpiador multiusos</h3>
+            <p class="featured-benefit">Un solo limpiador para casi todo el interior, y rinde al diluirse.</p>
+            <ul class="featured-benefits">
+              <li>Se diluye según el nivel de suciedad.</li>
+              <li>Seguro en plásticos, viniles y tela.</li>
+              <li>Baja tu costo por servicio.</li>
+            </ul>
+            <p class="featured-sizes"><strong>Presentaciones:</strong> 1 L · 5 L · 10 L · 20 L.</p>
+            <div class="featured-actions">
+              <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-green btn-sm" data-wa-msg="Hola, quiero información del APC QWERK, sus diluciones y precio." data-ev="product_whatsapp_click" data-ev-product="APC 7">Consultar precio</a>
+              <a class="btn-text" href="/automotriz/apc-limpiador-multiusos/" data-ev="view_product_details" data-ev-product="APC 7">Ver ficha completa</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Crema de Silicones -->
+        <article class="featured-card">
+          <div class="featured-img" style="--accent:#f57c00">
+            <img src="assets/products/vnl2.png" alt="VNL 2 Q-WERK, crema de silicones para interiores con acabado seco al tacto" loading="lazy">
+          </div>
+          <div class="featured-body">
+            <h3>Crema de Silicones · Interiores</h3>
+            <p class="featured-benefit">Acabado seco al tacto que no engrasa ni empaña los cristales.</p>
+            <ul class="featured-benefits">
+              <li>No deja sensación grasosa.</li>
+              <li>No mancha ni empaña los vidrios.</li>
+              <li>Protege plásticos y viniles del sol (UV).</li>
+            </ul>
+            <p class="featured-sizes"><strong>Presentaciones:</strong> 600 g · 5 kg · 19 kg.</p>
+            <div class="featured-actions">
+              <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-green btn-sm" data-wa-msg="Hola, quiero información de la Crema de Silicones para interiores." data-ev="product_whatsapp_click" data-ev-product="Crema de Silicones VNL 2">Consultar precio</a>
+              <a class="btn-text" href="/automotriz/crema-silicones-interiores/" data-ev="view_product_details" data-ev-product="Crema de Silicones VNL 2">Ver ficha completa</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Desengrasante -->
+        <article class="featured-card">
+          <div class="featured-img" style="--accent:#c0392b">
+            <img src="assets/products/dsgt250.png" alt="DSGT 250 Q-WERK, desengrasante alcalino concentrado para motores y grasa pesada" loading="lazy">
+          </div>
+          <div class="featured-body">
+            <h3>Desengrasante concentrado</h3>
+            <p class="featured-benefit">Corta grasa pesada y soporta alta dilución: más litros por envase.</p>
+            <ul class="featured-benefits">
+              <li>Alto rendimiento por litro.</li>
+              <li>Motores, rines, chasis y piso.</li>
+              <li>Ideal para prelavado de suciedad extrema.</li>
+            </ul>
+            <p class="featured-sizes"><strong>Presentaciones:</strong> 1 L · 5 L · 10 L · 20 L.</p>
+            <div class="featured-actions">
+              <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-green btn-sm" data-wa-msg="Hola, quiero información del desengrasante concentrado y sus diluciones." data-ev="product_whatsapp_click" data-ev-product="Desengrasante DSGT 250">Consultar precio</a>
+              <a class="btn-text" href="/automotriz/desengrasante-concentrado/" data-ev="view_product_details" data-ev-product="Desengrasante DSGT 250">Ver ficha completa</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LD 100 (lavandería destacado) -->
+        <article class="featured-card">
+          <div class="featured-img" style="--accent:#0097a7">
+            <img src="assets/products/ld100.png" alt="LD 100 Q-WERK, detergente líquido High Efficiency para lavandería" loading="lazy">
+          </div>
+          <div class="featured-body">
+            <h3>LD 100 · Detergente lavandería</h3>
+            <p class="featured-benefit">Detergente líquido HE con fragancia que el cliente nota y recuerda.</p>
+            <ul class="featured-benefits">
+              <li>Baja espuma: enjuaga fácil, compatible con HE.</li>
+              <li>Fragancia fresca que perdura en la ropa.</li>
+              <li>Alto rendimiento por carga.</li>
+            </ul>
+            <p class="featured-sizes"><strong>Presentaciones:</strong> 10 L · 20 L.</p>
+            <div class="featured-actions">
+              <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-green btn-sm" data-wa-msg="Hola, quiero información y precios de los productos QWERK para lavandería." data-ev="product_whatsapp_click" data-ev-product="LD 100">Consultar precio</a>
+              <a class="btn-text" href="/lavanderia/jabon-liquido-lavanderia/" data-ev="view_product_details" data-ev-product="LD 100">Ver ficha completa</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SELECTOR RÁPIDO · ¿qué necesitas limpiar? ═══ -->
+  <section id="selector" class="section">
+    <div class="container">
+      <span class="label">Selector rápido</span>
+      <h2>¿Qué necesitas limpiar?</h2>
+      <p class="section-intro">Elige una opción y te decimos qué producto conviene. Menos de un minuto.</p>
+      <div class="selector-options" role="group" aria-label="¿Qué necesitas limpiar?">
+        <button class="selector-opt" data-sel="exterior">Exterior del vehículo</button>
+        <button class="selector-opt" data-sel="interior">Interior del vehículo</button>
+        <button class="selector-opt" data-sel="llantas">Llantas</button>
+        <button class="selector-opt" data-sel="motor">Motor o grasa pesada</button>
+        <button class="selector-opt" data-sel="ropa">Ropa</button>
+        <button class="selector-opt" data-sel="equipo">Equipo de lavandería</button>
+        <button class="selector-opt" data-sel="duda">No estoy seguro</button>
+      </div>
+      <div class="selector-result" id="selectorResult" hidden></div>
     </div>
   </section>
 
@@ -524,7 +686,7 @@
       <p class="section-intro">Productos concentrados con una función clara. Pide presentaciones y precios por WhatsApp.</p>
 
       <!-- Línea Automotriz -->
-      <h3 class="line-title"><span>Línea Automotriz</span></h3>
+      <h3 class="line-title" id="linea-automotriz"><span>Línea Automotriz</span></h3>
       <div class="products-grid">
 
         <div class="product-card">
@@ -707,7 +869,7 @@
       </div>
 
       <!-- Línea Lavandería -->
-      <h3 class="line-title" style="margin-top:3.5rem"><span>Línea Lavandería</span></h3>
+      <h3 class="line-title" id="linea-lavanderia" style="margin-top:3.5rem"><span>Línea Lavandería</span></h3>
       <div class="products-grid">
 
         <div class="product-card">
@@ -889,31 +1051,20 @@
   <!-- ═══ POR QUÉ COMPRAR CON Q-WERK ═══ -->
   <section class="section section-green" id="por-que">
     <div class="container">
-      <span class="label label-light">Por qué comprar con Q-WERK</span>
-      <h2 class="light">Un proveedor local en quien apoyarte</h2>
+      <span class="label label-light">Por qué QWERK</span>
+      <h2 class="light">Por qué elegir QWERK</h2>
       <p class="section-intro" style="color:rgba(255,255,255,0.6)">Somos una empresa mexicana con base en Bahía de Banderas. Fabricamos productos de limpieza de alto rendimiento y atendemos negocios con precios por volumen.</p>
-      <div class="pillars-grid">
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm-2 15l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-          </div>
-          <h3>Precio por volumen</h3>
-          <p>Presentaciones de hasta 20 litros y precios de mayoreo pensados para bajar tu costo por lavada o por servicio.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-3v2h3v2.65L13.52 14H10V9H6c-2.21 0-4 1.79-4 4v3h2c0 1.66 1.34 3 3 3s3-1.34 3-3h4.48L19 10.35V7zM7 17c-.55 0-1-.45-1-1h2c0 .55-.45 1-1 1z"/></svg>
-          </div>
-          <h3>Entrega local</h3>
-          <p>Entregamos en Puerto Vallarta, Bahía de Banderas y zonas cercanas. Enviamos al resto de la República.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-          </div>
-          <h3>Respuesta rápida</h3>
-          <p>Escríbenos por WhatsApp y te pasamos precios, presentaciones y disponibilidad sin vueltas.</p>
-        </div>
+      <div class="trust-grid">
+        <div class="trust-item"><span class="trust-check">✓</span><div><strong>Fabricación en México</strong><p>Fabricamos en Bahía de Banderas, Nayarit.</p></div></div>
+        <div class="trust-item"><span class="trust-check">✓</span><div><strong>Atención directa</strong><p>Hablas por WhatsApp con quien conoce el producto, no con un call center.</p></div></div>
+        <div class="trust-item"><span class="trust-check">✓</span><div><strong>Productos para negocios reales</strong><p>Formulados para autolavados y lavanderías, no para uso doméstico ocasional.</p></div></div>
+        <div class="trust-item"><span class="trust-check">✓</span><div><strong>Recomendaciones de uso y dilución</strong><p>Te decimos la dilución y el proceso adecuados para tu caso.</p></div></div>
+        <div class="trust-item"><span class="trust-check">✓</span><div><strong>Presentaciones por volumen</strong><p>Desde 1 L hasta 20 L / 19 kg para controlar tu costo por servicio.</p></div></div>
+        <div class="trust-item"><span class="trust-check">✓</span><div><strong>Entrega y envío</strong><p>Entrega local en Puerto Vallarta y Bahía de Banderas; envíos a toda la República.</p></div></div>
+        <div class="trust-item"><span class="trust-check">✓</span><div><strong>Información técnica accesible</strong><p>Fichas, diluciones y usos publicados en el sitio, no escondidos en un PDF.</p></div></div>
+      </div>
+      <div class="section-cta">
+        <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-white" data-wa-msg="Hola, quiero ayuda para elegir los productos adecuados para mi negocio." data-ev="whatsapp_click" data-ev-ctx="por-que">Recibir recomendación</a>
       </div>
     </div>
   </section>
