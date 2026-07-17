@@ -46,6 +46,20 @@ window.addEventListener('scroll', function() {
   if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
+// ═══ CATÁLOGO PLEGABLE ═══
+const catalogToggle = document.querySelector('.catalog-toggle');
+const catalogBody = document.getElementById('catalogo-body');
+if (catalogToggle && catalogBody) {
+  catalogToggle.addEventListener('click', function() {
+    const willOpen = catalogBody.hasAttribute('hidden');
+    if (willOpen) catalogBody.removeAttribute('hidden');
+    else catalogBody.setAttribute('hidden', '');
+    catalogToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    const label = catalogToggle.querySelector('.catalog-toggle-label');
+    if (label) label.textContent = willOpen ? 'Ocultar catálogo' : 'Ver catálogo completo';
+  });
+}
+
 /* ═══════════════════════════════════════════════════════════════════
    WHATSAPP CONTEXTUAL · Q-WERK
    El botón flotante cambia su mensaje prellenado según la página o el
