@@ -426,7 +426,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css?v=1d615e6c">
-  <script src="/main.js?v=7b3a5ba1" defer></script>
+  <script src="/main.js?v=72fb15fb" defer></script>
   <style>
     .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900}
     .modal-overlay.active{display:block}
@@ -458,6 +458,12 @@
     .review-text{font-size:.92rem;color:#444;line-height:1.6;margin:0}
     .review-source{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;color:#999;margin-top:auto;padding-top:.35rem}
     .reviews-cta{text-align:center;margin-top:2.25rem}
+    /* ── Catálogo plegable ── */
+    .catalog-toggle-wrap{text-align:center;margin:1rem 0 .25rem}
+    .catalog-toggle{display:inline-flex;align-items:center;gap:.5rem}
+    .catalog-toggle-icon{display:inline-block;transition:transform .25s ease;font-size:.9em}
+    .catalog-toggle[aria-expanded="true"] .catalog-toggle-icon{transform:rotate(180deg)}
+    .catalog-collapsible[hidden]{display:none}
   </style>
 </head>
 <body>
@@ -908,6 +914,15 @@
       <h2>Productos principales</h2>
       <p class="section-intro">Productos concentrados con una función clara. Pide presentaciones y precios por WhatsApp.</p>
 
+      <div class="catalog-toggle-wrap">
+        <button type="button" class="catalog-toggle btn btn-green" aria-expanded="false" aria-controls="catalogo-body" data-ev="catalog_toggle">
+          <span class="catalog-toggle-label">Ver catálogo completo</span>
+          <span class="catalog-toggle-icon" aria-hidden="true">▾</span>
+        </button>
+      </div>
+
+      <div id="catalogo-body" class="catalog-collapsible" hidden>
+
       <!-- Línea Automotriz -->
       <h3 class="line-title" id="linea-automotriz"><span>Línea Automotriz</span></h3>
       <div class="products-grid">
@@ -1175,6 +1190,8 @@
       <div style="max-width:800px;margin-top:2.5rem">
         <p>También manejamos más productos para lavanderías: <strong>jabón con pino</strong>, <strong>detergente para ropa de color</strong> y <strong>desengrasante de telas</strong>. Pregunta por presentaciones y precios por <a href="https://wa.me/523222202407?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20productos%20para%20lavander%C3%ADa" target="_blank" rel="noopener">WhatsApp</a>.</p>
       </div>
+
+      </div><!-- /#catalogo-body -->
     </div>
   </section>
 
