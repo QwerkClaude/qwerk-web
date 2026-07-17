@@ -63,6 +63,13 @@
         "telephone": "+523222202407",
         "email": "contacto@qwerk.mx",
         "priceRange": "$$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "21",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Tondoroque",
@@ -433,6 +440,24 @@
     .chip-price{font-size:.88rem;font-weight:800;color:#1a1a1a;white-space:nowrap}
     .chip-price.desde{font-size:.78rem;color:#555;font-weight:700}
     .prices-note{display:block;font-size:.68rem;color:#bbb;margin-top:.45rem}
+    /* ── Reseñas Google ── */
+    .reviews-summary{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.5rem;background:#fff;border:1px solid #ebebeb;border-radius:14px;padding:1.5rem 2rem;max-width:560px;margin:0 auto 2.75rem;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+    .reviews-summary-score{display:flex;flex-direction:column;align-items:center;line-height:1.05}
+    .reviews-score-num{font-family:'Oswald',sans-serif;font-size:3rem;font-weight:700;color:#1a1a1a}
+    .reviews-summary-meta{display:flex;flex-direction:column;gap:.5rem;align-items:flex-start}
+    .reviews-google-badge{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:700;color:#555}
+    .reviews-stars{color:#fbbc05;font-size:1.2rem;letter-spacing:2px}
+    .reviews-count{font-size:.88rem;color:#666}
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:.5rem;text-align:left}
+    .review-card{background:#fff;border:1px solid #ebebeb;border-radius:12px;padding:1.4rem;display:flex;flex-direction:column;gap:.7rem;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+    .review-head{display:flex;align-items:center;gap:.75rem}
+    .review-avatar{width:44px;height:44px;border-radius:50%;background:#3aaa35;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem;flex-shrink:0}
+    .review-author{font-weight:700;color:#1a1a1a;font-size:.95rem;line-height:1.2}
+    .review-date{font-size:.75rem;color:#999}
+    .review-stars{color:#fbbc05;font-size:1rem;letter-spacing:1px}
+    .review-text{font-size:.92rem;color:#444;line-height:1.6;margin:0}
+    .review-source{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;color:#999;margin-top:auto;padding-top:.35rem}
+    .reviews-cta{text-align:center;margin-top:2.25rem}
   </style>
 </head>
 <body>
@@ -951,6 +976,143 @@
       <!-- TODO: confirmar presentaciones, precios y fotos de estos productos para convertirlos en tarjetas completas -->
       <div style="max-width:800px;margin-top:2.5rem">
         <p>También manejamos más productos para lavanderías: <strong>jabón con pino</strong>, <strong>detergente para ropa de color</strong> y <strong>desengrasante de telas</strong>. Pregunta por presentaciones y precios por <a href="https://wa.me/523222202407?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20productos%20para%20lavander%C3%ADa" target="_blank" rel="noopener">WhatsApp</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RESEÑAS GOOGLE ═══ -->
+  <!--
+    Reseñas traídas a mano del perfil de Google "Q Werk" (jul 2026): 5.0 ★ · 21 opiniones.
+    Para actualizar: cambia .reviews-score-num y .reviews-count, y agrega/edita bloques
+    <article class="review-card"> (avatar = inicial · autor · fecha · texto tal cual de Google).
+    ⚠ El aggregateRating del schema (en el <head>) debe coincidir SIEMPRE con la calificación
+      y el número de reseñas reales de tu ficha de Google.
+  -->
+  <section class="section" id="resenas">
+    <div class="container">
+      <span class="label">Opiniones</span>
+      <h2>Lo que dicen nuestros clientes</h2>
+      <p class="section-intro">Negocios de autolavado, lavandería y hogares de la zona que ya usan Q-WERK. Reseñas reales publicadas en Google.</p>
+
+      <!-- Resumen de calificación -->
+      <div class="reviews-summary">
+        <div class="reviews-summary-score">
+          <span class="reviews-score-num">5.0</span>
+          <span class="reviews-stars" aria-hidden="true">★★★★★</span>
+        </div>
+        <div class="reviews-summary-meta">
+          <span class="reviews-google-badge">
+            <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+            Calificación en Google
+          </span>
+          <span class="reviews-count">Basado en <strong>21 reseñas</strong></span>
+          <a href="https://maps.app.goo.gl/aufC3Hud5qt7iZHw8" target="_blank" rel="noopener" class="btn btn-green btn-sm" data-ev="reviews_google_click" data-ev-ctx="resumen">Ver reseñas en Google</a>
+        </div>
+      </div>
+
+      <!-- Reseñas individuales (reales · Google) -->
+      <div class="reviews-grid">
+
+        <article class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">S</span>
+            <span>
+              <span class="review-author">sector robles</span><br>
+              <span class="review-date">Autolavado · Jun 2026</span>
+            </span>
+          </div>
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">Excelentes productos, 100% recomendable. En mi autolavado empezamos a utilizar los productos de Q-Werk y la verdad, muy buena calidad: con el shampoo los carros quedan más brillosos que con otros, el brillo para las llantas es más duradero y el desengrasante muy efectivo para desprender toda la suciedad. 👍🏻</p>
+          <span class="review-source">
+            <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+            Reseña de Google
+          </span>
+        </article>
+
+        <article class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">B</span>
+            <span>
+              <span class="review-author">Brenda Morón</span><br>
+              <span class="review-date">Local Guide · Jun 2026</span>
+            </span>
+          </div>
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">Son la estrella de mi hogar. Productos para limpieza de alta gama y eficaces: lavandería, autolavado, desengrasantes y desmanchadores. Y mi favorito, el APC 07, un limpiador todo propósito ideal para todo. 👍🏻 ¡Bastante recomendables!</p>
+          <span class="review-source">
+            <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+            Reseña de Google
+          </span>
+        </article>
+
+        <article class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">A</span>
+            <span>
+              <span class="review-author">Ana Luz Godínez Ramírez</span><br>
+              <span class="review-date">Jun 2026</span>
+            </span>
+          </div>
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">Un excelente producto y un aroma agradable que deja tu ropa suave y limpia.</p>
+          <span class="review-source">
+            <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+            Reseña de Google
+          </span>
+        </article>
+
+        <article class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">E</span>
+            <span>
+              <span class="review-author">Estefanía Ruiz Herrera</span><br>
+              <span class="review-date">Jun 2026</span>
+            </span>
+          </div>
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">Tienen muy buenos productos a buen precio y ofrecen un excelente servicio. Recomendado al 100%.</p>
+          <span class="review-source">
+            <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+            Reseña de Google
+          </span>
+        </article>
+
+        <article class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">G</span>
+            <span>
+              <span class="review-author">Gaspar Gastélum</span><br>
+              <span class="review-date">Jun 2026</span>
+            </span>
+          </div>
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">Productos de excelente calidad y precio. Atención de primera.</p>
+          <span class="review-source">
+            <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+            Reseña de Google
+          </span>
+        </article>
+
+        <article class="review-card">
+          <div class="review-head">
+            <span class="review-avatar">J</span>
+            <span>
+              <span class="review-author">Jassel Flores</span><br>
+              <span class="review-date">Jun 2026</span>
+            </span>
+          </div>
+          <span class="review-stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">Me encantaron los productos, son demasiado eficaces para la limpieza del hogar.</p>
+          <span class="review-source">
+            <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+            Reseña de Google
+          </span>
+        </article>
+
+      </div>
+
+      <div class="reviews-cta">
+        <a href="https://maps.app.goo.gl/aufC3Hud5qt7iZHw8" target="_blank" rel="noopener" class="btn btn-green" data-ev="reviews_google_click" data-ev-ctx="cta">Déjanos tu reseña en Google</a>
       </div>
     </div>
   </section>
