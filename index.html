@@ -426,7 +426,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css?v=1d615e6c">
-  <script src="/main.js?v=72fb15fb" defer></script>
+  <script src="/main.js?v=82e8cac1" defer></script>
   <style>
     .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900}
     .modal-overlay.active{display:block}
@@ -464,6 +464,9 @@
     .catalog-toggle-icon{display:inline-block;transition:transform .25s ease;font-size:.9em}
     .catalog-toggle[aria-expanded="true"] .catalog-toggle-icon{transform:rotate(180deg)}
     .catalog-collapsible[hidden]{display:none}
+    /* ── Enlaces internos de zonas (ocultos a la vista, presentes para buscadores/IA) ── */
+    .zonas-links{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-top:1.5rem}
+    .zonas-links[hidden]{display:none}
   </style>
 </head>
 <body>
@@ -677,8 +680,10 @@
     <div class="container">
       <span class="label label-light">Zonas de entrega</span>
       <h2 class="light">Puerto Vallarta y Bahía de Banderas</h2>
-      <p class="section-intro" style="color:rgba(255,255,255,0.55)">Entrega local para lavanderías, autolavados y negocios en la zona. También enviamos a toda la República. Conoce más:</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.65rem;margin-top:1.5rem">
+      <p class="section-intro" style="color:rgba(255,255,255,0.55)">Entrega local para lavanderías, autolavados y negocios en la zona. También enviamos a toda la República.</p>
+      <!-- Enlaces internos por ciudad/producto: ocultos a la vista pero presentes en el HTML
+           para buscadores y motores de IA (rastreo/indexación). No se muestran al visitante. -->
+      <ul class="zonas-links" hidden>
         <li><a href="/detergente-para-lavanderias-puerto-vallarta/" style="color:#3aaa35;font-weight:600">→ Detergente para lavanderías en Puerto Vallarta</a></li>
         <li><a href="/jabon-liquido-20-litros-bahia-de-banderas/" style="color:#3aaa35;font-weight:600">→ Jabón líquido de 20 litros en Bahía de Banderas</a></li>
         <li><a href="/productos-para-autolavado-puerto-vallarta/" style="color:#3aaa35;font-weight:600">→ Productos para autolavado en Puerto Vallarta</a></li>
@@ -709,8 +714,8 @@
         <div class="step-arrow">→</div>
         <div class="step">
           <div class="step-num">3</div>
-          <h3>Te enviamos</h3>
-          <p>Enviamos a toda la República Mexicana. También puedes recoger en Nayarit.</p>
+          <h3>Te lo llevamos</h3>
+          <p><strong>Entrega local gratis</strong> en Puerto Vallarta y Bahía de Banderas: te lo llevamos a tu negocio. ¿Estás fuera de la zona? Enviamos a toda la República Mexicana.</p>
         </div>
       </div>
       <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-white" style="margin-top:2.5rem;display:inline-block">Escribir por WhatsApp</a>
@@ -767,7 +772,6 @@
         <button class="selector-opt" data-sel="llantas">Llantas</button>
         <button class="selector-opt" data-sel="motor">Motor o grasa pesada</button>
         <button class="selector-opt" data-sel="ropa">Ropa</button>
-        <button class="selector-opt" data-sel="equipo">Equipo de lavandería</button>
         <button class="selector-opt" data-sel="duda">No estoy seguro</button>
       </div>
       <div class="selector-result" id="selectorResult" hidden></div>
