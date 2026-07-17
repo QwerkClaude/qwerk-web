@@ -1,0 +1,4 @@
+# Redirects (Cloudflare Pages)
+# ALK 200 recategorizado de automotriz -> lavandería (jul 2026)
+/automotriz/limpiador-textil-alcalino/  /lavanderia/limpiador-textil-alcalino/  301
+/automotriz/limpiador-textil-alcalino   /lavanderia/limpiador-textil-alcalino/  301
