@@ -1,0 +1,33 @@
+
+.tire-gel-page {
+  --rap-blue: #f47c14;
+  --rap-blue-soft: #fff0df;
+  --rap-green: #16845b;
+  --rap-green-soft: #e7f6ef;
+  --rap-gold: #d99a16;
+  --rap-gold-soft: #fff5d7;
+  --rap-red: #b94716;
+  --rap-red-soft: #fff0df;
+}
+
+.tire-gel-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(7, 9, 10, 0.86), rgba(7, 9, 10, 0.48) 54%, rgba(7, 9, 10, 0.36));
+}
+
+.tire-gel-page .rap-hero-image {
+  object-position: center 48%;
+}
+
+.tire-gel-page .rap-prices {
+  background: #fff0df;
+}
+
+.tire-gel-page .rap-downloads {
+  background: #f9efe5;
+}
+
+@media (max-width: 680px) {
+  .tire-gel-page .rap-hero-image {
+    object-position: 64% center;
+  }
+}
