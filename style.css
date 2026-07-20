@@ -1018,6 +1018,13 @@ footer { background: var(--green-darkest); padding: 1.4rem 0; }
   max-width: 850px;
 }
 .page-hero .lead { font-size: 1.1rem; color: var(--cream-soft); line-height: 1.7; max-width: 760px; margin-bottom: 2rem; }
+.page-hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 600px) {
+  .page-hero-actions { align-items: stretch; flex-direction: column; }
+  .page-hero-actions .btn,
+  .page-hero-actions .btn-text { width: 100%; text-align: center; }
+}
 
 .page-content h2 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); margin-top: 2.75rem; margin-bottom: 1rem; }
 .page-content h2:first-child { margin-top: 0; }

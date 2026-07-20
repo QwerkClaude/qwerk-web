@@ -1,0 +1,112 @@
+.tire-hydrophobic-page {
+  --rap-blue: #b5122b;
+  --rap-blue-soft: #fbe8ec;
+  --rap-green: #16845b;
+  --rap-green-soft: #e7f6ef;
+  --rap-gold: #d99a16;
+  --rap-gold-soft: #fff5d7;
+  --rap-red: #9c1026;
+  --rap-red-soft: #fbe8ec;
+}
+
+.tire-hydrophobic-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(7, 9, 10, 0.88), rgba(7, 9, 10, 0.5) 54%, rgba(7, 9, 10, 0.28));
+}
+
+.tire-hydrophobic-page .rap-hero-image {
+  object-position: center 48%;
+}
+
+.tire-hydrophobic-page .rap-kicker,
+.tire-hydrophobic-page .rap-proof li::before {
+  color: #ff9caf;
+}
+
+.tire-hydrophobic-page .rap-kicker {
+  border-left-color: #d82447;
+}
+
+.tire-hydrophobic-page .rap-prices {
+  background: #fbe8ec;
+}
+
+.hydro-quote-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 900px;
+  padding: 1.5rem;
+  border: 1px solid #e6bdc6;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.hydro-quote-panel div {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.hydro-quote-panel strong {
+  color: #202020;
+  font-size: 1.05rem;
+}
+
+.hydro-quote-panel span {
+  color: #5b625d;
+}
+
+.hydro-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hydro-compare-grid article {
+  padding: 1.35rem;
+  border: 1px solid var(--card-line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(9, 27, 16, 0.05);
+}
+
+.hydro-compare-grid article.is-current {
+  border-top: 4px solid #b5122b;
+}
+
+.hydro-compare-grid span {
+  color: #b5122b;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hydro-compare-grid h3 {
+  margin: 0.35rem 0 0.45rem;
+}
+
+.hydro-compare-grid h3 a {
+  color: inherit;
+}
+
+@media (max-width: 800px) {
+  .hydro-compare-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hydro-quote-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hydro-quote-panel .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .tire-hydrophobic-page .rap-hero-image {
+    object-position: 66% center;
+  }
+}

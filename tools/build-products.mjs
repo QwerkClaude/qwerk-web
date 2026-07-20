@@ -38,7 +38,7 @@ const META = {
   'crema-rap':                  { cat:'automotriz', code:'RAP',        name:'Crema RAP',                              img:'/assets/products/crema-rap-aplicacion.png', accent:'#1f5fbf', price:{low:80,high:1600}, pres:'500 g · 4 kg · 19 kg', wa:'Hola, me interesa Crema RAP. Quiero saber qué presentación me conviene y cómo hacer mi pedido.' },
   'abrillantador-llantas':     { cat:'automotriz', code:'Uso directo', name:'Abrillantador líquido de llantas', img:'/assets/products/abrillantador-llantas-liquido-aplicacion.png', accent:'#f47c14', price:{low:350,high:650},  pres:'10 L · 20 L',             wa:'Hola, me interesa el Abrillantador líquido de llantas. Quiero saber presentación, precio y forma de aplicación.' },
   'abrillantador-llantas-gel': { cat:'automotriz', code:'Gel', name:'Abrillantador en gel de llantas', img:'/assets/products/abrillantador-llantas-gel-aplicacion.png', accent:'#f47c14', price:{low:160,high:650},  pres:'4 kg · 19 kg',            wa:'Hola, me interesa el Abrillantador en gel de llantas. Quiero saber presentación, precio y forma de aplicación.' },
-  'abrillantador-premium-llantas':{cat:'automotriz',code:'Premium',   name:'Abrillantador Premium para Llantas',    img:null,                           accent:'#4f46e5', price:null,                pres:'Consulta disponibilidad', wa:'Hola, quiero información y precio del Abrillantador Premium para Llantas.', star:true },
+  'abrillantador-hidrofobico-llantas':{cat:'automotriz',code:'Hidrofóbico', name:'Abrillantador hidrofóbico para llantas', img:'/assets/products/abrillantador-hidrofobico-llantas-aplicacion.png', accent:'#b5122b', price:null, priceFrom:299, pres:'1 L', wa:'Hola, quiero pedir 1 litro del Abrillantador hidrofóbico para llantas por $299 MXN.', star:true },
   'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'LD 100',     name:'LD 100 · Detergente Líquido para Lavandería', img:'/assets/products/ld100.png', accent:'#0097a7', price:{low:280,high:490}, retornable:true, pres:'10 L · 20 L', wa:'Hola, quiero información y precios de los productos QWERK para lavandería.' },
   'detergente-con-vinagre':    { cat:'lavanderia', code:'Con Vinagre',name:'Detergente con Vinagre',                img:'/assets/products/detergente-vinagre.png', accent:'#059669', price:null,     priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente con Vinagre para lavandería.' },
   'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de Aroma Textil',            img:'/assets/products/reforzador-aroma.png', accent:'#d97706', price:null,       pres:'Consulta disponibilidad', wa:'Hola, me interesa el reforzador de aroma. ¿Cómo se usa y cuánto rinde?' },
@@ -277,7 +277,10 @@ ${NAV(cat)}
       <p class="breadcrumbs"><a href="/">Inicio</a> / ${info.label}</p>
       <h1>${info.title}</h1>
       <p class="lead">${info.hero}</p>
-      <a href="${waHref(info.waMsg)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(info.waMsg)}" data-ev="whatsapp_click" data-ev-ctx="hub-${cat}">Pedir recomendación por WhatsApp</a>
+      <div class="page-hero-actions">
+        <a href="${waHref(info.waMsg)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(info.waMsg)}" data-ev="whatsapp_click" data-ev-ctx="hub-${cat}">Pedir recomendación por WhatsApp</a>
+        ${cat === 'automotriz' ? '<a href="/assets/docs/catalogo-automotriz-qwerk.pdf" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-automotriz">Descargar catálogo PDF</a>' : ''}
+      </div>
     </div>
   </header>
   <section class="section section-gray">
