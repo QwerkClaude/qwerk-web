@@ -31,7 +31,7 @@ const CATS = {
 
 // Metadatos autoritativos (yo los controlo; el contenido viene del JSON)
 const META = {
-  'snow-foam-ph-neutro':       { cat:'automotriz', code:'SNF 7',      name:'Snow Foam · Espuma pH Neutro',          img:'/assets/products/snf7.png',    accent:'#1a5dc8', price:{low:95,high:1200},  pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, quiero información del Snow Foam QWERK y sus presentaciones.' },
+  'snow-foam-ph-neutro':       { cat:'automotriz', code:'Snow Foam',  name:'Snow Foam',                              img:'/assets/products/snow-foam-aplicacion.webp', accent:'#176bb2', price:{low:95,high:1200}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa Snow Foam. Quiero saber qué presentación y dilución me convienen.' },
   'apc-limpiador-multiusos':   { cat:'automotriz', code:'APC 7',      name:'APC · Limpiador Multiusos',             img:'/assets/products/apc7.png',    accent:'#3aaa35', price:{low:90,high:1100},  pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, quiero información del APC QWERK, sus diluciones y precio.' },
   'desengrasante-concentrado': { cat:'automotriz', code:'DSGT 250',   name:'Desengrasante Alcalino Concentrado',    img:'/assets/products/dsgt250.png', accent:'#c0392b', price:{low:55,high:700},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, quiero información del desengrasante concentrado y sus diluciones.' },
   'limpiador-textil-alcalino': { cat:'lavanderia', code:'ALK 200',    name:'Limpiador Textil Alcalino ALK 200',     img:'/assets/products/alk200.png',  accent:'#e91e8c', price:{low:50,high:600},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, quiero información del limpiador textil ALK 200 y sus diluciones.' },
@@ -323,7 +323,7 @@ function sitemap() {
 
 // ── build ──
 const content = JSON.parse(readFileSync(join(ROOT, 'tools/products.content.json'), 'utf8'));
-const customProductPages = new Set(['crema-rap']);
+const customProductPages = new Set(['crema-rap', 'snow-foam-ph-neutro']);
 let n = 0;
 for (const slug of Object.keys(META)) {
   const c = content[slug];

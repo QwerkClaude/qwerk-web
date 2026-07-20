@@ -1,0 +1,141 @@
+.snow-foam-page {
+  --rap-blue: #176bb2;
+  --rap-blue-soft: #e8f3fc;
+  --rap-green: #16845b;
+  --rap-green-soft: #e7f6ef;
+  --rap-gold: #d99a16;
+  --rap-gold-soft: #fff4d6;
+  --rap-red: #b42318;
+  --rap-red-soft: #feeceb;
+  background: #f4f7f9;
+}
+
+.snow-foam-page .rap-hero::after {
+  background: rgba(5, 15, 22, 0.58);
+}
+
+.snow-foam-page .rap-hero-image {
+  object-position: center 48%;
+}
+
+.snow-foam-page .rap-hero-copy {
+  max-width: 630px;
+}
+
+.snow-foam-page .rap-kicker,
+.snow-foam-page .rap-proof li::before {
+  color: #8bd6e9;
+}
+
+.snow-foam-page .rap-kicker {
+  border-left-color: #8bd6e9;
+}
+
+.snow-foam-page .rap-quick,
+.snow-foam-page .rap-topic-link,
+.snow-foam-page .rap-answer,
+.snow-foam-page .rap-price-card,
+.snow-foam-page .rap-fit-panel {
+  background: #fff;
+}
+
+.snow-foam-page .rap-answers {
+  background: #f4f7f9;
+}
+
+.snow-foam-page .rap-prices {
+  background: #fff8e8;
+}
+
+.snow-foam-page .rap-downloads {
+  background: #eaf3f8;
+}
+
+.sf-use-steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sf-dilution-table {
+  border-top: 1px solid #c9d8e5;
+}
+
+.sf-dilution-row {
+  display: grid;
+  grid-template-columns: 90px 160px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 0.8rem;
+  border-bottom: 1px solid #c9d8e5;
+}
+
+.sf-dilution-row strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--rap-blue);
+}
+
+.sf-dilution-head {
+  background: #18212f;
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sf-dilution-row.is-recommended {
+  background: var(--rap-green-soft);
+}
+
+.sf-dilution-row.is-recommended strong {
+  color: var(--rap-green);
+}
+
+.sf-answer-note {
+  margin-top: 1rem;
+  padding-left: 0.9rem;
+  border-left: 4px solid var(--rap-green);
+}
+
+.sf-price-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .sf-price-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .snow-foam-page .wa-fixed {
+    display: none;
+  }
+
+  .snow-foam-page .rap-hero::after {
+    background: rgba(5, 15, 22, 0.66);
+  }
+
+  .snow-foam-page .rap-hero-image {
+    object-position: 58% center;
+  }
+
+  .sf-use-steps,
+  .sf-price-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sf-dilution-head {
+    display: none;
+  }
+
+  .sf-dilution-row {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 0.3rem 0.8rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .sf-dilution-row span:last-child {
+    grid-column: 2;
+  }
+}
