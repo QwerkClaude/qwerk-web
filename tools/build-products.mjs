@@ -35,7 +35,7 @@ const META = {
   'apc-limpiador-multiusos':   { cat:'automotriz', code:'APC 7',      name:'APC · Limpiador Multiusos',             img:'/assets/products/apc7.png',    accent:'#3aaa35', price:{low:90,high:1100},  pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, quiero información del APC QWERK, sus diluciones y precio.' },
   'desengrasante-concentrado': { cat:'automotriz', code:'DSGT 250',   name:'Desengrasante Alcalino Concentrado',    img:'/assets/products/dsgt250.png', accent:'#c0392b', price:{low:55,high:700},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, quiero información del desengrasante concentrado y sus diluciones.' },
   'limpiador-textil-alcalino': { cat:'lavanderia', code:'ALK 200',    name:'Limpiador Textil Alcalino ALK 200',     img:'/assets/products/alk200.png',  accent:'#e91e8c', price:{low:50,high:600},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, quiero información del limpiador textil ALK 200 y sus diluciones.' },
-  'crema-silicones-interiores':{ cat:'automotriz', code:'VNL 2',      name:'Crema de Silicones para Interiores',    img:'/assets/products/vnl2.png',    accent:'#f57c00', price:{low:80,high:1600},  pres:'600 g · 5 kg · 19 kg',    wa:'Hola, quiero información de la Crema de Silicones para interiores.' },
+  'crema-rap':                  { cat:'automotriz', code:'RAP',        name:'Crema RAP',                              img:'/assets/products/crema-rap-aplicacion.png', accent:'#1f5fbf', price:{low:80,high:1600}, pres:'500 g · 4 kg · 19 kg', wa:'Hola, me interesa Crema RAP. Quiero saber qué presentación me conviene y cómo hacer mi pedido.' },
   'abrillantador-llantas':     { cat:'automotriz', code:'TS 300',     name:'Abrillantador de Llantas (Uso Diario)', img:'/assets/products/ts300.png',   accent:'#7c3aed', price:{low:350,high:650},  pres:'10 L · 20 L',             wa:'Hola, quiero información del abrillantador de llantas TS 300 y sus presentaciones.' },
   'abrillantador-llantas-gel': { cat:'automotriz', code:'TS 300 Gel', name:'Gel Abrillantador de Llantas',          img:'/assets/products/ts300gel.png',accent:'#4f46e5', price:{low:160,high:650},  pres:'4 kg · 19 kg',            wa:'Hola, quiero información del gel abrillantador de llantas TS 300 Gel.' },
   'abrillantador-premium-llantas':{cat:'automotriz',code:'Premium',   name:'Abrillantador Premium para Llantas',    img:null,                           accent:'#4f46e5', price:null,                pres:'Consulta disponibilidad', wa:'Hola, quiero información y precio del Abrillantador Premium para Llantas.', star:true },
@@ -323,13 +323,14 @@ function sitemap() {
 
 // ── build ──
 const content = JSON.parse(readFileSync(join(ROOT, 'tools/products.content.json'), 'utf8'));
+const customProductPages = new Set(['crema-rap']);
 let n = 0;
 for (const slug of Object.keys(META)) {
   const c = content[slug];
   if (!c) { console.warn('⚠ sin contenido:', slug); continue; }
   const dir = join(ROOT, META[slug].cat, slug);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'index.html'), productPage(slug, c));
+  if (!customProductPages.has(slug)) writeFileSync(join(dir, 'index.html'), productPage(slug, c));
   n++;
 }
 for (const cat of Object.keys(CATS)) {

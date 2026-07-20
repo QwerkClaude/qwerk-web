@@ -30,13 +30,19 @@ const navLinks = document.getElementById('navLinks');
 
 if (navToggle) {
   navToggle.addEventListener('click', function() {
-    navLinks.classList.toggle('open');
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
   });
 }
 
 document.querySelectorAll('.nav-links a').forEach(function(link) {
   link.addEventListener('click', function() {
     navLinks.classList.remove('open');
+    if (navToggle) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menú');
+    }
   });
 });
 
@@ -258,7 +264,7 @@ if (catalogToggle && catalogBody) {
   var WA = 'https://wa.me/523222202407?text=';
   var SEL = {
     exterior: { t: 'Exterior del vehículo', chips: ['Snow Foam', 'APC', 'Abrillantador de llantas', 'Desengrasante'], p: 'Todo el exterior: prelava la carrocería con Snow Foam (pH neutro, seguro para pintura, cera y sellador), limpia con APC diluido, da brillo a las llantas con el Abrillantador y corta la grasa pesada con el Desengrasante.', msg: 'Hola, quiero limpiar el exterior de vehículos. ¿Qué productos me recomiendas?', cat: 'automotriz' },
-    interior: { t: 'Interior del vehículo', chips: ['APC', 'Crema de Silicones'], p: 'Limpia plásticos, viniles y tableros con APC, y protégelos con la Crema de Silicones: acabado seco al tacto, sin engrasar ni empañar los cristales.', msg: 'Hola, quiero limpiar y proteger interiores de vehículos. ¿Qué me recomiendas?', cat: 'automotriz' },
+    interior: { t: 'Interior del vehículo', chips: ['APC', 'Crema RAP'], p: 'Limpia plásticos, viniles y tableros con APC, y termina con Crema RAP: brillo agradable, acabado seco al tacto y sin sensación grasosa.', msg: 'Hola, quiero limpiar interiores de vehículos y conocer Crema RAP. ¿Qué me recomiendas?', cat: 'automotriz' },
     llantas: { t: 'Llantas', chips: ['Abrillantador TS 300', 'TS 300 Gel', 'Premium'], p: 'Del uso diario y alto volumen (TS 300) al acabado húmedo hidrofóbico de mayor duración (Premium).', msg: 'Hola, me interesa el abrillantador de llantas. ¿Cuál me recomiendas, el normal o el premium?', cat: 'automotriz' },
     motor: { t: 'Motor o grasa pesada', chips: ['Desengrasante concentrado'], p: 'El desengrasante concentrado corta grasa de motores, rines, chasis y piso; se diluye según la suciedad para rendir más.', msg: 'Hola, tengo suciedad o grasa pesada. ¿Me recomiendas el desengrasante y cómo se usa?', cat: 'automotriz' },
     ropa: { t: 'Ropa', chips: ['LD 100', 'Detergente con Vinagre', 'Detergente con Pino', 'Detergente ropa de color', 'Detergente con Bicarbonato', 'Reforzador de aroma'], p: 'Toda la línea de detergentes para ropa —LD 100, con vinagre, con pino, para ropa de color y con bicarbonato— más el reforzador de aroma, para que la ropa entregada huela increíble y el cliente regrese.', msg: 'Hola, quiero información y precios de los productos QWERK para lavandería.', cat: 'lavanderia' },

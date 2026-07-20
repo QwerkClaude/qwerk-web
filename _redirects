@@ -2,3 +2,7 @@
 # ALK 200 recategorizado de automotriz -> lavandería (jul 2026)
 /automotriz/limpiador-textil-alcalino/  /lavanderia/limpiador-textil-alcalino/  301
 /automotriz/limpiador-textil-alcalino   /lavanderia/limpiador-textil-alcalino/  301
+
+# Crema de Silicones / VNL 2 renombrada como Crema RAP (jul 2026)
+/automotriz/crema-silicones-interiores/  /automotriz/crema-rap/  301
+/automotriz/crema-silicones-interiores   /automotriz/crema-rap/  301
