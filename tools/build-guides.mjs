@@ -25,7 +25,7 @@ const GUIDE_META = {
   'limpiar-interiores-sin-sensacion-grasosa':    { h1:'Cómo limpiar interiores de auto sin dejar sensación grasosa', product:{ href:'/automotriz/crema-rap/', name:'Crema RAP' }, wa:'Hola, me interesa Crema RAP y quiero saber cómo aplicarla correctamente.' },
   'como-aplicar-abrillantador-de-llantas':       { h1:'Cómo aplicar abrillantador de llantas paso a paso', product:{ href:'/automotriz/abrillantador-llantas/', name:'Abrillantador de Llantas' }, wa:'Hola, me interesa el abrillantador de llantas. ¿Cuál me recomiendas, el normal o el premium?' },
   'abrillantador-de-llantas-base-agua-vs-mayor-duracion': { h1:'Abrillantador de llantas: base agua vs. de mayor duración (hidrofóbico)', product:{ href:'/automotriz/abrillantador-premium-llantas/', name:'Abrillantador Premium para Llantas' }, wa:'Hola, quiero información y precio del Abrillantador Premium para Llantas.' },
-  'calcular-rendimiento-de-un-producto-concentrado': { h1:'Cómo calcular el rendimiento (y el costo real) de un producto concentrado', product:{ href:'/automotriz/desengrasante-concentrado/', name:'Desengrasante Concentrado' }, wa:'Hola, quiero información del desengrasante concentrado y sus diluciones.' },
+  'calcular-rendimiento-de-un-producto-concentrado': { h1:'Cómo calcular el rendimiento (y el costo real) de un producto concentrado', product:{ href:'/automotriz/desengrasante-concentrado/', name:'Desengrasante de alta concentración' }, wa:'Hola, me interesa el Desengrasante de alta concentración. Quiero saber qué presentación y dilución me convienen.' },
 };
 
 const htmlEsc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
