@@ -1,0 +1,141 @@
+
+.tire-shine-page {
+  --rap-blue: #f47c14;
+  --rap-blue-soft: #fff0df;
+  --rap-green: #16845b;
+  --rap-green-soft: #e7f6ef;
+  --rap-gold: #d99a16;
+  --rap-gold-soft: #fff5d7;
+  --rap-red: #b94716;
+  --rap-red-soft: #fff0df;
+  background: #f7f5f1;
+}
+
+body.tire-shine-page {
+  overflow-x: hidden;
+}
+
+.tire-shine-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(7, 9, 10, 0.84), rgba(7, 9, 10, 0.42) 54%, rgba(7, 9, 10, 0.34));
+}
+
+.tire-shine-page .rap-hero-image {
+  object-position: center 48%;
+}
+
+.tire-shine-page .rap-hero-copy {
+  max-width: 650px;
+}
+
+.tire-shine-page .rap-kicker,
+.tire-shine-page .rap-proof li::before {
+  color: #ffb35c;
+}
+
+.tire-shine-page .rap-kicker {
+  border-left-color: #ff8a1f;
+}
+
+.tire-shine-page .rap-quick,
+.tire-shine-page .rap-topic-link,
+.tire-shine-page .rap-answer,
+.tire-shine-page .rap-price-card,
+.tire-shine-page .rap-fit-panel,
+.tire-compare-grid article {
+  background: #fff;
+}
+
+.tire-shine-page .rap-answers {
+  background: #f7f5f1;
+}
+
+.tire-shine-page .rap-prices {
+  background: #fff0df;
+}
+
+.tire-shine-page .rap-downloads {
+  background: #f9efe5;
+}
+
+.tire-use-steps {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.tire-price-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 680px;
+}
+
+.tire-compare {
+  background: #fffaf3;
+}
+
+.tire-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.tire-compare-grid article {
+  border: 1px solid var(--card-line);
+  border-radius: 8px;
+  padding: 1.35rem;
+  box-shadow: 0 4px 18px rgba(9, 27, 16, 0.05);
+}
+
+.tire-compare-grid h3 {
+  margin-bottom: 0.45rem;
+  color: #202020;
+}
+
+@media (max-width: 1000px) {
+  .tire-use-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .tire-shine-page .wa-fixed {
+    display: none;
+  }
+
+  .tire-shine-page .rap-hero::after {
+    background: rgba(7, 9, 10, 0.72);
+  }
+
+  .tire-shine-page .rap-hero-image {
+    object-position: 64% center;
+  }
+
+  .tire-shine-page .rap-meaning {
+    max-width: 28ch;
+    font-size: 0.76rem;
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+  }
+
+  .tire-shine-page .rap-hero-copy,
+  .tire-shine-page .rap-section-head {
+    width: min(100%, 340px);
+  }
+
+  .tire-shine-page .rap-hero-lead,
+  .tire-shine-page .rap-proof li {
+    overflow-wrap: anywhere;
+  }
+
+  .tire-shine-page .rap-actions {
+    width: 100%;
+  }
+
+  .tire-shine-page .rap-actions .btn,
+  .tire-shine-page .rap-btn-secondary {
+    max-width: 100%;
+  }
+
+  .tire-use-steps,
+  .tire-price-grid,
+  .tire-compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
