@@ -47,6 +47,32 @@
         "email": "contacto@qwerk.mx",
         "telephone": "+523222202407",
         "description": "Q-WERK suministra detergentes y productos de limpieza para negocios: lavanderías y autolavados en Puerto Vallarta y Bahía de Banderas. Venta a negocios con precios por volumen y envíos a toda la República Mexicana.",
+        "hasShippingService": {
+          "@type": "ShippingService",
+          "@id": "https://qwerk.mx/politica-de-envios-y-devoluciones/#envios-nacionales",
+          "name": "Envíos nacionales cotizados por separado",
+          "description": "El costo y el plazo se confirman según la paquetería que elija el cliente.",
+          "fulfillmentType": "https://schema.org/FulfillmentTypeDelivery",
+          "shippingConditions": {
+            "@type": "ShippingConditions",
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "MX"
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "MX",
+          "returnPolicyCountry": "MX",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 7,
+          "itemCondition": [
+            "https://schema.org/NewCondition",
+            "https://schema.org/UsedCondition"
+          ],
+          "merchantReturnLink": "https://qwerk.mx/politica-de-envios-y-devoluciones/"
+        },
         "sameAs": [
           "https://www.facebook.com/profile.php?id=61589076414894",
           "https://www.instagram.com/quimicoswerk"
@@ -215,7 +241,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=28c906f6">
+  <link rel="stylesheet" href="style.css?v=d745740c">
   <script src="/main.js?v=a065b818" defer></script>
   <style>
     /* ── Reseñas Google ── */
@@ -649,6 +675,7 @@
       <img src="assets/logo-white.png" alt="Q-WERK" height="22" class="footer-logo">
       <span class="footer-copy">© 2026 Q-WERK · Hecho en México</span>
       <span class="footer-domain">qwerk.mx</span>
+      <a class="footer-policy" href="/politica-de-envios-y-devoluciones/">Envíos y devoluciones</a>
     </div>
   </footer>
 

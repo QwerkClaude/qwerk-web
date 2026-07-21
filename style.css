@@ -787,7 +787,9 @@ h2.light { color: var(--cream); }
 footer { background: var(--green-darkest); padding: 1.4rem 0; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .footer-logo { opacity: 0.4; height: 20px; }
-.footer-copy, .footer-domain { font-size: 0.75rem; color: var(--cream-mut); }
+.footer-copy, .footer-domain, .footer-policy { font-size: 0.75rem; color: var(--cream-mut); }
+.footer-policy { text-decoration: underline; text-underline-offset: 0.2em; }
+.footer-policy:hover { color: var(--gold); }
 
 /* ════════════════════════════
    ZONAS DE ENTREGA — links dorados sobre verde

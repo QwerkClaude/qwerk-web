@@ -23,6 +23,25 @@ const V_JS = assetV('main.js'), V_CSS = assetV('style.css');
 const SITE = 'https://qwerk.mx';
 const PHONE = '523222202407';
 const TODAY = '2026-07-13';
+const POLICY_URL = `${SITE}/politica-de-envios-y-devoluciones/`;
+const SHIPPING_POLICY_ID = `${POLICY_URL}#envios-nacionales`;
+
+const offerPolicies = () => ({
+  shippingDetails: {
+    '@type': 'OfferShippingDetails',
+    hasShippingService: { '@id': SHIPPING_POLICY_ID },
+  },
+  hasMerchantReturnPolicy: {
+    '@type': 'MerchantReturnPolicy',
+    applicableCountry: 'MX',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    merchantReturnDays: 7,
+    itemCondition: [
+      'https://schema.org/NewCondition',
+      'https://schema.org/UsedCondition',
+    ],
+  },
+});
 
 const CATS = {
   automotriz: { label: 'Automotriz', title: 'Línea Automotriz', hero: 'Productos para limpieza, cuidado y presentación de vehículos, desarrollados para autolavados y detalladores.', waMsg: 'Hola, quiero información sobre sus productos para autolavado y detallado. ¿Cuál es el proceso completo que recomiendas?' },
@@ -81,6 +100,7 @@ const FOOTER = `
       <img src="/assets/logo-white.png" alt="Q-WERK" height="22" class="footer-logo">
       <span class="footer-copy">© 2026 Q-WERK · Hecho en México</span>
       <span class="footer-domain">qwerk.mx</span>
+      <a class="footer-policy" href="/politica-de-envios-y-devoluciones/">Envíos y devoluciones</a>
     </div>
   </footer>`;
 
@@ -139,8 +159,8 @@ function productPage(slug, c) {
     manufacturer: { '@type': 'Organization', name: 'Q-WERK', url: SITE + '/' },
   };
   if (m.img) product.image = SITE + m.img;
-  if (m.price) product.offers = { '@type': 'AggregateOffer', priceCurrency: 'MXN', lowPrice: m.price.low, highPrice: m.price.high, seller: { '@type': 'Organization', name: 'Q-WERK' } };
-  else if (m.priceFrom) product.offers = { '@type': 'Offer', priceCurrency: 'MXN', price: m.priceFrom, availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'Q-WERK' } };
+  if (m.price) product.offers = { '@type': 'AggregateOffer', priceCurrency: 'MXN', lowPrice: m.price.low, highPrice: m.price.high, seller: { '@type': 'Organization', name: 'Q-WERK' }, ...offerPolicies() };
+  else if (m.priceFrom) product.offers = { '@type': 'Offer', priceCurrency: 'MXN', price: m.priceFrom, availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'Q-WERK' }, ...offerPolicies() };
   const breadcrumb = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
@@ -303,6 +323,7 @@ function sitemap() {
   const staticUrls = [
     ['/', '1.0', 'monthly'],
     ['/automotriz/', '0.9', 'monthly'], ['/lavanderia/', '0.9', 'monthly'],
+    ['/politica-de-envios-y-devoluciones/', '0.5', 'yearly'],
     ['/detergente-para-lavanderias-puerto-vallarta/', '0.8', 'monthly'],
     ['/jabon-liquido-20-litros-bahia-de-banderas/', '0.8', 'monthly'],
     ['/productos-para-autolavado-puerto-vallarta/', '0.8', 'monthly'],

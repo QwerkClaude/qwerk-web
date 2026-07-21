@@ -36,15 +36,91 @@
     "name": "Crema RAP",
     "sku": "RAP",
     "description": "Crema acondicionadora para interiores y molduras automotrices con brillo agradable, acabado seco al tacto y sin sensación grasosa.",
-    "brand": {"@type": "Brand", "name": "Q-WERK"},
-    "manufacturer": {"@type": "Organization", "name": "Q-WERK", "url": "https://qwerk.mx/"},
+    "brand": {
+      "@type": "Brand",
+      "name": "Q-WERK"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Q-WERK",
+      "url": "https://qwerk.mx/"
+    },
     "category": "Cuidado de interiores automotrices",
     "image": "https://qwerk.mx/assets/products/crema-rap-aplicacion.png",
     "url": "https://qwerk.mx/automotriz/crema-rap/",
     "offers": [
-      {"@type": "Offer", "name": "Crema RAP 500 g", "price": "80.00", "priceCurrency": "MXN", "availability": "https://schema.org/InStock", "url": "https://qwerk.mx/automotriz/crema-rap/#precios"},
-      {"@type": "Offer", "name": "Crema RAP cubeta 4 kg", "price": "340.00", "priceCurrency": "MXN", "availability": "https://schema.org/InStock", "url": "https://qwerk.mx/automotriz/crema-rap/#precios"},
-      {"@type": "Offer", "name": "Crema RAP cubeta 19 kg", "price": "1600.00", "priceCurrency": "MXN", "availability": "https://schema.org/InStock", "url": "https://qwerk.mx/automotriz/crema-rap/#precios"}
+      {
+        "@type": "Offer",
+        "name": "Crema RAP 500 g",
+        "price": "80.00",
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "url": "https://qwerk.mx/automotriz/crema-rap/#precios",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "hasShippingService": {
+            "@id": "https://qwerk.mx/politica-de-envios-y-devoluciones/#envios-nacionales"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "MX",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 7,
+          "itemCondition": [
+            "https://schema.org/NewCondition",
+            "https://schema.org/UsedCondition"
+          ]
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Crema RAP cubeta 4 kg",
+        "price": "340.00",
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "url": "https://qwerk.mx/automotriz/crema-rap/#precios",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "hasShippingService": {
+            "@id": "https://qwerk.mx/politica-de-envios-y-devoluciones/#envios-nacionales"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "MX",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 7,
+          "itemCondition": [
+            "https://schema.org/NewCondition",
+            "https://schema.org/UsedCondition"
+          ]
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Crema RAP cubeta 19 kg",
+        "price": "1600.00",
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "url": "https://qwerk.mx/automotriz/crema-rap/#precios",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "hasShippingService": {
+            "@id": "https://qwerk.mx/politica-de-envios-y-devoluciones/#envios-nacionales"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "MX",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 7,
+          "itemCondition": [
+            "https://schema.org/NewCondition",
+            "https://schema.org/UsedCondition"
+          ]
+        }
+      }
     ]
   }
   </script>
@@ -61,7 +137,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="/style.css?v=28c906f6">
+  <link rel="stylesheet" href="/style.css?v=d745740c">
   <link rel="stylesheet" href="/assets/crema-rap.css?v=2">
   <script src="/main.js?v=fa52d976" defer></script>
 </head>
@@ -313,6 +389,7 @@
       <img src="/assets/logo-white.png" alt="Q-WERK" height="22" class="footer-logo">
       <span class="footer-copy">© 2026 Q-WERK · Hecho en México</span>
       <span class="footer-domain">qwerk.mx</span>
+      <a class="footer-policy" href="/politica-de-envios-y-devoluciones/">Envíos y devoluciones</a>
     </div>
   </footer>
 
