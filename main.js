@@ -1,29 +1,3 @@
-// ═══ MODAL ═══
-document.addEventListener('click', function(e) {
-  const btn = e.target.closest('[data-modal]');
-  if (btn) {
-    const id = btn.dataset.modal;
-    document.getElementById('modal-' + id).classList.add('active');
-    document.getElementById('modal-overlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-    return;
-  }
-  if (e.target.id === 'modal-overlay' || e.target.closest('.modal-close')) {
-    closeModal();
-  }
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModal();
-});
-
-function closeModal() {
-  document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
-  const overlay = document.getElementById('modal-overlay');
-  if (overlay) overlay.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
 // ═══ NAV ═══
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('navLinks');
@@ -51,20 +25,6 @@ window.addEventListener('scroll', function() {
   const navbar = document.getElementById('navbar');
   if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
-
-// ═══ CATÁLOGO PLEGABLE ═══
-const catalogToggle = document.querySelector('.catalog-toggle');
-const catalogBody = document.getElementById('catalogo-body');
-if (catalogToggle && catalogBody) {
-  catalogToggle.addEventListener('click', function() {
-    const willOpen = catalogBody.hasAttribute('hidden');
-    if (willOpen) catalogBody.removeAttribute('hidden');
-    else catalogBody.setAttribute('hidden', '');
-    catalogToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-    const label = catalogToggle.querySelector('.catalog-toggle-label');
-    if (label) label.textContent = willOpen ? 'Ocultar catálogo' : 'Ver catálogo completo';
-  });
-}
 
 /* ═══════════════════════════════════════════════════════════════════
    WHATSAPP CONTEXTUAL · Q-WERK
@@ -96,11 +56,6 @@ if (catalogToggle && catalogBody) {
     ['/blog',                                    'Hola, leí una de sus guías y tengo una duda sobre sus productos. ¿Me pueden asesorar?']
   ];
 
-  // Mensaje cuando el usuario abre la ficha técnica de un producto (alta intención)
-  function productMessage(name) {
-    return 'Hola, vi el producto ' + name + ' en su página y quiero más información. ¿Me pasas precio y presentaciones?';
-  }
-
   function baseMessage() {
     // Una página puede fijar su propio mensaje con <meta name="wa-message" content="...">
     var meta = document.querySelector('meta[name="wa-message"]');
@@ -110,18 +65,6 @@ if (catalogToggle && catalogBody) {
       if (path.indexOf(WA_RULES[i][0]) !== -1) return WA_RULES[i][1];
     }
     return WA_DEFAULT;
-  }
-
-  // Nombre del producto de la ficha (modal) abierta, si la hay
-  function openModalProduct() {
-    var m = document.querySelector('.modal.active');
-    if (!m) return null;
-    var title = m.querySelector('.modal-title');
-    if (!title) return null;
-    var name = title.textContent.trim();
-    var code = m.querySelector('.modal-code');
-    if (code && code.textContent.trim()) name = code.textContent.trim() + ' — ' + name;
-    return name;
   }
 
   function buildHref(msg) {
@@ -162,10 +105,8 @@ if (catalogToggle && catalogBody) {
   // ── Copia contextual de la ventana ──
   var COPY_AUTO = { g: '¿Tienes un autolavado o haces detallado? Te ayudamos a elegir los productos adecuados.', c: 'Recibir recomendación' };
   var COPY_LAV  = { g: '¿Buscas controlar el costo por carga? Conoce nuestras opciones para lavandería.', c: 'Solicitar información' };
-  var COPY_PROD = { g: '¿Quieres conocer presentaciones, precio y forma de aplicación?', c: 'Preguntar por este producto' };
   var COPY_DEF  = { g: '¿Tienes dudas? Te ayudamos a elegir el producto adecuado para tu negocio.', c: 'Recibir asesoría' };
-  function panelCopy(hasProduct) {
-    if (hasProduct) return COPY_PROD;
+  function panelCopy() {
     var path = (location.pathname || '').toLowerCase();
     if (/autolavado|automotriz|abrillantador|snow-foam|silicones|desengrasante/.test(path)) return COPY_AUTO;
     if (/lavander|detergente|reforzador|jabon|proveedor/.test(path)) return COPY_LAV;
@@ -207,16 +148,15 @@ if (catalogToggle && catalogBody) {
   }
 
   function refresh() {
-    var prod = openModalProduct();
-    var href = buildHref(prod ? productMessage(prod) : baseMessage());
+    var href = buildHref(baseMessage());
     ensureButton().href = href;
     var p = ensurePanel();
-    var copy = panelCopy(!!prod);
+    var copy = panelCopy();
     p.querySelector('.wa-greeting').textContent = copy.g;
     var cta = p.querySelector('.wa-panel-cta');
     cta.href = href;
     cta.querySelector('span').textContent = copy.c;
-    if (prod) cta.setAttribute('data-ev-product', prod); else cta.removeAttribute('data-ev-product');
+    cta.removeAttribute('data-ev-product');
   }
 
   // ── Enlaces contextuales en contenido (tarjetas, CTAs, hero) ──
@@ -233,7 +173,7 @@ if (catalogToggle && catalogBody) {
     if (e.target.closest('.wa-close')) { togglePanel(false); scheduleReopen(); return; }
     var ev = e.target.closest('[data-ev]');
     if (ev) trackFromEl(ev);
-    setTimeout(refresh, 50); // por si se abrió/cerró una ficha técnica
+    setTimeout(refresh, 50);
   }
 
   function init() {
@@ -267,7 +207,7 @@ if (catalogToggle && catalogBody) {
     interior: { t: 'Interior del vehículo', chips: ['APC', 'Crema RAP'], p: 'Limpia plásticos, viniles y tableros con APC, y termina con Crema RAP: brillo agradable, acabado seco al tacto y sin sensación grasosa.', msg: 'Hola, quiero limpiar interiores de vehículos y conocer Crema RAP. ¿Qué me recomiendas?', cat: 'automotriz' },
     llantas: { t: 'Llantas', chips: ['Abrillantador líquido', 'Abrillantador en gel', 'Abrillantador hidrofóbico'], p: 'Elige aplicación rápida con el líquido, mayor control con el gel o máximo brillo wet look y repelencia al agua con el hidrofóbico.', msg: 'Hola, me interesa el abrillantador de llantas. ¿Cuál me conviene: líquido, gel o hidrofóbico?', cat: 'automotriz' },
     motor: { t: 'Motor o grasa pesada', chips: ['Desengrasante concentrado'], p: 'El desengrasante concentrado corta grasa de motores, rines, chasis y piso; se diluye según la suciedad para rendir más.', msg: 'Hola, tengo suciedad o grasa pesada. ¿Me recomiendas el desengrasante y cómo se usa?', cat: 'automotriz' },
-    ropa: { t: 'Ropa', chips: ['LD 100', 'Detergente con Vinagre', 'Detergente con Pino', 'Detergente ropa de color', 'Detergente con Bicarbonato', 'Reforzador de aroma'], p: 'Toda la línea de detergentes para ropa —LD 100, con vinagre, con pino, para ropa de color y con bicarbonato— más el reforzador de aroma, para que la ropa entregada huela increíble y el cliente regrese.', msg: 'Hola, quiero información y precios de los productos QWERK para lavandería.', cat: 'lavanderia' },
+    ropa: { t: 'Ropa', chips: ['Detergente de alto desempeño', 'Detergente con vinagre', 'Detergente con pino', 'Detergente para ropa de color', 'Detergente con bicarbonato', 'Desengrasante textil alcalino', 'Reforzador de aroma textil'], p: 'Elige según la necesidad de la carga: mayor desempeño y fragancia duradera, desodorización, apoyo de limpieza, aroma a pino, refuerzo alcalino o acabado aromático final.', msg: 'Hola, quiero información y precios de los productos Q-WERK para lavandería.', cat: 'lavanderia' },
     duda: { t: 'No estoy seguro', chips: [], p: 'Cuéntanos qué hace tu negocio y te recomendamos el proceso completo, con producto y dilución adecuados.', msg: 'Hola, quiero ayuda para elegir los productos adecuados para mi negocio.', cat: 'general' }
   };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }

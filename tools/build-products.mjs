@@ -279,7 +279,9 @@ ${NAV(cat)}
       <p class="lead">${info.hero}</p>
       <div class="page-hero-actions">
         <a href="${waHref(info.waMsg)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(info.waMsg)}" data-ev="whatsapp_click" data-ev-ctx="hub-${cat}">Pedir recomendación por WhatsApp</a>
-        ${cat === 'automotriz' ? '<a href="/assets/docs/catalogo-automotriz-qwerk.pdf" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-automotriz">Descargar catálogo PDF</a>' : ''}
+        ${cat === 'automotriz'
+          ? '<a href="/assets/docs/catalogo-automotriz-qwerk.pdf" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-automotriz">Descargar catálogo PDF</a>'
+          : '<a href="/assets/docs/catalogo-qwerk.pdf" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-lavanderia">Descargar catálogo PDF</a>'}
       </div>
     </div>
   </header>
