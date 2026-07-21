@@ -195,6 +195,38 @@
   background: #eaf2f5;
 }
 
+.laundry-aroma-page {
+  --rap-blue: #b63d65;
+  --rap-blue-soft: #f9eaf0;
+  --rap-green: #187451;
+  --rap-green-soft: #e7f5ed;
+  --rap-gold: #c58a1d;
+  --rap-gold-soft: #fff3d7;
+  --rap-red: #9f4438;
+  --rap-red-soft: #fbece8;
+}
+
+.laundry-aroma-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(14, 8, 11, 0.94), rgba(14, 8, 11, 0.7) 48%, rgba(14, 8, 11, 0.12));
+}
+
+.laundry-aroma-page .rap-hero-image {
+  object-position: center center;
+}
+
+.laundry-aroma-page .rap-kicker,
+.laundry-aroma-page .rap-proof li::before {
+  color: #f2a9c2;
+}
+
+.laundry-aroma-page .rap-kicker {
+  border-left-color: #d4557d;
+}
+
+.laundry-aroma-page .rap-prices {
+  background: #f9eaf0;
+}
+
 .laundry-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -250,6 +282,63 @@
   color: #5b625d;
 }
 
+.laundry-price-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.laundry-price-option {
+  min-height: 136px;
+  padding: 1.25rem;
+  border: 1px solid #e3bdca;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.laundry-price-option strong,
+.laundry-price-option span,
+.laundry-price-option small {
+  display: block;
+}
+
+.laundry-price-option strong {
+  color: #10281b;
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+
+.laundry-price-option span {
+  margin-top: 0.4rem;
+  color: #a32f57;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.laundry-price-option small {
+  margin-top: 0.45rem;
+  color: #5b625d;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.laundry-price-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.laundry-price-summary p {
+  margin: 0;
+  color: #33463b;
+  line-height: 1.5;
+}
+
 .laundry-demo {
   padding: 1.35rem;
   border-left: 5px solid #147ba3;
@@ -266,12 +355,26 @@
     grid-template-columns: 1fr;
   }
 
+  .laundry-price-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .laundry-price-panel {
     align-items: stretch;
     flex-direction: column;
   }
 
   .laundry-price-panel .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .laundry-price-summary {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .laundry-price-summary .btn {
     width: 100%;
     text-align: center;
   }
@@ -300,5 +403,19 @@
 
   .laundry-bicarbonate-page .rap-hero-image {
     object-position: 68% center;
+  }
+
+  .laundry-aroma-page .rap-hero-image {
+    object-position: 68% center;
+  }
+}
+
+@media (max-width: 520px) {
+  .laundry-price-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .laundry-price-option {
+    min-height: 0;
   }
 }

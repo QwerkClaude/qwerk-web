@@ -41,7 +41,7 @@ const META = {
   'abrillantador-hidrofobico-llantas':{cat:'automotriz',code:'Hidrofóbico', name:'Abrillantador hidrofóbico para llantas', img:'/assets/products/abrillantador-hidrofobico-llantas-aplicacion.png', accent:'#b5122b', price:null, priceFrom:299, pres:'1 L', wa:'Hola, quiero pedir 1 litro del Abrillantador hidrofóbico para llantas por $299 MXN.', star:true },
   'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'Alto desempeño', name:'Detergente de alto desempeño', img:'/assets/products/detergente-alto-desempeno-aplicacion.png', accent:'#0097a7', price:null, priceFrom:490, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente de alto desempeño de 20 L por $490 MXN.' },
   'detergente-con-vinagre':    { cat:'lavanderia', code:'Con vinagre', name:'Detergente con vinagre', img:'/assets/products/detergente-vinagre-aplicacion.png', accent:'#d66c18', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con vinagre de 20 L por $259 MXN.' },
-  'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de Aroma Textil',            img:'/assets/products/reforzador-aroma.png', accent:'#d97706', price:null,       pres:'Consulta disponibilidad', wa:'Hola, me interesa el reforzador de aroma. ¿Cómo se usa y cuánto rinde?' },
+  'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de aroma textil', img:'/assets/products/reforzador-aroma-textil-aplicacion.png', accent:'#b63d65', price:{low:59,high:1180}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Reforzador de aroma textil. Quiero saber qué presentación me conviene y cómo atomizarlo sobre ropa limpia y seca.' },
   'detergente-ropa-color':     { cat:'lavanderia', code:'Ropa de color', name:'Detergente para ropa de color', img:'/assets/products/detergente-ropa-color-aplicacion.png', accent:'#1768ad', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente para ropa de color de 20 L por $259 MXN.' },
   'detergente-con-bicarbonato':{ cat:'lavanderia', code:'Bicarbonato', name:'Detergente con bicarbonato', img:'/assets/products/detergente-bicarbonato-aplicacion.png', accent:'#3d6277', price:null, priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con bicarbonato de 20 L por $269 MXN.' },
   'detergente-con-pino':       { cat:'lavanderia', code:'Aceite de pino', name:'Detergente con pino',                img:'/assets/products/detergente-pino-aplicacion.png', accent:'#2e6f3b', price:null, priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con pino de 20 L por $269 MXN.' },
@@ -340,6 +340,7 @@ const customProductPages = new Set([
   'detergente-con-bicarbonato',
   'detergente-con-pino',
   'limpiador-textil-alcalino',
+  'reforzador-aroma-textil',
 ]);
 let n = 0;
 for (const slug of Object.keys(META)) {
