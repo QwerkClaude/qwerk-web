@@ -9,8 +9,16 @@ from reportlab.pdfgen import canvas
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WEB_OUTPUT = ROOT / "assets/docs/catalogo-qwerk.pdf"
-DELIVERY_OUTPUT = ROOT / "output/pdf/catalogo-qwerk.pdf"
+WEB_OUTPUTS = {
+    "general": ROOT / "assets/docs/catalogo-qwerk.pdf",
+    "automotriz": ROOT / "assets/docs/catalogo-automotriz-qwerk.pdf",
+    "lavanderia": ROOT / "assets/docs/catalogo-lavanderia-qwerk.pdf",
+}
+DELIVERY_OUTPUTS = {
+    "general": ROOT / "output/pdf/catalogo-qwerk.pdf",
+    "automotriz": ROOT / "output/pdf/catalogo-automotriz-qwerk.pdf",
+    "lavanderia": ROOT / "output/pdf/catalogo-lavanderia-qwerk.pdf",
+}
 PAGE_W, PAGE_H = letter
 
 REGULAR = "Arial-QWerk"
@@ -153,7 +161,10 @@ SECTIONS = [
     ("AUTOMOTRIZ", AUTOMOTIVE, ORANGE, ORANGE_SOFT, "Productos para autolavados y detallado"),
     ("LAVANDERÍA", LAUNDRY, TEAL, TEAL_SOFT, "Detergentes y auxiliares para lavanderías"),
 ]
-TOTAL_PAGES = 1 + sum((len(products) + 1) // 2 for _, products, _, _, _ in SECTIONS)
+
+
+def page_count(sections):
+    return 1 + sum((len(products) + 1) // 2 for _, products, _, _, _ in sections)
 
 
 def fit_size(value, max_size, min_size, max_width):
@@ -201,11 +212,11 @@ def draw_button(c, x, y, width, height, label, url, color=GREEN):
     c.linkURL(url, (x, y, x + width, y + height), relative=0)
 
 
-def header(c, page_number, section, accent):
+def header(c, page_number, total_pages, section, accent):
     c.setFillColor(INK)
     c.rect(0, PAGE_H - 58, PAGE_W, 58, fill=1, stroke=0)
     draw_text(c, 40, PAGE_H - 36, "Q-WERK", 18, white, True)
-    draw_text(c, PAGE_W - 40, PAGE_H - 34, f"{section}  |  {page_number}/{TOTAL_PAGES}", 9, white, True, "right")
+    draw_text(c, PAGE_W - 40, PAGE_H - 34, f"{section}  |  {page_number}/{total_pages}", 9, white, True, "right")
     c.setFillColor(accent)
     c.rect(0, PAGE_H - 62, PAGE_W, 4, fill=1, stroke=0)
 
@@ -258,7 +269,7 @@ def product_card(c, product, y_top, height, accent, soft):
     draw_button(c, right - 168, y + 13, 168, 28, "ABRIR FICHA EN QWERK.MX", product["url"], accent)
 
 
-def cover(c):
+def general_cover(c):
     c.setFillColor(PAPER)
     c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
     c.setFillColor(INK)
@@ -297,8 +308,44 @@ def cover(c):
     c.linkURL("https://wa.me/523222202407", (48, 51, PAGE_W - 48, 100), relative=0)
 
 
-def section_page(c, page_number, section, subtitle, products, accent, soft):
-    header(c, page_number, section, accent)
+def line_cover(c, section, products, accent, soft, subtitle):
+    c.setFillColor(PAPER)
+    c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
+    c.setFillColor(INK)
+    c.rect(0, PAGE_H - 325, PAGE_W, 325, fill=1, stroke=0)
+    c.setFillColor(accent)
+    c.rect(0, PAGE_H - 331, PAGE_W, 6, fill=1, stroke=0)
+
+    draw_text(c, 48, 730, "Q-WERK", 25, white, True)
+    draw_text(c, 48, 671, f"CATÁLOGO {section}", 10, accent, True)
+    for index, line in enumerate(wrap_text(subtitle, BOLD, 28, PAGE_W - 96, 2)):
+        draw_text(c, 48, 626 - index * 34, line, 28, white, True)
+    draw_text(c, 48, 545, f"{len(products)} productos con función, presentación y precio claros.", 12, white)
+
+    draw_text(c, 48, 415, "PRODUCTOS DE LA LÍNEA", 9, accent, True)
+    c.setFillColor(soft)
+    c.roundRect(48, 201, PAGE_W - 96, 190, 7, fill=1, stroke=0)
+    list_y = 362
+    for product in products:
+        c.setFillColor(accent)
+        c.circle(66, list_y + 3, 2.5, fill=1, stroke=0)
+        name_size = fit_size(product["name"], 11.5, 9.5, PAGE_W - 150)
+        draw_text(c, 78, list_y, product["name"], name_size, INK, True)
+        list_y -= 24
+
+    draw_text(c, 48, 164, "Precios en MXN con IVA incluido.", 10, INK, True)
+    draw_text(c, 48, 146, "Las presentaciones de 10 L y 20 L se manejan en envase retornable.", 9.5, MUTED)
+    draw_text(c, 48, 128, "Sujetos a vigencia y disponibilidad.", 9.5, MUTED)
+
+    c.setFillColor(INK)
+    c.roundRect(48, 51, PAGE_W - 96, 49, 7, fill=1, stroke=0)
+    draw_text(c, 64, 80, "Cotiza o recibe una recomendación personalizada", 11, white, True)
+    draw_text(c, 64, 64, "WhatsApp +52 322 220 2407", 9.2, white)
+    c.linkURL("https://wa.me/523222202407", (48, 51, PAGE_W - 48, 100), relative=0)
+
+
+def section_page(c, page_number, total_pages, section, subtitle, products, accent, soft):
+    header(c, page_number, total_pages, section, accent)
     draw_text(c, 40, 697, section, 9, accent, True)
     draw_text(c, 40, 670, subtitle, 21, INK, True)
     draw_text(c, 40, 651, "Cada botón visible abre la ficha completa del producto en qwerk.mx.", 10, MUTED)
@@ -317,31 +364,44 @@ def section_page(c, page_number, section, subtitle, products, accent, soft):
     footer(c, page_number)
 
 
-def build():
-    WEB_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    DELIVERY_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-
-    c = canvas.Canvas(str(WEB_OUTPUT), pagesize=letter, pageCompression=1)
-    c.setTitle("Catálogo general Q-WERK")
+def build_catalog(output, title, subject, sections, is_general=False):
+    total_pages = page_count(sections)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    c = canvas.Canvas(str(output), pagesize=letter, pageCompression=1)
+    c.setTitle(title)
     c.setAuthor("Q-WERK")
-    c.setSubject("Productos automotrices y para lavandería")
+    c.setSubject(subject)
     c.setKeywords("Q-WERK, automotriz, lavandería, catálogo, precios")
 
-    cover(c)
-    c.showPage()
+    if is_general:
+        general_cover(c)
+    else:
+        section, products, accent, soft, subtitle = sections[0]
+        line_cover(c, section, products, accent, soft, subtitle)
+
     page_number = 2
-
-    for section, products, accent, soft, subtitle in SECTIONS:
+    for section, products, accent, soft, subtitle in sections:
         for start in range(0, len(products), 2):
-            section_page(c, page_number, section, subtitle, products[start:start + 2], accent, soft)
+            c.showPage()
+            section_page(c, page_number, total_pages, section, subtitle, products[start:start + 2], accent, soft)
             page_number += 1
-            if page_number <= TOTAL_PAGES:
-                c.showPage()
-
     c.save()
-    copyfile(WEB_OUTPUT, DELIVERY_OUTPUT)
-    print(WEB_OUTPUT)
-    print(DELIVERY_OUTPUT)
+
+
+def build():
+    catalogs = [
+        ("general", "Catálogo general Q-WERK", "Productos automotrices y para lavandería", SECTIONS, True),
+        ("automotriz", "Catálogo automotriz Q-WERK", "Productos para autolavados y detallado", [SECTIONS[0]], False),
+        ("lavanderia", "Catálogo de lavandería Q-WERK", "Detergentes y auxiliares para lavanderías", [SECTIONS[1]], False),
+    ]
+    for key, title, subject, sections, is_general in catalogs:
+        web_output = WEB_OUTPUTS[key]
+        delivery_output = DELIVERY_OUTPUTS[key]
+        delivery_output.parent.mkdir(parents=True, exist_ok=True)
+        build_catalog(web_output, title, subject, sections, is_general)
+        copyfile(web_output, delivery_output)
+        print(web_output)
+        print(delivery_output)
 
 
 if __name__ == "__main__":
