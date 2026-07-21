@@ -34,17 +34,17 @@ const META = {
   'snow-foam-ph-neutro':       { cat:'automotriz', code:'Snow Foam',  name:'Snow Foam',                              img:'/assets/products/snow-foam-aplicacion.webp', accent:'#176bb2', price:{low:95,high:1200}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa Snow Foam. Quiero saber qué presentación y dilución me convienen.' },
   'apc-limpiador-multiusos':   { cat:'automotriz', code:'APC',        name:'APC',                                      img:'/assets/products/apc-aplicacion.webp', accent:'#3aaa35', price:{low:90,high:1100},  pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa APC. Quiero saber qué presentación y dilución me convienen.' },
   'desengrasante-concentrado': { cat:'automotriz', code:'Desengrasante',   name:'Desengrasante de alta concentración',    img:'/assets/products/desengrasante-aplicacion.webp', accent:'#c0392b', price:{low:55,high:700},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Desengrasante de alta concentración. Quiero saber qué presentación y dilución me convienen.' },
-  'limpiador-textil-alcalino': { cat:'lavanderia', code:'ALK 200',    name:'Limpiador Textil Alcalino ALK 200',     img:'/assets/products/alk200.png',  accent:'#e91e8c', price:{low:50,high:600},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, quiero información del limpiador textil ALK 200 y sus diluciones.' },
+  'limpiador-textil-alcalino': { cat:'lavanderia', code:'Refuerzo alcalino', name:'Desengrasante textil alcalino', img:'/assets/products/desengrasante-textil-alcalino-aplicacion.png', accent:'#285f46', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Desengrasante textil alcalino de 20 L por $259 MXN. Quiero saber cómo usarlo junto con mi detergente.' },
   'crema-rap':                  { cat:'automotriz', code:'RAP',        name:'Crema RAP',                              img:'/assets/products/crema-rap-aplicacion.png', accent:'#1f5fbf', price:{low:80,high:1600}, pres:'500 g · 4 kg · 19 kg', wa:'Hola, me interesa Crema RAP. Quiero saber qué presentación me conviene y cómo hacer mi pedido.' },
   'abrillantador-llantas':     { cat:'automotriz', code:'Uso directo', name:'Abrillantador líquido de llantas', img:'/assets/products/abrillantador-llantas-liquido-aplicacion.png', accent:'#f47c14', price:{low:350,high:650},  pres:'10 L · 20 L',             wa:'Hola, me interesa el Abrillantador líquido de llantas. Quiero saber presentación, precio y forma de aplicación.' },
   'abrillantador-llantas-gel': { cat:'automotriz', code:'Gel', name:'Abrillantador en gel de llantas', img:'/assets/products/abrillantador-llantas-gel-aplicacion.png', accent:'#f47c14', price:{low:160,high:650},  pres:'4 kg · 19 kg',            wa:'Hola, me interesa el Abrillantador en gel de llantas. Quiero saber presentación, precio y forma de aplicación.' },
   'abrillantador-hidrofobico-llantas':{cat:'automotriz',code:'Hidrofóbico', name:'Abrillantador hidrofóbico para llantas', img:'/assets/products/abrillantador-hidrofobico-llantas-aplicacion.png', accent:'#b5122b', price:null, priceFrom:299, pres:'1 L', wa:'Hola, quiero pedir 1 litro del Abrillantador hidrofóbico para llantas por $299 MXN.', star:true },
-  'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'LD 100',     name:'LD 100 · Detergente Líquido para Lavandería', img:'/assets/products/ld100.png', accent:'#0097a7', price:{low:280,high:490}, retornable:true, pres:'10 L · 20 L', wa:'Hola, quiero información y precios de los productos QWERK para lavandería.' },
-  'detergente-con-vinagre':    { cat:'lavanderia', code:'Con Vinagre',name:'Detergente con Vinagre',                img:'/assets/products/detergente-vinagre.png', accent:'#059669', price:null,     priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente con Vinagre para lavandería.' },
+  'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'Alto desempeño', name:'Detergente de alto desempeño', img:'/assets/products/detergente-alto-desempeno-aplicacion.png', accent:'#0097a7', price:null, priceFrom:490, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente de alto desempeño de 20 L por $490 MXN.' },
+  'detergente-con-vinagre':    { cat:'lavanderia', code:'Con vinagre', name:'Detergente con vinagre', img:'/assets/products/detergente-vinagre-aplicacion.png', accent:'#d66c18', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con vinagre de 20 L por $259 MXN.' },
   'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de Aroma Textil',            img:'/assets/products/reforzador-aroma.png', accent:'#d97706', price:null,       pres:'Consulta disponibilidad', wa:'Hola, me interesa el reforzador de aroma. ¿Cómo se usa y cuánto rinde?' },
-  'detergente-ropa-color':     { cat:'lavanderia', code:'Color',      name:'Detergente para Ropa de Color',         img:null,                           accent:'#db2777', price:null,                priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente para Ropa de Color de QWERK.' },
+  'detergente-ropa-color':     { cat:'lavanderia', code:'Ropa de color', name:'Detergente para ropa de color', img:'/assets/products/detergente-ropa-color-aplicacion.png', accent:'#1768ad', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente para ropa de color de 20 L por $259 MXN.' },
   'detergente-con-bicarbonato':{ cat:'lavanderia', code:'Bicarbonato',name:'Detergente con Bicarbonato',            img:null,                           accent:'#0284c7', price:null,                priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente con Bicarbonato de QWERK.' },
-  'detergente-con-pino':       { cat:'lavanderia', code:'Pino',       name:'Detergente con Pino',                   img:null,                           accent:'#16a34a', price:null,                priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente con Pino de QWERK.' },
+  'detergente-con-pino':       { cat:'lavanderia', code:'Aceite de pino', name:'Detergente con pino',                img:'/assets/products/detergente-pino-aplicacion.png', accent:'#2e6f3b', price:null, priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con pino de 20 L por $269 MXN.' },
 };
 
 const GUIDES = {
@@ -326,7 +326,20 @@ function sitemap() {
 
 // ── build ──
 const content = JSON.parse(readFileSync(join(ROOT, 'tools/products.content.json'), 'utf8'));
-const customProductPages = new Set(['crema-rap', 'snow-foam-ph-neutro']);
+const customProductPages = new Set([
+  'crema-rap',
+  'snow-foam-ph-neutro',
+  'apc-limpiador-multiusos',
+  'desengrasante-concentrado',
+  'abrillantador-llantas',
+  'abrillantador-llantas-gel',
+  'abrillantador-hidrofobico-llantas',
+  'jabon-liquido-lavanderia',
+  'detergente-con-vinagre',
+  'detergente-ropa-color',
+  'detergente-con-pino',
+  'limpiador-textil-alcalino',
+]);
 let n = 0;
 for (const slug of Object.keys(META)) {
   const c = content[slug];

@@ -1,0 +1,268 @@
+.laundry-performance-page {
+  --rap-blue: #147ba3;
+  --rap-blue-soft: #e8f5f8;
+  --rap-green: #16845b;
+  --rap-green-soft: #e7f6ef;
+  --rap-gold: #d99a16;
+  --rap-gold-soft: #fff5d7;
+  --rap-red: #a34336;
+  --rap-red-soft: #fbece8;
+}
+
+.laundry-performance-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(9, 16, 18, 0.9), rgba(9, 16, 18, 0.66) 48%, rgba(9, 16, 18, 0.18));
+}
+
+.laundry-performance-page .rap-hero-image {
+  object-position: center center;
+}
+
+.laundry-performance-page .rap-kicker,
+.laundry-performance-page .rap-proof li::before {
+  color: #82d8eb;
+}
+
+.laundry-performance-page .rap-kicker {
+  border-left-color: #27a7c4;
+}
+
+.laundry-performance-page .rap-prices {
+  background: #eaf5f6;
+}
+
+.laundry-vinegar-page {
+  --rap-blue: #b85d17;
+  --rap-blue-soft: #fff1e5;
+  --rap-green: #187451;
+  --rap-green-soft: #e7f5ed;
+  --rap-gold: #d98018;
+  --rap-gold-soft: #fff2d8;
+  --rap-red: #9f4438;
+  --rap-red-soft: #fbece8;
+}
+
+.laundry-vinegar-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(8, 16, 19, 0.94), rgba(8, 16, 19, 0.72) 48%, rgba(8, 16, 19, 0.12));
+}
+
+.laundry-vinegar-page .rap-hero-image {
+  object-position: center center;
+}
+
+.laundry-vinegar-page .rap-kicker,
+.laundry-vinegar-page .rap-proof li::before {
+  color: #ffc17f;
+}
+
+.laundry-vinegar-page .rap-kicker {
+  border-left-color: #ed7a1c;
+}
+
+.laundry-vinegar-page .rap-prices {
+  background: #fff1e5;
+}
+
+.laundry-vinegar-page .laundry-demo {
+  border-left-color: #d66c18;
+  background: #fff7ef;
+}
+
+.laundry-color-page {
+  --rap-blue: #1768ad;
+  --rap-blue-soft: #eaf4fc;
+  --rap-green: #187451;
+  --rap-green-soft: #e7f5ed;
+  --rap-gold: #d39218;
+  --rap-gold-soft: #fff3d7;
+  --rap-red: #9f4438;
+  --rap-red-soft: #fbece8;
+}
+
+.laundry-color-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(8, 15, 19, 0.94), rgba(8, 15, 19, 0.72) 48%, rgba(8, 15, 19, 0.12));
+}
+
+.laundry-color-page .rap-hero-image {
+  object-position: center center;
+}
+
+.laundry-color-page .rap-kicker,
+.laundry-color-page .rap-proof li::before {
+  color: #8bc9ff;
+}
+
+.laundry-color-page .rap-kicker {
+  border-left-color: #2b86c5;
+}
+
+.laundry-color-page .rap-prices {
+  background: #eaf4fc;
+}
+
+.laundry-pine-page {
+  --rap-blue: #2e6f3b;
+  --rap-blue-soft: #edf6ed;
+  --rap-green: #187451;
+  --rap-green-soft: #e7f5ed;
+  --rap-gold: #d39218;
+  --rap-gold-soft: #fff3d7;
+  --rap-red: #9f4438;
+  --rap-red-soft: #fbece8;
+}
+
+.laundry-pine-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(8, 15, 13, 0.94), rgba(8, 15, 13, 0.72) 48%, rgba(8, 15, 13, 0.12));
+}
+
+.laundry-pine-page .rap-hero-image {
+  object-position: center center;
+}
+
+.laundry-pine-page .rap-kicker,
+.laundry-pine-page .rap-proof li::before {
+  color: #9ed4a5;
+}
+
+.laundry-pine-page .rap-kicker {
+  border-left-color: #4a9a5a;
+}
+
+.laundry-pine-page .rap-prices {
+  background: #edf6ed;
+}
+
+.laundry-textile-degreaser-page {
+  --rap-blue: #285f46;
+  --rap-blue-soft: #eaf3ee;
+  --rap-green: #187451;
+  --rap-green-soft: #e7f5ed;
+  --rap-gold: #c78618;
+  --rap-gold-soft: #fff3d7;
+  --rap-red: #9f4438;
+  --rap-red-soft: #fbece8;
+}
+
+.laundry-textile-degreaser-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(7, 14, 12, 0.95), rgba(7, 14, 12, 0.73) 48%, rgba(7, 14, 12, 0.1));
+}
+
+.laundry-textile-degreaser-page .rap-hero-image {
+  object-position: center center;
+}
+
+.laundry-textile-degreaser-page .rap-kicker,
+.laundry-textile-degreaser-page .rap-proof li::before {
+  color: #a8dfbc;
+}
+
+.laundry-textile-degreaser-page .rap-kicker {
+  border-left-color: #4d9b70;
+}
+
+.laundry-textile-degreaser-page .rap-prices {
+  background: #eaf3ee;
+}
+
+.laundry-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.laundry-metric {
+  min-height: 118px;
+  padding: 1.2rem;
+  border: 1px solid #c7dfe3;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.laundry-metric strong {
+  display: block;
+  color: #10281b;
+  font-size: 1.65rem;
+  line-height: 1.1;
+}
+
+.laundry-metric span {
+  display: block;
+  margin-top: 0.45rem;
+  color: #5b625d;
+  line-height: 1.45;
+}
+
+.laundry-price-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 900px;
+  padding: 1.5rem;
+  border: 1px solid #bfdadd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.laundry-price-panel div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.laundry-price-panel strong {
+  color: #10281b;
+  font-size: 1.35rem;
+}
+
+.laundry-price-panel span {
+  color: #5b625d;
+}
+
+.laundry-demo {
+  padding: 1.35rem;
+  border-left: 5px solid #147ba3;
+  border-radius: 0 8px 8px 0;
+  background: #f2f9fa;
+}
+
+.laundry-demo p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .laundry-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .laundry-price-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .laundry-price-panel .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .laundry-performance-page .rap-hero-image {
+    object-position: 66% center;
+  }
+
+  .laundry-vinegar-page .rap-hero-image {
+    object-position: 68% center;
+  }
+
+  .laundry-color-page .rap-hero-image {
+    object-position: 68% center;
+  }
+
+  .laundry-pine-page .rap-hero-image {
+    object-position: 68% center;
+  }
+
+  .laundry-textile-degreaser-page .rap-hero-image {
+    object-position: 68% center;
+  }
+}
