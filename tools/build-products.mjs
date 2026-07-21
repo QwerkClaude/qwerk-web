@@ -43,7 +43,7 @@ const META = {
   'detergente-con-vinagre':    { cat:'lavanderia', code:'Con vinagre', name:'Detergente con vinagre', img:'/assets/products/detergente-vinagre-aplicacion.png', accent:'#d66c18', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con vinagre de 20 L por $259 MXN.' },
   'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de Aroma Textil',            img:'/assets/products/reforzador-aroma.png', accent:'#d97706', price:null,       pres:'Consulta disponibilidad', wa:'Hola, me interesa el reforzador de aroma. ¿Cómo se usa y cuánto rinde?' },
   'detergente-ropa-color':     { cat:'lavanderia', code:'Ropa de color', name:'Detergente para ropa de color', img:'/assets/products/detergente-ropa-color-aplicacion.png', accent:'#1768ad', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente para ropa de color de 20 L por $259 MXN.' },
-  'detergente-con-bicarbonato':{ cat:'lavanderia', code:'Bicarbonato',name:'Detergente con Bicarbonato',            img:null,                           accent:'#0284c7', price:null,                priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, quiero información del Detergente con Bicarbonato de QWERK.' },
+  'detergente-con-bicarbonato':{ cat:'lavanderia', code:'Bicarbonato', name:'Detergente con bicarbonato', img:'/assets/products/detergente-bicarbonato-aplicacion.png', accent:'#3d6277', price:null, priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con bicarbonato de 20 L por $269 MXN.' },
   'detergente-con-pino':       { cat:'lavanderia', code:'Aceite de pino', name:'Detergente con pino',                img:'/assets/products/detergente-pino-aplicacion.png', accent:'#2e6f3b', price:null, priceFrom:269, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con pino de 20 L por $269 MXN.' },
 };
 
@@ -337,6 +337,7 @@ const customProductPages = new Set([
   'jabon-liquido-lavanderia',
   'detergente-con-vinagre',
   'detergente-ropa-color',
+  'detergente-con-bicarbonato',
   'detergente-con-pino',
   'limpiador-textil-alcalino',
 ]);

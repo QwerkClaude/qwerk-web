@@ -163,6 +163,38 @@
   background: #eaf3ee;
 }
 
+.laundry-bicarbonate-page {
+  --rap-blue: #3d6277;
+  --rap-blue-soft: #eaf2f5;
+  --rap-green: #187451;
+  --rap-green-soft: #e7f5ed;
+  --rap-gold: #c58a1d;
+  --rap-gold-soft: #fff3d7;
+  --rap-red: #9f4438;
+  --rap-red-soft: #fbece8;
+}
+
+.laundry-bicarbonate-page .rap-hero::after {
+  background: linear-gradient(90deg, rgba(8, 14, 18, 0.95), rgba(8, 14, 18, 0.73) 48%, rgba(8, 14, 18, 0.1));
+}
+
+.laundry-bicarbonate-page .rap-hero-image {
+  object-position: center center;
+}
+
+.laundry-bicarbonate-page .rap-kicker,
+.laundry-bicarbonate-page .rap-proof li::before {
+  color: #b6d6e7;
+}
+
+.laundry-bicarbonate-page .rap-kicker {
+  border-left-color: #618ca3;
+}
+
+.laundry-bicarbonate-page .rap-prices {
+  background: #eaf2f5;
+}
+
 .laundry-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -263,6 +295,10 @@
   }
 
   .laundry-textile-degreaser-page .rap-hero-image {
+    object-position: 68% center;
+  }
+
+  .laundry-bicarbonate-page .rap-hero-image {
     object-position: 68% center;
   }
 }
