@@ -50,9 +50,9 @@ const CATS = {
 
 // Metadatos autoritativos (yo los controlo; el contenido viene del JSON)
 const META = {
-  'snow-foam-ph-neutro':       { cat:'automotriz', code:'Snow Foam',  name:'Snow Foam',                              img:'/assets/products/snow-foam-aplicacion.webp', accent:'#176bb2', price:{low:95,high:1200}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa Snow Foam. Quiero saber qué presentación y dilución me convienen.' },
-  'apc-limpiador-multiusos':   { cat:'automotriz', code:'APC',        name:'APC',                                      img:'/assets/products/apc-aplicacion.webp', accent:'#3aaa35', price:{low:90,high:1100},  pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa APC. Quiero saber qué presentación y dilución me convienen.' },
-  'desengrasante-concentrado': { cat:'automotriz', code:'Desengrasante',   name:'Desengrasante de alta concentración',    img:'/assets/products/desengrasante-aplicacion.webp', accent:'#c0392b', price:{low:55,high:700},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Desengrasante de alta concentración. Quiero saber qué presentación y dilución me convienen.' },
+  'snow-foam-ph-neutro':       { cat:'automotriz', code:'Snow Foam',  name:'Snow Foam',                              sku:'SNF7',    img:'/assets/products/snow-foam-aplicacion.webp', schemaImg:'/assets/products/snf7.png',    accent:'#176bb2', price:{low:95,high:1200}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa Snow Foam. Quiero saber qué presentación y dilución me convienen.' },
+  'apc-limpiador-multiusos':   { cat:'automotriz', code:'APC',        name:'APC',                                      sku:'APC7',    img:'/assets/products/apc-aplicacion.webp',       schemaImg:'/assets/products/apc7.png',    accent:'#3aaa35', price:{low:90,high:1100},  pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa APC. Quiero saber qué presentación y dilución me convienen.' },
+  'desengrasante-concentrado': { cat:'automotriz', code:'Desengrasante',   name:'Desengrasante de alta concentración',    sku:'DSGT250', img:'/assets/products/desengrasante-aplicacion.webp', schemaImg:'/assets/products/dsgt250.png', accent:'#c0392b', price:{low:55,high:700},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Desengrasante de alta concentración. Quiero saber qué presentación y dilución me convienen.' },
   'limpiador-textil-alcalino': { cat:'lavanderia', code:'Refuerzo alcalino', name:'Desengrasante textil alcalino', img:'/assets/products/desengrasante-textil-alcalino-aplicacion.png', accent:'#285f46', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Desengrasante textil alcalino de 20 L por $259 MXN. Quiero saber cómo usarlo junto con mi detergente.' },
   'crema-rap':                  { cat:'automotriz', code:'RAP',        name:'Crema RAP',                              img:'/assets/products/crema-rap-aplicacion.png', accent:'#1f5fbf', price:{low:80,high:1600}, pres:'500 g · 4 kg · 19 kg', wa:'Hola, me interesa Crema RAP. Quiero saber qué presentación me conviene y cómo hacer mi pedido.' },
   'abrillantador-llantas':     { cat:'automotriz', code:'Uso directo', name:'Abrillantador líquido de llantas', img:'/assets/products/abrillantador-llantas-liquido-aplicacion.png', accent:'#f47c14', price:{low:350,high:650},  pres:'10 L · 20 L',             wa:'Hola, me interesa el Abrillantador líquido de llantas. Quiero saber presentación, precio y forma de aplicación.' },
@@ -158,7 +158,9 @@ function productPage(slug, c) {
     category: cat.title, url,
     manufacturer: { '@type': 'Organization', name: 'Q-WERK', url: SITE + '/' },
   };
-  if (m.img) product.image = SITE + m.img;
+  if (m.sku) product.sku = m.sku;
+  const productImages = [m.schemaImg, m.img].filter(Boolean).map(img => SITE + img);
+  if (productImages.length) product.image = productImages.length === 1 ? productImages[0] : productImages;
   if (m.price) product.offers = { '@type': 'AggregateOffer', priceCurrency: 'MXN', lowPrice: m.price.low, highPrice: m.price.high, seller: { '@type': 'Organization', name: 'Q-WERK' }, ...offerPolicies() };
   else if (m.priceFrom) product.offers = { '@type': 'Offer', priceCurrency: 'MXN', price: m.priceFrom, availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'Q-WERK' }, ...offerPolicies() };
   const breadcrumb = {
