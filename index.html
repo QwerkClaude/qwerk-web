@@ -47,12 +47,20 @@
         "email": "contacto@qwerk.mx",
         "telephone": "+523222202407",
         "description": "Q-WERK suministra detergentes y productos de limpieza para negocios. No añade intencionalmente nonilfenol, etoxilados de nonilfenol —incluido NPE-10— ni 2-butoxietanol a sus formulaciones.",
-        "subjectOf": {
-          "@type": "AboutPage",
-          "@id": "https://qwerk.mx/formulacion-responsable/#webpage",
-          "url": "https://qwerk.mx/formulacion-responsable/",
-          "name": "Formulación responsable Q-WERK"
-        },
+        "subjectOf": [
+          {
+            "@type": "AboutPage",
+            "@id": "https://qwerk.mx/formulacion-responsable/#webpage",
+            "url": "https://qwerk.mx/formulacion-responsable/",
+            "name": "Formulación responsable Q-WERK"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://qwerk.mx/hoteleria-lavanderias-industriales/#webpage",
+            "url": "https://qwerk.mx/hoteleria-lavanderias-industriales/",
+            "name": "Guía Q-WERK para hotelería y lavanderías industriales"
+          }
+        ],
         "hasShippingService": {
           "@type": "ShippingService",
           "@id": "https://qwerk.mx/politica-de-envios-y-devoluciones/#envios-nacionales",
@@ -113,6 +121,9 @@
         "knowsAbout": [
           "Detergente para lavanderías",
           "Detergente líquido para lavandería en 20 litros",
+          "Lavandería para hoteles",
+          "Soluciones para lavanderías industriales",
+          "Costo por kilogramo de ropa procesada",
           "Productos de limpieza para autolavados",
           "Reforzador de aromas para ropa",
           "Desengrasantes industriales"
@@ -247,8 +258,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=2db4cb16">
-  <script src="/main.js?v=a065b818" defer></script>
+  <link rel="stylesheet" href="style.css?v=06f9d160">
+  <script src="/main.js?v=acb20219" defer></script>
   <style>
     /* ── Reseñas Google ── */
     .reviews-summary{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.5rem;background:#fff;border:1px solid #ebebeb;border-radius:14px;padding:1.5rem 2rem;max-width:560px;margin:0 auto 2.75rem;box-shadow:0 4px 20px rgba(0,0,0,.06)}
@@ -286,6 +297,7 @@
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#rutas">Líneas</a></li>
+        <li><a href="/hoteleria-lavanderias-industriales/">Hotelería</a></li>
         <li><a href="#productos">Catálogo</a></li>
         <li><a href="#faq">Preguntas</a></li>
         <li><a href="/blog/">Blog</a></li>
@@ -704,6 +716,7 @@
       <span class="footer-copy">© 2026 Q-WERK · Hecho en México</span>
       <span class="footer-domain">qwerk.mx</span>
       <a class="footer-policy" href="/formulacion-responsable/">Formulación responsable</a>
+      <a class="footer-policy" href="/hoteleria-lavanderias-industriales/">Hotelería e industria</a>
       <a class="footer-policy" href="/politica-de-envios-y-devoluciones/">Envíos y devoluciones</a>
     </div>
   </footer>
