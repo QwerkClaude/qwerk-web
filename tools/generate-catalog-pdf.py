@@ -44,7 +44,7 @@ AUTOMOTIVE = [
         "category": "LAVADO EXTERIOR",
         "name": "Snow Foam",
         "description": "Shampoo concentrado de pH neutro que genera espuma densa para el lavado de contacto con guante o microfibra.",
-        "prices": [("1 L", "$95"), ("5 L", "$380"), ("10 L", "$665"), ("20 L", "$1,200")],
+        "prices": [("1 L", "$99"), ("5 L", "$499"), ("10 L", "$699"), ("20 L", "$1,200")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/automotriz/snow-foam-ph-neutro/",
     },
@@ -60,7 +60,7 @@ AUTOMOTIVE = [
         "category": "LIMPIEZA PROFUNDA",
         "name": "Desengrasante de alta concentración",
         "description": "Fórmula concentrada para remover grasa y suciedad difícil en motores, piezas, rines y superficies lavables.",
-        "prices": [("1 L", "$55"), ("5 L", "$220"), ("10 L", "$390"), ("20 L", "$700")],
+        "prices": [("1 L", "$55"), ("5 L", "$250"), ("10 L", "$390"), ("20 L", "$700")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/automotriz/desengrasante-concentrado/",
     },
@@ -84,7 +84,7 @@ AUTOMOTIVE = [
         "category": "ACABADO DE LLANTAS",
         "name": "Abrillantador en gel de llantas",
         "description": "Textura en gel para dosificar con mayor control y obtener un brillo uniforme sin escurrimientos.",
-        "prices": [("4 kg", "$160"), ("19 kg", "$650")],
+        "prices": [("4 kg", "$200"), ("19 kg", "$650")],
         "note": "Aplicación controlada con esponja.",
         "url": "https://qwerk.mx/automotriz/abrillantador-llantas-gel/",
     },
@@ -92,9 +92,25 @@ AUTOMOTIVE = [
         "category": "MÁXIMO BRILLO PARA LLANTAS",
         "name": "Abrillantador hidrofóbico para llantas",
         "description": "Acabado wet look de máximo brillo, negro profundo y película que ayuda a repeler el agua.",
-        "prices": [("1 L", "$299")],
+        "prices": [("250 g", "$99"), ("1 L", "$299")],
         "note": "Consistencia oleosa semiviscosa; se aplica con pad.",
         "url": "https://qwerk.mx/automotriz/abrillantador-hidrofobico-llantas/",
+    },
+    {
+        "category": "ACABADO AROMÁTICO INTERIOR",
+        "name": "Aromatizante automotriz",
+        "description": "Acabado aromático final para el interior limpio del vehículo. Los aromas disponibles se confirman antes del pedido.",
+        "prices": [("1 L", "$99"), ("5 L", "$449")],
+        "note": "Envase incluido; aromas sujetos a disponibilidad.",
+        "url": "https://qwerk.mx/automotriz/aromatizante-automotriz/",
+    },
+    {
+        "category": "LAVADO COTIDIANO",
+        "name": "Shampoo básico automotriz",
+        "description": "Opción práctica en presentación de volumen para el lavado automotriz cotidiano y el control del costo por servicio.",
+        "prices": [("20 L", "$400")],
+        "note": "Presentación única en envase retornable.",
+        "url": "https://qwerk.mx/automotriz/shampoo-basico/",
     },
 ]
 
@@ -281,20 +297,21 @@ def general_cover(c):
     draw_text(c, 48, 671, "CATÁLOGO GENERAL", 10, GOLD, True)
     draw_text(c, 48, 626, "Productos para negocios", 29, white, True)
     draw_text(c, 48, 592, "Automotriz y lavandería", 24, white, True)
-    draw_text(c, 48, 556, "14 productos con función, presentación y precio claros.", 12, white)
+    total_products = sum(len(products) for _, products, _, _, _ in SECTIONS)
+    draw_text(c, 48, 556, f"{total_products} productos con función, presentación y precio claros.", 12, white)
 
     draw_text(c, 48, 415, "ELIGE TU LÍNEA", 9, GREEN, True)
 
     c.setFillColor(ORANGE_SOFT)
     c.roundRect(48, 314, PAGE_W - 96, 78, 7, fill=1, stroke=0)
     draw_text(c, 64, 363, "AUTOMOTRIZ", 10, ORANGE, True)
-    draw_text(c, 64, 339, "7 productos para autolavados y detallado", 14, INK, True)
+    draw_text(c, 64, 339, f"{len(AUTOMOTIVE)} productos para autolavados y detallado", 14, INK, True)
     draw_button(c, PAGE_W - 204, 326, 140, 28, "VER LÍNEA EN LÍNEA", "https://qwerk.mx/automotriz/", ORANGE)
 
     c.setFillColor(TEAL_SOFT)
     c.roundRect(48, 215, PAGE_W - 96, 78, 7, fill=1, stroke=0)
     draw_text(c, 64, 264, "LAVANDERÍA", 10, TEAL, True)
-    draw_text(c, 64, 240, "7 detergentes y auxiliares de lavado", 14, INK, True)
+    draw_text(c, 64, 240, f"{len(LAUNDRY)} detergentes y auxiliares de lavado", 14, INK, True)
     draw_button(c, PAGE_W - 204, 227, 140, 28, "VER LÍNEA EN LÍNEA", "https://qwerk.mx/lavanderia/", TEAL)
 
     draw_text(c, 48, 161, "Precios en MXN con IVA incluido.", 10, INK, True)
@@ -326,12 +343,13 @@ def line_cover(c, section, products, accent, soft, subtitle):
     c.setFillColor(soft)
     c.roundRect(48, 201, PAGE_W - 96, 190, 7, fill=1, stroke=0)
     list_y = 362
+    list_step = min(24, 145 / max(1, len(products) - 1))
     for product in products:
         c.setFillColor(accent)
         c.circle(66, list_y + 3, 2.5, fill=1, stroke=0)
         name_size = fit_size(product["name"], 11.5, 9.5, PAGE_W - 150)
         draw_text(c, 78, list_y, product["name"], name_size, INK, True)
-        list_y -= 24
+        list_y -= list_step
 
     draw_text(c, 48, 164, "Precios en MXN con IVA incluido.", 10, INK, True)
     draw_text(c, 48, 146, "Las presentaciones de 10 L y 20 L se manejan en envase retornable.", 9.5, MUTED)
