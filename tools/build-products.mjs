@@ -307,7 +307,9 @@ ${WA_FIXED(m.wa)}
 function hubPage(cat) {
   const info = CATS[cat];
   const url = `${SITE}/${cat}/`;
-  const slugs = Object.keys(META).filter(s => META[s].cat === cat);
+  const slugs = Object.keys(META)
+    .filter(s => META[s].cat === cat)
+    .sort((a, b) => Number(a === 'snow-foam-ph-neutro') - Number(b === 'snow-foam-ph-neutro'));
   const cards = slugs.map(slug => {
     const m = META[slug];
     const priceFrom = m.offers?.length ? Math.min(...m.offers.map(offer => offer.price)) : (m.priceFrom ?? m.price?.low);

@@ -41,14 +41,6 @@ MUTED = HexColor("#5D655F")
 
 AUTOMOTIVE = [
     {
-        "category": "LAVADO EXTERIOR",
-        "name": "Snow Foam",
-        "description": "Shampoo concentrado de pH neutro que genera espuma densa para el lavado de contacto con guante o microfibra.",
-        "prices": [("1 L", "$99"), ("5 L", "$499"), ("10 L", "$699"), ("20 L", "$1,200")],
-        "note": "10 L y 20 L en envase retornable.",
-        "url": "https://qwerk.mx/automotriz/snow-foam-ph-neutro/",
-    },
-    {
         "category": "LIMPIEZA INTERIOR",
         "name": "APC",
         "description": "Limpiador multiusos de pH neutro para plásticos, viniles, consolas, paneles y otras superficies lavables.",
@@ -111,6 +103,14 @@ AUTOMOTIVE = [
         "prices": [("20 L", "$400")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/automotriz/shampoo-basico/",
+    },
+    {
+        "category": "LAVADO EXTERIOR",
+        "name": "Snow Foam",
+        "description": "Shampoo concentrado de pH neutro que genera espuma densa para el lavado de contacto con guante o microfibra.",
+        "prices": [("1 L", "$99"), ("5 L", "$499"), ("10 L", "$699"), ("20 L", "$1,200")],
+        "note": "10 L y 20 L en envase retornable.",
+        "url": "https://qwerk.mx/automotriz/snow-foam-ph-neutro/",
     },
 ]
 
