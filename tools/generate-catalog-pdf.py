@@ -98,10 +98,10 @@ AUTOMOTIVE = [
     },
     {
         "category": "ACABADO AROMÁTICO INTERIOR",
-        "name": "Aromatizante automotriz",
+        "name": "Aromatizante básico automotriz",
         "description": "Acabado aromático final para el interior limpio del vehículo. Los aromas disponibles se confirman antes del pedido.",
-        "prices": [("1 L", "$99"), ("5 L", "$449")],
-        "note": "Envase incluido; aromas sujetos a disponibilidad.",
+        "prices": [("1 L", "$60"), ("5 L", "$285"), ("10 L", "$320"), ("20 L", "$550")],
+        "note": "1 L y 5 L incluyen envase; 10 L y 20 L son retornables. Consulta aromas por WhatsApp.",
         "url": "https://qwerk.mx/automotriz/aromatizante-automotriz/",
     },
     {

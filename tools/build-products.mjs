@@ -22,7 +22,7 @@ const assetV = f => createHash('sha256').update(readFileSync(join(ROOT, f))).dig
 const V_JS = assetV('main.js'), V_CSS = assetV('style.css');
 const SITE = 'https://qwerk.mx';
 const PHONE = '523222202407';
-const TODAY = '2026-08-07';
+const TODAY = '2026-08-08';
 const POLICY_URL = `${SITE}/politica-de-envios-y-devoluciones/`;
 const SHIPPING_POLICY_ID = `${POLICY_URL}#envios-nacionales`;
 const FORMULATION_PROPERTIES = [
@@ -70,7 +70,7 @@ const META = {
   'abrillantador-llantas':     { cat:'automotriz', code:'Uso directo', name:'Abrillantador líquido de llantas', img:'/assets/products/abrillantador-llantas-liquido-aplicacion.png', accent:'#f47c14', price:{low:350,high:650},  pres:'10 L · 20 L',             wa:'Hola, me interesa el Abrillantador líquido de llantas. Quiero saber presentación, precio y forma de aplicación.' },
   'abrillantador-llantas-gel': { cat:'automotriz', code:'Gel', name:'Abrillantador en gel de llantas', img:'/assets/products/abrillantador-llantas-gel-aplicacion.png', accent:'#f47c14', price:{low:200,high:650},  pres:'4 kg · 19 kg',            wa:'Hola, me interesa el Abrillantador en gel de llantas. Quiero saber presentación, precio y forma de aplicación.' },
   'abrillantador-hidrofobico-llantas':{cat:'automotriz',code:'Hidrofóbico', name:'Abrillantador hidrofóbico para llantas', img:'/assets/products/abrillantador-hidrofobico-llantas-aplicacion.png', accent:'#b5122b', price:{low:99,high:299}, priceFrom:99, pres:'250 g · 1 L', wa:'Hola, me interesa el Abrillantador hidrofóbico para llantas. Quiero confirmar presentación, precio y disponibilidad.', star:true },
-  'aromatizante-automotriz':   { cat:'automotriz', code:'Acabado aromático', name:'Aromatizante automotriz', accent:'#7b4aa3', offers:[{name:'1 L',price:99,container:'Envase incluido'},{name:'5 L',price:449,container:'Envase incluido'}], pres:'1 L · 5 L', wa:'Hola, me interesa el Aromatizante automotriz Q-WERK. Quiero conocer los aromas disponibles y hacer un pedido.' },
+  'aromatizante-automotriz':   { cat:'automotriz', code:'Acabado aromático', name:'Aromatizante básico automotriz', accent:'#7b4aa3', offers:[{name:'1 L',price:60,container:'Envase incluido'},{name:'5 L',price:285,container:'Envase incluido'},{name:'10 L',price:320,container:'Envase en consigna'},{name:'20 L',price:550,container:'Envase en consigna'}], consignmentNote:'Las presentaciones de 10 L y 20 L se entregan en consigna y el envase debe devolverse al solicitar reposición.', pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Aromatizante básico automotriz Q-WERK. Quiero conocer los aromas disponibles y confirmar presentación, precio y entrega.' },
   'shampoo-basico':            { cat:'automotriz', code:'Lavado cotidiano', name:'Shampoo básico automotriz', accent:'#167c82', offers:[{name:'20 L',price:400,container:'Envase en consigna'}], retornable:true, pres:'20 L', wa:'Hola, me interesa el Shampoo básico automotriz de 20 L por $400 MXN. Quiero confirmar disponibilidad y forma de uso.' },
   'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'Alto desempeño', name:'Detergente de alto desempeño', img:'/assets/products/detergente-alto-desempeno-aplicacion.png', accent:'#0097a7', price:null, priceFrom:490, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente de alto desempeño de 20 L por $490 MXN.' },
   'detergente-con-vinagre':    { cat:'lavanderia', code:'Con vinagre', name:'Detergente con vinagre', img:'/assets/products/detergente-vinagre-aplicacion.png', accent:'#d66c18', price:null, priceFrom:259, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con vinagre de 20 L por $259 MXN.' },
@@ -228,7 +228,7 @@ function productPage(slug, c) {
         <div class="public-offer-grid">
           ${m.offers.map(offer => `<article class="public-offer-card"><span>${htmlEsc(offer.name)}</span><strong>$${money(offer.price)} MXN</strong><small>${htmlEsc(offer.container)}</small></article>`).join('')}
         </div>
-        <p>Precios en MXN con IVA incluido, sujetos a vigencia y disponibilidad.${m.retornable ? ' El envase se entrega en consigna y debe devolverse al solicitar reposición.' : ''}</p>
+        <p>Precios en MXN con IVA incluido, sujetos a vigencia y disponibilidad.${m.consignmentNote ? ` ${htmlEsc(m.consignmentNote)}` : (m.retornable ? ' El envase se entrega en consigna y debe devolverse al solicitar reposición.' : '')}</p>
       </div>` : '';
 
   return head({ title: c.title, desc: c.metaDesc, canonical: url, ogImg, ld: [breadcrumb, product, faqLd], waMsg: m.wa }) + `
