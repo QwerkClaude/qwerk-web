@@ -1,8 +1,10 @@
 from pathlib import Path
 from shutil import copyfile
 
+from PIL import Image, ImageOps
 from reportlab.lib.colors import HexColor, white
 from reportlab.lib.pagesizes import letter
+from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
@@ -20,6 +22,9 @@ DELIVERY_OUTPUTS = {
     "lavanderia": ROOT / "output/pdf/catalogo-lavanderia-qwerk.pdf",
 }
 PAGE_W, PAGE_H = letter
+LOGO_WHITE = ROOT / "assets/logo-white.png"
+LOGO_ICON = ROOT / "assets/logo-icon.png"
+CATALOG_IMAGE_CACHE = ROOT / "tmp/pdfs/catalog-assets"
 
 REGULAR = "Arial-QWerk"
 BOLD = "Arial-QWerk-Bold"
@@ -43,18 +48,22 @@ AUTOMOTIVE = [
     {
         "category": "LIMPIEZA INTERIOR",
         "name": "APC",
-        "description": "Limpiador multiusos de pH neutro para plásticos, viniles, consolas, paneles y otras superficies lavables.",
+        "description": "Limpiador concentrado de pH neutro para interiores y otras superficies lavables.",
+        "performance": "1 L concentrado se diluye para obtener de 5 a 20 L de producto final listo para usar.",
         "prices": [("1 L", "$90"), ("5 L", "$350"), ("10 L", "$610"), ("20 L", "$1,100")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/automotriz/apc-limpiador-multiusos/",
+        "image": ROOT / "assets/products/apc-aplicacion.webp",
     },
     {
         "category": "LIMPIEZA PROFUNDA",
         "name": "Desengrasante de alta concentración",
-        "description": "Fórmula concentrada para remover grasa y suciedad difícil en motores, piezas, rines y superficies lavables.",
+        "description": "Concentrado para remover grasa y suciedad difícil en motores, piezas, rines y superficies lavables.",
+        "performance": "1 L concentrado se diluye para obtener de 3 a 10 L de producto final listo para usar.",
         "prices": [("1 L", "$55"), ("5 L", "$250"), ("10 L", "$390"), ("20 L", "$700")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/automotriz/desengrasante-concentrado/",
+        "image": ROOT / "assets/products/desengrasante-aplicacion.webp",
     },
     {
         "category": "ACABADO INTERIOR",
@@ -63,6 +72,7 @@ AUTOMOTIVE = [
         "prices": [("500 g", "$80"), ("4 kg", "$340"), ("19 kg", "$1,600")],
         "note": "Uso directo y alto rendimiento.",
         "url": "https://qwerk.mx/automotriz/crema-rap/",
+        "image": ROOT / "assets/products/crema-rap-aplicacion.png",
     },
     {
         "category": "ACABADO DE LLANTAS",
@@ -71,6 +81,7 @@ AUTOMOTIVE = [
         "prices": [("10 L", "$350"), ("20 L", "$650")],
         "note": "Envases retornables.",
         "url": "https://qwerk.mx/automotriz/abrillantador-llantas/",
+        "image": ROOT / "assets/products/abrillantador-llantas-liquido-aplicacion.webp",
     },
     {
         "category": "ACABADO DE LLANTAS",
@@ -79,6 +90,7 @@ AUTOMOTIVE = [
         "prices": [("4 kg", "$200"), ("19 kg", "$650")],
         "note": "Aplicación controlada con esponja.",
         "url": "https://qwerk.mx/automotriz/abrillantador-llantas-gel/",
+        "image": ROOT / "assets/products/abrillantador-llantas-gel-aplicacion.webp",
     },
     {
         "category": "MÁXIMO BRILLO PARA LLANTAS",
@@ -87,6 +99,7 @@ AUTOMOTIVE = [
         "prices": [("250 g", "$99"), ("1 L", "$299")],
         "note": "Consistencia oleosa semiviscosa; se aplica con pad.",
         "url": "https://qwerk.mx/automotriz/abrillantador-hidrofobico-llantas/",
+        "image": ROOT / "assets/products/abrillantador-hidrofobico-llantas-aplicacion.webp",
     },
     {
         "category": "ACABADO AROMÁTICO INTERIOR",
@@ -95,6 +108,7 @@ AUTOMOTIVE = [
         "prices": [("1 L", "$60"), ("5 L", "$285"), ("10 L", "$320"), ("20 L", "$550")],
         "note": "1 L y 5 L incluyen envase; 10 L y 20 L son retornables. Consulta aromas por WhatsApp.",
         "url": "https://qwerk.mx/automotriz/aromatizante-automotriz/",
+        "placeholder_accent": HexColor("#7B4AA3"),
     },
     {
         "category": "LAVADO COTIDIANO",
@@ -103,14 +117,17 @@ AUTOMOTIVE = [
         "prices": [("20 L", "$400")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/automotriz/shampoo-basico/",
+        "placeholder_accent": HexColor("#167C82"),
     },
     {
         "category": "LAVADO EXTERIOR",
         "name": "Snow Foam",
-        "description": "Shampoo concentrado de pH neutro que genera espuma densa para el lavado de contacto con guante o microfibra.",
+        "description": "Shampoo concentrado de pH neutro que genera espuma densa para el lavado de contacto.",
+        "performance": "Espumador de tanque: 1 L prepara hasta 100 L de mezcla. Cañón de espuma: usa 100 ml por cada 1 L de agua.",
         "prices": [("1 L", "$99"), ("5 L", "$499"), ("10 L", "$699"), ("20 L", "$1,200")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/automotriz/snow-foam-ph-neutro/",
+        "image": ROOT / "assets/products/snow-foam-aplicacion.webp",
     },
 ]
 
@@ -122,6 +139,7 @@ LAUNDRY = [
         "prices": [("20 L", "$490")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/jabon-liquido-lavanderia/",
+        "image": ROOT / "assets/products/detergente-alto-desempeno-aplicacion.webp",
     },
     {
         "category": "DESODORIZACIÓN",
@@ -130,6 +148,7 @@ LAUNDRY = [
         "prices": [("20 L", "$259")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/detergente-con-vinagre/",
+        "image": ROOT / "assets/products/detergente-vinagre-aplicacion.webp",
     },
     {
         "category": "LAVADO DE ROPA DE COLOR",
@@ -138,6 +157,7 @@ LAUNDRY = [
         "prices": [("20 L", "$259")],
         "note": "Líquido azul; envase retornable.",
         "url": "https://qwerk.mx/lavanderia/detergente-ropa-color/",
+        "image": ROOT / "assets/products/detergente-ropa-color-aplicacion.webp",
     },
     {
         "category": "APOYO DE LIMPIEZA",
@@ -146,6 +166,7 @@ LAUNDRY = [
         "prices": [("20 L", "$259")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/detergente-con-bicarbonato/",
+        "image": ROOT / "assets/products/detergente-bicarbonato-aplicacion.webp",
     },
     {
         "category": "AROMA A PINO",
@@ -154,6 +175,7 @@ LAUNDRY = [
         "prices": [("20 L", "$259")],
         "note": "Líquido verde ligero; envase retornable.",
         "url": "https://qwerk.mx/lavanderia/detergente-con-pino/",
+        "image": ROOT / "assets/products/detergente-pino-aplicacion.webp",
     },
     {
         "category": "SUCIEDAD EXTREMA",
@@ -162,6 +184,7 @@ LAUNDRY = [
         "prices": [("20 L", "$259")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/limpiador-textil-alcalino/",
+        "image": ROOT / "assets/products/desengrasante-textil-alcalino-aplicacion.webp",
     },
     {
         "category": "ACABADO AROMÁTICO FINAL",
@@ -170,6 +193,7 @@ LAUNDRY = [
         "prices": [("1 L", "$59"), ("5 L", "$295"), ("10 L", "$590"), ("20 L", "$1,180")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/reforzador-aroma-textil/",
+        "image": ROOT / "assets/products/reforzador-aroma-textil-aplicacion.webp",
     },
 ]
 
@@ -228,10 +252,54 @@ def draw_button(c, x, y, width, height, label, url, color=GREEN):
     c.linkURL(url, (x, y, x + width, y + height), relative=0)
 
 
+def draw_logo(c, x, y, width):
+    logo = ImageReader(str(LOGO_WHITE))
+    logo_width, logo_height = logo.getSize()
+    height = width * logo_height / logo_width
+    c.drawImage(logo, x, y, width, height, mask="auto")
+
+
+def prepared_catalog_image(source):
+    CATALOG_IMAGE_CACHE.mkdir(parents=True, exist_ok=True)
+    output = CATALOG_IMAGE_CACHE / f"{source.stem}.jpg"
+    if not output.exists() or output.stat().st_mtime < source.stat().st_mtime:
+        with Image.open(source) as image:
+            image = ImageOps.fit(image.convert("RGB"), (580, 352), Image.Resampling.LANCZOS)
+            image.save(output, "JPEG", quality=84, optimize=True, progressive=True)
+    return output
+
+
+def draw_product_image(c, product, x, y, width, height, accent, soft):
+    c.saveState()
+    clip = c.beginPath()
+    clip.roundRect(x, y, width, height, 5)
+    c.clipPath(clip, stroke=0, fill=0)
+
+    if product.get("image"):
+        image_path = prepared_catalog_image(product["image"])
+        c.drawImage(str(image_path), x, y, width, height)
+    else:
+        placeholder_accent = product.get("placeholder_accent", accent)
+        c.setFillColor(placeholder_accent)
+        c.rect(x, y, width, height, fill=1, stroke=0)
+        icon = ImageReader(str(LOGO_ICON))
+        c.setFillAlpha(0.18)
+        c.drawImage(icon, x + 8, y + 7, 48, 52, mask="auto")
+        c.setFillAlpha(1)
+        draw_text(c, x + 12, y + height - 18, "NUEVO", 7.5, white, True)
+        for index, line in enumerate(wrap_text(product["name"], BOLD, 11, width - 24, 2)):
+            draw_text(c, x + 12, y + 30 - index * 13, line, 11, white, True)
+
+    c.restoreState()
+    c.setStrokeColor(soft)
+    c.setLineWidth(1)
+    c.roundRect(x, y, width, height, 5, fill=0, stroke=1)
+
+
 def header(c, page_number, total_pages, section, accent):
     c.setFillColor(INK)
     c.rect(0, PAGE_H - 58, PAGE_W, 58, fill=1, stroke=0)
-    draw_text(c, 40, PAGE_H - 36, "Q-WERK", 18, white, True)
+    draw_logo(c, 40, PAGE_H - 45, 92)
     draw_text(c, PAGE_W - 40, PAGE_H - 34, f"{section}  |  {page_number}/{total_pages}", 9, white, True, "right")
     c.setFillColor(accent)
     c.rect(0, PAGE_H - 62, PAGE_W, 4, fill=1, stroke=0)
@@ -257,31 +325,51 @@ def product_card(c, product, y_top, height, accent, soft):
     c.setFillColor(accent)
     c.roundRect(x, y, 6, height, 3, fill=1, stroke=0)
 
-    cursor = y_top - 22
-    draw_text(c, left, cursor, product["category"], 8.3, accent, True)
-    cursor -= 25
-    title_size = fit_size(product["name"], 17.5, 12.5, right - left)
-    draw_text(c, left, cursor, product["name"], title_size, INK, True)
-    cursor -= 20
+    image_width = 145
+    image_height = 88
+    image_y = y_top - 141
+    draw_product_image(c, product, left, image_y, image_width, image_height, accent, soft)
 
-    for line in wrap_text(product["description"], REGULAR, 10.3, right - left, 2):
-        draw_text(c, left, cursor, line, 10.3, MUTED)
-        cursor -= 14
+    content_left = left + image_width + 15
+    cursor = y_top - 21
+    draw_text(c, content_left, cursor, product["category"], 8.1, accent, True)
+    cursor -= 23
+    title_size = fit_size(product["name"], 16.5, 11.5, right - content_left)
+    for line in wrap_text(product["name"], BOLD, title_size, right - content_left, 2):
+        draw_text(c, content_left, cursor, line, title_size, INK, True)
+        cursor -= title_size + 2
+    cursor -= 3
 
-    cursor -= 4
-    draw_text(c, left, cursor, "PRESENTACIÓN", 8.2, accent, True)
-    draw_text(c, right, cursor, "PRECIO", 8.2, accent, True, "right")
-    cursor -= 9
+    description_lines = 2 if product.get("performance") else 3
+    for line in wrap_text(product["description"], REGULAR, 9.3, right - content_left, description_lines):
+        draw_text(c, content_left, cursor, line, 9.3, MUTED)
+        cursor -= 12
 
-    for presentation, price in product["prices"]:
-        row_y = cursor - 22
+    if product.get("performance"):
+        cursor -= 1
+        draw_text(c, content_left, cursor, "ALTO RENDIMIENTO", 7.7, accent, True)
+        cursor -= 11
+        for line in wrap_text(product["performance"], BOLD, 8.4, right - content_left, 4):
+            draw_text(c, content_left, cursor, line, 8.4, INK, True)
+            cursor -= 11
+
+    price_top = y_top - 157
+    draw_text(c, left, price_top, "PRESENTACIÓN", 8.1, accent, True)
+    draw_text(c, right, price_top, "PRECIO", 8.1, accent, True, "right")
+    price_width = (right - left - 8) / 2
+    for index, (presentation, price) in enumerate(product["prices"]):
+        column = index % 2
+        row = index // 2
+        row_x = left + column * (price_width + 8)
+        row_y = price_top - 27 - row * 25
         c.setFillColor(soft)
-        c.roundRect(left, row_y, right - left, 20, 4, fill=1, stroke=0)
-        draw_text(c, left + 9, row_y + 6, presentation, 10, INK, True)
-        draw_text(c, right - 9, row_y + 6, price, 10.5, INK, True, "right")
-        cursor -= 24
+        c.roundRect(row_x, row_y, price_width, 20, 4, fill=1, stroke=0)
+        draw_text(c, row_x + 8, row_y + 6, presentation, 9.4, INK, True)
+        draw_text(c, row_x + price_width - 8, row_y + 6, price, 9.8, INK, True, "right")
 
-    draw_text(c, left, y + 24, product["note"], 8.2, MUTED)
+    note_width = right - left - 184
+    for index, line in enumerate(wrap_text(product["note"], REGULAR, 7.7, note_width, 2)):
+        draw_text(c, left, y + 27 - index * 9, line, 7.7, MUTED)
     draw_button(c, right - 168, y + 13, 168, 28, "ABRIR FICHA EN QWERK.MX", product["url"], accent)
 
 
@@ -293,7 +381,7 @@ def general_cover(c):
     c.setFillColor(GOLD)
     c.rect(0, PAGE_H - 331, PAGE_W, 6, fill=1, stroke=0)
 
-    draw_text(c, 48, 730, "Q-WERK", 25, white, True)
+    draw_logo(c, 48, 704, 130)
     draw_text(c, 48, 671, "CATÁLOGO GENERAL", 10, GOLD, True)
     draw_text(c, 48, 626, "Productos para negocios", 29, white, True)
     draw_text(c, 48, 592, "Automotriz y lavandería", 24, white, True)
@@ -333,7 +421,7 @@ def line_cover(c, section, products, accent, soft, subtitle):
     c.setFillColor(accent)
     c.rect(0, PAGE_H - 331, PAGE_W, 6, fill=1, stroke=0)
 
-    draw_text(c, 48, 730, "Q-WERK", 25, white, True)
+    draw_logo(c, 48, 704, 130)
     draw_text(c, 48, 671, f"CATÁLOGO {section}", 10, accent, True)
     for index, line in enumerate(wrap_text(subtitle, BOLD, 28, PAGE_W - 96, 2)):
         draw_text(c, 48, 626 - index * 34, line, 28, white, True)
