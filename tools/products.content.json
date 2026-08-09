@@ -562,6 +562,59 @@
     ],
     "differentiator": "Alta concentración y una aplicación claramente definida: se atomiza sin diluir únicamente sobre ropa limpia y completamente seca como acabado final."
   },
+  "suavizante-de-telas": {
+    "title": "Suavizante de telas para lavanderías | Q-WERK",
+    "metaDesc": "Suavizante de telas Q-WERK para aportar suavidad, tacto agradable y acabado aromático en el ciclo de enjuague. Presentación profesional de 20 L.",
+    "intro": "El Suavizante de telas Q-WERK completa el proceso de lavado con un tacto más suave y un acabado aromático agradable. Se incorpora en el ciclo de enjuague y está pensado para lavanderías, hoteles, negocios y hogares con consumo frecuente.",
+    "mainBenefit": "Suavidad y acabado aromático para completar el proceso de lavado.",
+    "benefits": [
+      "Ayuda a dejar las prendas con un tacto suave y agradable.",
+      "Se incorpora en el ciclo de enjuague, separado del detergente.",
+      "Aporta un acabado aromático después del lavado.",
+      "Adecuado para lavanderías, hoteles y negocios con consumo frecuente.",
+      "Presentación profesional de 20 litros en envase retornable."
+    ],
+    "summary": {
+      "tipo": "Suavizante líquido para telas",
+      "usoPrincipal": "Aportar suavidad y acabado aromático después del lavado",
+      "concentracion": "Se dosifica según la carga y las indicaciones vigentes de la etiqueta",
+      "aplicacion": "Compartimento del suavizante o etapa final de enjuague",
+      "superficies": "Prendas y textiles lavables compatibles con suavizante",
+      "cliente": "Lavanderías, hoteles, negocios y hogares con consumo frecuente"
+    },
+    "fullContentHtml": "<h2>Qué es el Suavizante de telas Q-WERK</h2><p>Es un auxiliar para el cuidado textil que se incorpora en el enjuague. Ayuda a dejar las prendas con un tacto más suave y un acabado aromático agradable después del lavado.</p><h2>Para qué sirve</h2><p>Completa el proceso de lavandería después de que el detergente ha realizado la limpieza. Está pensado para prendas y textiles lavables cuya etiqueta permita el uso de suavizante.</p><h2>Modo de uso</h2><ol><li>Revisa la etiqueta de cuidado de las prendas.</li><li>Dosifica el producto de acuerdo con el tamaño de la carga y las indicaciones vigentes de Q-WERK.</li><li>Agrega el suavizante en su compartimento o durante la etapa final de enjuague.</li><li>Evita verter el producto directamente sobre la ropa.</li><li>Completa el ciclo seleccionado para las prendas.</li></ol><h2>Cómo se diferencia de otros productos</h2><p>El suavizante no sustituye al detergente: se utiliza después del lavado para aportar suavidad. Tampoco es lo mismo que el Reforzador de aroma textil, que se atomiza sobre ropa limpia y seca como acabado final.</p><h2>Compatibilidad y precauciones</h2><ul><li>Sigue siempre la etiqueta de cuidado de cada prenda.</li><li>No lo uses en textiles cuya etiqueta desaconseje el suavizante.</li><li>No lo mezcles directamente con detergente, cloro u otros productos.</li><li>Mantén el producto fuera del alcance de niñas y niños.</li></ul><h2>Presentación y disponibilidad</h2><p>Disponible en presentación profesional de 20 litros. Consulta disponibilidad, forma de uso y entrega por WhatsApp.</p><h2>Envase retornable</h2><p>Conserva el bidón vacío y entrégalo a Q-WERK para su reutilización. El procedimiento de retorno se confirma al realizar el pedido.</p>",
+    "faq": [
+      {
+        "q": "¿Para qué sirve el Suavizante de telas Q-WERK?",
+        "a": "Se utiliza en el enjuague para aportar un tacto más suave y un acabado aromático agradable a prendas y textiles compatibles."
+      },
+      {
+        "q": "¿En qué momento del lavado se agrega?",
+        "a": "Se agrega en el compartimento del suavizante o durante la etapa final de enjuague, de acuerdo con el equipo y las indicaciones vigentes."
+      },
+      {
+        "q": "¿Sustituye al detergente?",
+        "a": "No. El detergente realiza la limpieza y el suavizante se utiliza después para aportar suavidad y acabado aromático."
+      },
+      {
+        "q": "¿Es lo mismo que el Reforzador de aroma textil?",
+        "a": "No. El suavizante se incorpora en el enjuague; el Reforzador de aroma textil se atomiza sobre ropa limpia y seca como acabado final."
+      },
+      {
+        "q": "¿Se puede usar en cualquier prenda?",
+        "a": "Debe utilizarse únicamente en prendas y textiles cuya etiqueta permita el uso de suavizante."
+      },
+      {
+        "q": "¿Qué presentación está disponible?",
+        "a": "Está disponible en presentación profesional de 20 litros. La disponibilidad y entrega se confirman por WhatsApp."
+      },
+      {
+        "q": "¿Cómo hago un pedido?",
+        "a": "Escribe por WhatsApp al +52 322 220 2407 para confirmar disponibilidad, forma de uso y entrega."
+      }
+    ],
+    "differentiator": "Completa el lavado desde el ciclo de enjuague: aporta suavidad y acabado aromático sin sustituir al detergente ni al reforzador de aroma de aplicación final."
+  },
   "detergente-ropa-color": {
     "title": "Detergente para ropa de color | Q-WERK",
     "metaDesc": "Detergente de buen desempeño para el lavado cotidiano de ropa de color. Presentación retornable de 20 L por $259 MXN.",
