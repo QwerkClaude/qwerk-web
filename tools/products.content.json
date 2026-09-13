@@ -827,5 +827,63 @@
       {"q": "¿Cómo hago un pedido?", "a": "Escribe por WhatsApp al +52 322 220 2407 para confirmar disponibilidad, dosificación y entrega."}
     ],
     "differentiator": "Ofrece una presentación única de 20 litros con precio público claro para operaciones que buscan una opción práctica de lavado cotidiano."
+  },
+  "vinagre-limpieza-8": {
+    "title": "Vinagre de limpieza al 8% | Q-WERK",
+    "metaDesc": "Vinagre de limpieza al 8% Q-WERK para limpieza general. Presentación de 20 litros por $180 MXN.",
+    "intro": "Vinagre de limpieza al 8% para tareas de limpieza general en negocios y hogares. Presentación de volumen para quienes necesitan una solución práctica de uso frecuente.",
+    "mainBenefit": "Una opción de limpieza general en presentación de 20 litros con precio público claro.",
+    "benefits": [
+      "Concentración de ácido acético al 8%",
+      "Presentación de 20 litros para consumo frecuente",
+      "Adecuado para tareas de limpieza general siguiendo la etiqueta",
+      "Precio público de $180 MXN",
+      "Envase retornable"
+    ],
+    "summary": {
+      "tipo": "Vinagre de limpieza al 8%",
+      "usoPrincipal": "Limpieza general",
+      "concentracion": "8%",
+      "aplicacion": "Seguir las indicaciones de la etiqueta según la superficie y la tarea",
+      "superficies": "Superficies compatibles con vinagre de limpieza; realizar prueba previa cuando corresponda",
+      "cliente": "Negocios y hogares con consumo frecuente"
+    },
+    "fullContentHtml": "<h2>Qué es</h2><p>Es un vinagre de limpieza con concentración al 8%, pensado para tareas de limpieza general. Se ofrece en presentación de 20 litros para negocios y hogares que requieren volumen.</p><h2>Cómo se utiliza</h2><ol><li>Sigue las indicaciones de la etiqueta.</li><li>Realiza una prueba en un área poco visible cuando la superficie lo requiera.</li><li>No lo mezcles con cloro u otros productos químicos.</li><li>Evita usarlo sobre superficies sensibles a los ácidos.</li></ol><h2>Presentación y precio</h2><p>Presentación de 20 litros por $180 MXN en envase retornable.</p>",
+    "faq": [
+      {"q": "¿Qué concentración tiene?", "a": "El Vinagre de limpieza Q-WERK tiene una concentración al 8%."},
+      {"q": "¿Para qué sirve?", "a": "Está pensado para tareas de limpieza general siguiendo las indicaciones de la etiqueta y la compatibilidad de la superficie."},
+      {"q": "¿Se puede mezclar con cloro?", "a": "No. No debe mezclarse con cloro ni con otros productos químicos."},
+      {"q": "¿Qué presentación y precio tiene?", "a": "Se ofrece en presentación de 20 litros por $180 MXN en envase retornable."}
+    ],
+    "differentiator": "Ofrece vinagre de limpieza al 8% en presentación de 20 litros para necesidades de limpieza general."
+  },
+  "detergente-abrillantador-blancos": {
+    "title": "Detergente con abrillantador de blancos | Q-WERK",
+    "metaDesc": "Detergente con abrillantador de blancos Q-WERK. Presentación de 20 litros por $530 MXN.",
+    "intro": "Detergente para el lavado de ropa blanca con abrillantador de blancos, pensado para operaciones de lavandería que buscan una opción específica para este tipo de carga.",
+    "mainBenefit": "Una opción de detergente para ropa blanca en presentación profesional de 20 litros.",
+    "benefits": [
+      "Pensado para cargas de ropa blanca",
+      "Con abrillantador de blancos",
+      "Presentación profesional de 20 litros",
+      "Precio público de $530 MXN",
+      "Envase retornable"
+    ],
+    "summary": {
+      "tipo": "Detergente para ropa blanca con abrillantador de blancos",
+      "usoPrincipal": "Lavado de cargas de ropa blanca",
+      "concentracion": "Se dosifica por carga según la etiqueta y el proceso de lavandería",
+      "aplicacion": "Compartimento de detergente o sistema de dosificación",
+      "superficies": "Prendas blancas compatibles con detergente líquido",
+      "cliente": "Lavanderías, hoteles y negocios con consumo frecuente"
+    },
+    "fullContentHtml": "<h2>Qué es</h2><p>Es un detergente con abrillantador de blancos para el lavado de cargas de ropa blanca. Está pensado para lavanderías y negocios que requieren una opción específica para este tipo de prendas.</p><h2>Modo de uso</h2><ol><li>Separa las prendas blancas de las prendas de color.</li><li>Dosifica según el peso y nivel de suciedad de la carga.</li><li>Agrega el producto al compartimento de detergente o al sistema de dosificación.</li><li>Utiliza el ciclo apropiado para las prendas.</li></ol><h2>Presentación y precio</h2><p>Presentación de 20 litros por $530 MXN en envase retornable.</p><h2>Consideraciones</h2><p>Sigue siempre las indicaciones de cuidado de cada prenda y evita mezclar prendas de color con la carga blanca.</p>",
+    "faq": [
+      {"q": "¿Para qué prendas se recomienda?", "a": "Está pensado para cargas de ropa blanca compatibles con detergente líquido."},
+      {"q": "¿Cómo se dosifica?", "a": "La dosis se ajusta al peso y nivel de suciedad de la carga, siguiendo la etiqueta y el proceso de lavandería."},
+      {"q": "¿Qué presentación y precio tiene?", "a": "Se ofrece en presentación de 20 litros por $530 MXN en envase retornable."},
+      {"q": "¿Se puede usar en ropa de color?", "a": "Está planteado específicamente para ropa blanca; separa siempre las prendas de color antes de lavar."}
+    ],
+    "differentiator": "Una opción de detergente con abrillantador de blancos para cargas de ropa blanca en operaciones de lavandería."
   }
 }
