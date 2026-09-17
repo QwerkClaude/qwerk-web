@@ -891,6 +891,37 @@
     ],
     "differentiator": "Convierte el secado posterior al lavado en un paso de mantenimiento: atomizas sobre pintura húmeda y trabajas con microfibra para obtener brillo de carnauba de forma práctica."
   },
+  "limpia-vidrios-automotriz": {
+    "title": "Limpia vidrios automotriz sin vetas | Q-WERK",
+    "metaDesc": "Limpia vidrios automotriz Q-WERK de secado rápido para cristales, parabrisas y espejos. Retira huellas, polvo y película ligera sin dejar vetas. Consulta presentaciones.",
+    "intro": "El Limpia vidrios automotriz Q-WERK ayuda a recuperar una visión clara en cristales, parabrisas, medallones y espejos. Su aplicación rápida retira huellas, polvo, grasa ligera y película de suciedad para un acabado transparente y sin vetas.",
+    "mainBenefit": "Limpieza rápida y transparente para cristales automotrices, con acabado sin vetas cuando se usa con microfibra limpia.",
+    "benefits": [
+      "Retira huellas, polvo, grasa ligera y película de suciedad en cristales.",
+      "Deja un acabado transparente y sin vetas con la técnica de microfibra adecuada.",
+      "Secado rápido para agilizar el detallado y la entrega del vehículo.",
+      "Listo para usar en parabrisas, ventanas, medallones y espejos automotrices.",
+      "También es útil para limpiar espejos y otras superficies lisas no porosas, haciendo una prueba previa."
+    ],
+    "summary": {
+      "tipo": "Limpia vidrios automotriz listo para usar",
+      "usoPrincipal": "Limpiar y dar transparencia a cristales, espejos y parabrisas",
+      "concentracion": "Listo para usar; no requiere dilución",
+      "aplicacion": "Atomizar sobre el cristal o sobre una microfibra para vidrio limpia y secar con otra cara seca",
+      "superficies": "Cristales, parabrisas, ventanas, medallones y espejos automotrices",
+      "cliente": "Autolavados, detalladores y personas que realizan mantenimiento automotriz"
+    },
+    "fullContentHtml": "<h2>Qué es</h2><p>Es un limpia vidrios automotriz listo para usar, pensado para recuperar una visión clara en parabrisas, ventanas, medallones y espejos. Retira polvo, huellas, grasa ligera y la película de suciedad que puede dejar el interior del vehículo.</p><h2>Qué aporta</h2><p>Ayuda a dejar el cristal transparente y con acabado sin vetas cuando se trabaja con microfibras limpias para vidrio. Su secado rápido facilita el acabado final del servicio.</p><h2>Modo de uso</h2><ol><li>Trabajar a la sombra y con el cristal frío.</li><li>Usar una microfibra exclusiva para vidrio, limpia y seca.</li><li>Atomizar una cantidad ligera sobre el cristal o sobre la microfibra.</li><li>Limpiar por secciones y retirar la suciedad.</li><li>Pasar una segunda cara seca de la microfibra para terminar sin vetas.</li></ol><h2>Superficies compatibles</h2><p>Parabrisas, ventanas, medallones, espejos y cristales automotrices. En superficies distintas, películas polarizadas o recubrimientos especiales, realiza primero una prueba en un área discreta.</p><h2>Precauciones</h2><ul><li>No aplicar bajo sol directo ni sobre cristales calientes.</li><li>No dejar secar el producto antes de retirarlo.</li><li>No usar microfibras contaminadas con siliconas, abrillantadores o grasa.</li><li>Evitar atomizar directamente sobre pantallas, tableros y componentes electrónicos.</li><li>Mantener fuera del alcance de niñas y niños.</li></ul><h2>Presentaciones y compra</h2><p>Consulta con Q-WERK las presentaciones, precio, disponibilidad e indicaciones vigentes antes de hacer tu pedido por WhatsApp al +52 322 220 2407.</p>",
+    "faq": [
+      {"q": "¿Para qué sirve el Limpia vidrios automotriz?", "a": "Sirve para limpiar cristales, parabrisas, ventanas y espejos, retirando polvo, huellas, grasa ligera y película de suciedad."},
+      {"q": "¿Deja vetas?", "a": "Trabajado con microfibras limpias para vidrio y una cara seca para el acabado, ayuda a dejar un resultado transparente y sin vetas."},
+      {"q": "¿Se diluye?", "a": "No. Es un producto listo para usar."},
+      {"q": "¿Cómo se aplica?", "a": "Se atomiza ligeramente sobre el cristal o sobre una microfibra limpia para vidrio, se limpia por secciones y se termina con una cara seca de la microfibra."},
+      {"q": "¿Se puede usar en vidrio polarizado?", "a": "Antes de usarlo sobre película polarizada o cualquier recubrimiento especial, realiza una prueba en una zona discreta y sigue las indicaciones del fabricante de la película."},
+      {"q": "¿Qué presentaciones y precio tiene?", "a": "Las presentaciones, el precio y la disponibilidad se confirman por WhatsApp antes del pedido."}
+    ],
+    "differentiator": "Es una solución lista para usar que resuelve el acabado de cristales con limpieza rápida, transparencia y una técnica sencilla de dos microfibras."
+  },
   "vinagre-limpieza-8": {
     "title": "Vinagre de limpieza al 8% | Q-WERK",
     "metaDesc": "Vinagre de limpieza al 8% Q-WERK para limpieza general. Presentación de 20 litros por $180 MXN.",
