@@ -71,7 +71,7 @@ const META = {
   'abrillantador-llantas-gel': { cat:'automotriz', code:'Gel', name:'Abrillantador en gel de llantas', img:'/assets/products/abrillantador-llantas-gel-aplicacion.png', accent:'#f47c14', price:{low:200,high:650},  pres:'4 kg · 19 kg',            wa:'Hola, me interesa el Abrillantador en gel de llantas. Quiero saber presentación, precio y forma de aplicación.' },
   'abrillantador-hidrofobico-llantas':{cat:'automotriz',code:'Hidrofóbico', name:'Abrillantador hidrofóbico para llantas', img:'/assets/products/abrillantador-hidrofobico-llantas-aplicacion.png', accent:'#b5122b', price:{low:99,high:299}, priceFrom:99, pres:'250 g · 1 L', wa:'Hola, me interesa el Abrillantador hidrofóbico para llantas. Quiero confirmar presentación, precio y disponibilidad.', star:true },
   'aromatizante-automotriz':   { cat:'automotriz', code:'Acabado aromático', name:'Aromatizante básico automotriz', accent:'#7b4aa3', offers:[{name:'1 L',price:60,container:'Envase incluido'},{name:'5 L',price:285,container:'Envase incluido'},{name:'10 L',price:320,container:'Envase en consigna'},{name:'20 L',price:550,container:'Envase en consigna'}], consignmentNote:'Las presentaciones de 10 L y 20 L se entregan en consigna y el envase debe devolverse al solicitar reposición.', pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Aromatizante básico automotriz Q-WERK. Quiero conocer los aromas disponibles y confirmar presentación, precio y entrega.' },
-  'shampoo-basico':            { cat:'automotriz', code:'Lavado cotidiano', name:'Shampoo básico automotriz', accent:'#167c82', offers:[{name:'20 L',price:400,container:'Envase en consigna'}], retornable:true, pres:'20 L', wa:'Hola, me interesa el Shampoo básico automotriz de 20 L por $400 MXN. Quiero confirmar disponibilidad y forma de uso.' },
+  'shampoo-basico':            { cat:'automotriz', code:'Lavado cotidiano', name:'Shampoo básico automotriz', img:'/assets/products/shampoo-basico-lavado-manual.png', accent:'#167c82', offers:[{name:'20 L',price:400,container:'Envase en consigna'}], retornable:true, pres:'20 L', wa:'Hola, me interesa el Shampoo básico automotriz de 20 L por $400 MXN. Quiero confirmar disponibilidad y forma de uso.' },
   'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'Alto desempeño', name:'Detergente de alto desempeño', img:'/assets/products/detergente-alto-desempeno-aplicacion.png', accent:'#0097a7', price:null, priceFrom:530, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente de alto desempeño de 20 L por $530 MXN.' },
   'vinagre-limpieza-8':        { cat:'lavanderia', code:'Limpieza 8%', name:'Vinagre de limpieza al 8%', accent:'#d66c18', price:null, priceFrom:180, retornable:true, pres:'20 L', wa:'Hola, me interesa el Vinagre de limpieza al 8% de 20 L por $180 MXN.' },
   'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de aroma textil', img:'/assets/products/reforzador-aroma-textil-aplicacion.png', accent:'#b63d65', price:{low:59,high:1180}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Reforzador de aroma textil. Quiero saber qué presentación me conviene y cómo atomizarlo sobre ropa limpia y seca.' },
@@ -311,7 +311,7 @@ function hubPage(cat) {
   const slugs = Object.keys(META)
     .filter(s => META[s].cat === cat)
     .sort((a, b) => Number(a === 'snow-foam-ph-neutro') - Number(b === 'snow-foam-ph-neutro'));
-  const cards = slugs.map(slug => {
+  const card = slug => {
     const m = META[slug];
     const priceFrom = m.offers?.length ? Math.min(...m.offers.map(offer => offer.price)) : (m.priceFrom ?? m.price?.low);
     const media = m.img
@@ -329,11 +329,41 @@ function hubPage(cat) {
             </div>
           </div>
         </article>`;
-  }).join('');
+  };
+  const cards = slugs.map(card).join('');
+  const exteriorSlugs = ['desengrasante-concentrado', 'abrillantador-llantas', 'abrillantador-llantas-gel', 'abrillantador-hidrofobico-llantas', 'shampoo-basico', 'snow-foam-ph-neutro'];
+  const interiorSlugs = ['apc-limpiador-multiusos', 'crema-rap', 'aromatizante-automotriz'];
+  const catalog = cat === 'automotriz'
+    ? `  <section class="section section-gray">
+    <div class="container">
+      <span class="label">Catálogo</span>
+      <h2>Productos para el exterior</h2>
+      <p class="section-intro">Limpieza, desengrase y acabado para carrocería, rines y llantas.</p>
+      <div class="featured-grid">${exteriorSlugs.map(card).join('')}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <span class="label">Catálogo</span>
+      <h2>Productos para el interior</h2>
+      <p class="section-intro">Limpieza y cuidado para plásticos, viniles, tableros y tapicería.</p>
+      <div class="featured-grid">${interiorSlugs.map(card).join('')}
+      </div>
+    </div>
+  </section>`
+    : `  <section class="section section-gray">
+    <div class="container">
+      <span class="label">Catálogo</span>
+      <h2>Productos de la ${info.title.toLowerCase()}</h2>
+      <div class="featured-grid">${cards}
+      </div>
+    </div>
+  </section>`;
 
   const itemList = {
     '@context': 'https://schema.org', '@type': 'ItemList',
-    name: info.title,
+    name: cat === 'automotriz' ? 'Productos automotrices para exterior e interior' : info.title,
     itemListElement: slugs.map((slug, i) => ({ '@type': 'ListItem', position: i + 1, name: META[slug].name, url: `${SITE}/${cat}/${slug}/` })),
   };
   const breadcrumb = {
@@ -361,14 +391,7 @@ ${NAV(cat)}
       </div>
     </div>
   </header>
-  <section class="section section-gray">
-    <div class="container">
-      <span class="label">Catálogo</span>
-      <h2>Productos de la ${info.title.toLowerCase()}</h2>
-      <div class="featured-grid">${cards}
-      </div>
-    </div>
-  </section>
+${catalog}
 ${FOOTER}
 ${WA_FIXED(info.waMsg)}
 </body>
