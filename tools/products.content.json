@@ -828,6 +828,37 @@
     ],
     "differentiator": "Ofrece una presentación única de 20 litros con precio público claro para operaciones que buscan una opción práctica de lavado cotidiano."
   },
+  "cera-express-carnauba": {
+    "title": "Cera express líquida de carnauba para auto | Q-WERK",
+    "metaDesc": "Cera express líquida de carnauba Q-WERK para aplicar sobre pintura recién lavada y húmeda. Realza el brillo y acompaña el secado con microfibra. Consulta presentaciones.",
+    "intro": "La Cera express líquida de carnauba Q-WERK se aplica después del lavado, con la carrocería todavía húmeda. Se atomiza por panel y se seca de forma normal con un paño limpio de microfibra para realzar el brillo y dejar un acabado suave.",
+    "mainBenefit": "Brillo de carnauba y secado práctico en un solo paso sobre pintura recién lavada y húmeda.",
+    "benefits": [
+      "Realza el brillo y deja un acabado visual húmedo sobre pintura y barniz brillantes.",
+      "Se aplica sobre la carrocería recién lavada y aún húmeda.",
+      "Acompaña el secado con paño de microfibra limpio, panel por panel.",
+      "Aporta una capa ligera de carnauba para el mantenimiento entre encerados más completos.",
+      "Favorece un acabado liso y la formación de gotas de agua sobre la superficie."
+    ],
+    "summary": {
+      "tipo": "Cera express líquida de carnauba",
+      "usoPrincipal": "Realzar el brillo y acompañar el secado posterior al lavado",
+      "concentracion": "Lista para usar; no requiere dilución",
+      "aplicacion": "Atomizar por panel sobre pintura húmeda y secar con microfibra limpia",
+      "superficies": "Pintura automotriz y barniz transparente con acabado brillante",
+      "cliente": "Autolavados, detalladores y personas que realizan mantenimiento frecuente"
+    },
+    "fullContentHtml": "<h2>Qué es</h2><p>La Cera express líquida de carnauba es un producto de mantenimiento para la etapa posterior al lavado. Se usa cuando la pintura aún está húmeda para realzar el brillo mientras se seca la carrocería con microfibra.</p><h2>Qué aporta</h2><p>Deja un acabado visual húmedo, brillo uniforme y una sensación más suave sobre pintura y barniz brillantes. Su función es complementar el secado y aportar una capa ligera de carnauba entre encerados más completos.</p><h2>Modo de uso</h2><ol><li>Lava y enjuaga completamente el vehículo para retirar tierra y shampoo.</li><li>Con la carrocería todavía húmeda y fría, trabaja un panel a la vez.</li><li>Atomiza una capa ligera y uniforme sobre la pintura mojada.</li><li>Seca de forma normal con un paño limpio de microfibra, sin dejar que el producto se seque sobre la superficie.</li><li>Continúa con el siguiente panel usando una cara limpia del paño cuando sea necesario.</li></ol><h2>Superficies compatibles</h2><p>Pintura automotriz y barniz transparente con acabado brillante. Antes de usar sobre materiales distintos, realiza una prueba en un área discreta.</p><h2>Precauciones</h2><ul><li>No aplicar sobre pintura caliente ni bajo sol directo.</li><li>No dejar secar el producto sobre la superficie.</li><li>Evitar acabados mate, satinados o sin barniz salvo que Q-WERK confirme su compatibilidad.</li><li>Usar paños de microfibra limpios para evitar marcas o rayas.</li><li>Mantener fuera del alcance de niñas y niños.</li></ul><h2>Presentaciones y compra</h2><p>Consulta con Q-WERK las presentaciones, precio, disponibilidad e indicaciones vigentes antes de hacer tu pedido por WhatsApp al +52 322 220 2407.</p>",
+    "faq": [
+      {"q": "¿Cuándo se aplica la Cera express líquida de carnauba?", "a": "Después de lavar y enjuagar el vehículo, con la pintura todavía húmeda."},
+      {"q": "¿Cómo se aplica?", "a": "Se atomiza ligeramente por panel sobre la pintura húmeda y se seca de forma normal con un paño limpio de microfibra."},
+      {"q": "¿Para qué sirve?", "a": "Sirve para realzar el brillo, dejar un acabado visual húmedo y aportar una capa ligera de carnauba durante el secado."},
+      {"q": "¿Se puede usar en pintura mate o satinada?", "a": "No se recomienda usarla en acabados mate o satinados sin confirmar primero la compatibilidad con Q-WERK."},
+      {"q": "¿Reemplaza un encerado completo?", "a": "No. Es una cera express de mantenimiento para complementar el lavado y mantener la apariencia entre encerados más completos."},
+      {"q": "¿Qué presentaciones y precio tiene?", "a": "Las presentaciones, el precio y la disponibilidad se confirman por WhatsApp antes del pedido."}
+    ],
+    "differentiator": "Convierte el secado posterior al lavado en un paso de mantenimiento: atomizas sobre pintura húmeda y trabajas con microfibra para obtener brillo de carnauba de forma práctica."
+  },
   "vinagre-limpieza-8": {
     "title": "Vinagre de limpieza al 8% | Q-WERK",
     "metaDesc": "Vinagre de limpieza al 8% Q-WERK para limpieza general. Presentación de 20 litros por $180 MXN.",
