@@ -332,7 +332,7 @@ function hubPage(cat) {
         </article>`;
   };
   const cards = slugs.map(card).join('');
-  const exteriorSlugs = ['desengrasante-concentrado', 'abrillantador-llantas', 'abrillantador-llantas-gel', 'abrillantador-hidrofobico-llantas', 'shampoo-basico', 'snow-foam-ph-neutro', 'cera-express-carnauba'];
+  const exteriorSlugs = ['desengrasante-concentrado', 'shampoo-basico', 'snow-foam-ph-neutro', 'cera-express-carnauba', 'abrillantador-llantas', 'abrillantador-llantas-gel', 'abrillantador-hidrofobico-llantas'];
   const interiorSlugs = ['apc-limpiador-multiusos', 'crema-rap', 'aromatizante-automotriz'];
   const catalog = cat === 'automotriz'
     ? `  <section class="section section-gray">
