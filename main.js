@@ -46,6 +46,7 @@ window.addEventListener('scroll', function() {
 
   // Reglas por RUTA (substring del pathname → mensaje). Orden = prioridad.
   var WA_RULES = [
+    ['/hogar',                                  'Hola, quiero información y precios de los productos Q-WERK para hogar.'],
     ['jabon-liquido-20-litros',                  'Hola, me interesa el jabón líquido de 20 litros para lavandería. ¿Me pasas precio y presentaciones?'],
     ['detergente-para-lavanderias',              'Hola, quiero más información sobre sus detergentes para lavandería. ¿Cuál me recomiendas para mi negocio?'],
     ['proveedor-productos-limpieza-lavanderias', 'Hola, quiero más información sobre sus detergentes para lavandería. ¿Cuál me recomiendas para mi negocio?'],
@@ -105,11 +106,13 @@ window.addEventListener('scroll', function() {
   // ── Copia contextual de la ventana ──
   var COPY_AUTO = { g: '¿Tienes un autolavado o haces detallado? Te ayudamos a elegir los productos adecuados.', c: 'Recibir recomendación' };
   var COPY_LAV  = { g: '¿Buscas controlar el costo por carga? Conoce nuestras opciones para lavandería.', c: 'Solicitar información' };
+  var COPY_HOG  = { g: '¿Buscas productos para la limpieza diaria del hogar? Te ayudamos a elegirlos.', c: 'Solicitar información' };
   var COPY_DEF  = { g: '¿Tienes dudas? Te ayudamos a elegir el producto adecuado para tu negocio.', c: 'Recibir asesoría' };
   function panelCopy() {
     var path = (location.pathname || '').toLowerCase();
     if (/autolavado|automotriz|abrillantador|snow-foam|silicones|desengrasante/.test(path)) return COPY_AUTO;
     if (/lavander|detergente|reforzador|jabon|proveedor/.test(path)) return COPY_LAV;
+    if (/hogar|multiusos|cloro|limpia-vidrios/.test(path)) return COPY_HOG;
     return COPY_DEF;
   }
 
