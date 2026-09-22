@@ -20,3 +20,9 @@
 /proveedor-productos-limpieza-lavanderias      /lavanderia/  301
 /reforzador-de-aroma-para-lavanderias/          /lavanderia/reforzador-aroma-textil/  301
 /reforzador-de-aroma-para-lavanderias           /lavanderia/reforzador-aroma-textil/  301
+
+# Productos de lavandería retirados (septiembre 2026)
+/lavanderia/detergente-ropa-color/              /lavanderia/  301
+/lavanderia/detergente-ropa-color               /lavanderia/  301
+/lavanderia/detergente-con-bicarbonato/         /lavanderia/  301
+/lavanderia/detergente-con-bicarbonato          /lavanderia/  301

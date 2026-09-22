@@ -79,8 +79,6 @@ const META = {
   'vinagre-limpieza-8':        { cat:'lavanderia', code:'Limpieza 8%', name:'Vinagre de limpieza al 8%', accent:'#d66c18', price:null, priceFrom:180, retornable:true, pres:'20 L', wa:'Hola, me interesa el Vinagre de limpieza al 8% de 20 L por $180 MXN.' },
   'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de aroma textil', img:'/assets/products/reforzador-aroma-textil-aplicacion.png', accent:'#b63d65', price:{low:59,high:1180}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Reforzador de aroma textil. Quiero saber qué presentación me conviene y cómo atomizarlo sobre ropa limpia y seca.' },
   'suavizante-de-telas':       { cat:'lavanderia', code:'Cuidado textil', name:'Suavizante de telas', img:'/assets/products/suavizante-telas-aplicacion.webp', schemaImg:'/assets/products/suavizante-telas-aplicacion.png', accent:'#7c5aa6', price:null, priceFrom:380, retornable:true, pres:'20 L', wa:'Hola, me interesa el Suavizante de telas Q-WERK de 20 L por $380 MXN.' },
-  'detergente-ropa-color':     { cat:'lavanderia', code:'Ropa de color', name:'Detergente básico para ropa de color', img:'/assets/products/detergente-ropa-color-aplicacion.png', accent:'#1768ad', price:null, priceFrom:329, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente básico para ropa de color de 20 L por $329 MXN.' },
-  'detergente-con-bicarbonato':{ cat:'lavanderia', code:'Bicarbonato · aroma tipo Zote', name:'Detergente con bicarbonato aroma tipo Zote', img:'/assets/products/detergente-bicarbonato-aplicacion.png', accent:'#3d6277', price:null, priceFrom:329, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con bicarbonato aroma tipo Zote de 20 L por $329 MXN.' },
   'detergente-abrillantador-blancos': { cat:'lavanderia', code:'Ropa blanca', name:'Detergente con abrillantador de blancos', accent:'#e7c84a', price:null, priceFrom:530, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con abrillantador de blancos de 20 L por $530 MXN.' },
 };
 
@@ -442,8 +440,6 @@ const customProductPages = new Set([
   'abrillantador-llantas-gel',
   'abrillantador-hidrofobico-llantas',
   'jabon-liquido-lavanderia',
-  'detergente-ropa-color',
-  'detergente-con-bicarbonato',
   'limpiador-textil-alcalino',
   'reforzador-aroma-textil',
 ]);
