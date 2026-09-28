@@ -79,7 +79,7 @@ const META = {
   'vinagre-limpieza-8':        { cat:'lavanderia', code:'Limpieza 8%', name:'Vinagre de limpieza al 8%', accent:'#d66c18', price:null, priceFrom:180, retornable:true, pres:'20 L', wa:'Hola, me interesa el Vinagre de limpieza al 8% de 20 L por $180 MXN.' },
   'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de aroma textil', img:'/assets/products/reforzador-aroma-textil-aplicacion.png', accent:'#b63d65', price:{low:59,high:1180}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Reforzador de aroma textil. Quiero saber qué presentación me conviene y cómo atomizarlo sobre ropa limpia y seca.' },
   'suavizante-de-telas':       { cat:'lavanderia', code:'Cuidado textil', name:'Suavizante de telas', img:'/assets/products/suavizante-telas-aplicacion.webp', schemaImg:'/assets/products/suavizante-telas-aplicacion.png', accent:'#7c5aa6', price:null, priceFrom:420, retornable:true, pres:'20 L', wa:'Hola, me interesa el Suavizante de telas Q-WERK de 20 L por $420 MXN.' },
-  'detergente-abrillantador-blancos': { cat:'lavanderia', code:'Ropa blanca', name:'Detergente con abrillantador de blancos', accent:'#e7c84a', price:null, priceFrom:530, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con abrillantador de blancos de 20 L por $530 MXN.' },
+  'detergente-abrillantador-blancos': { cat:'lavanderia', code:'Ropa blanca', name:'Detergente con abrillantador de blancos', accent:'#e7c84a', price:null, priceFrom:530, retornable:true, pres:'20 L', commercialPdf:'/assets/docs/lavanderia/ficha-comercial-ld100-ld100b.pdf', wa:'Hola, me interesa el Detergente con abrillantador de blancos de 20 L por $530 MXN.' },
 };
 
 const GUIDES = {
@@ -224,6 +224,9 @@ function productPage(slug, c) {
 
   const s = { ...c.summary, _pres: m.pres };
   const priceFrom = m.offers?.length ? Math.min(...m.offers.map(offer => offer.price)) : (m.priceFrom ?? m.price?.low);
+  const commercialPdfLink = m.commercialPdf
+    ? `<a href="${m.commercialPdf}" target="_blank" rel="noopener" class="btn-text" data-ev="download_commercial_sheet" data-ev-product="${htmlEsc(m.name)}">Descargar ficha comercial (PDF)</a>`
+    : '<a href="#ficha" class="btn-text">Ver ficha técnica</a>';
   const publicOffers = m.offers?.length ? `
       <div class="public-offers" id="precios" style="--accent:${m.accent}">
         <h2>Presentaciones y precio público</h2>
@@ -251,7 +254,7 @@ ${NAV(m.cat)}
           <p class="hero-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${priceFrom ? ` — <strong>desde $${money(priceFrom)} MXN</strong>` : ''}${m.retornable ? ' · envase retornable' : ''}</p>
           <div class="hero-cta">
             <a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Consultar precio y presentación</a>
-            <a href="#ficha" class="btn-text">Ver ficha técnica</a>
+            ${commercialPdfLink}
           </div>
         </div>
       </div>
