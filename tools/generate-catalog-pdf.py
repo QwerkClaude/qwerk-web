@@ -172,7 +172,7 @@ LAUNDRY = [
         "category": "CUIDADO TEXTIL",
         "name": "Suavizante de telas",
         "description": "Auxiliar de enjuague para aportar suavidad y un acabado aromático agradable a las prendas.",
-        "prices": [("20 L", "$420")],
+        "prices": [("20 L", "$349")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/suavizante-de-telas/",
         "image": ROOT / "assets/products/suavizante-telas-aplicacion.webp",
