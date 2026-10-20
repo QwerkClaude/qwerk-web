@@ -163,7 +163,7 @@ LAUNDRY = [
         "category": "ACABADO AROMÁTICO FINAL",
         "name": "Reforzador de aroma textil",
         "description": "Alta concentración. Se atomiza sin diluir sobre ropa limpia y completamente seca antes de entregar.",
-        "prices": [("1 L", "$59"), ("5 L", "$295"), ("10 L", "$590"), ("20 L", "$1,180")],
+        "prices": [("1 L", "$59"), ("5 L", "$250"), ("10 L", "$400"), ("20 L", "$700")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/reforzador-aroma-textil/",
         "image": ROOT / "assets/products/reforzador-aroma-textil-aplicacion.webp",
