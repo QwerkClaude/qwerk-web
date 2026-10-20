@@ -13,7 +13,7 @@ const guides = [
   ['Reforzador de aroma para ropa', '/blog/reforzador-de-aroma-como-lo-usan-las-lavanderias/', 'Aroma, suavizante y proceso de entrega sin sobrecargar el textil.'],
   ['Agua, equipo y programa de lavado', '/hoteleria-lavanderias-industriales/', 'Cómo evaluar agua, textiles, volumen, relavado y costo por kilogramo.'],
   ['Manchas y suciedad textil', '/lavanderia/limpiador-textil-alcalino/', 'Pretratamiento, prueba previa y límites de un desengrasante textil.'],
-  ['Comprar a un proveedor local', '/proveedor-productos-limpieza-lavanderias/', 'Qué comparar en una cotización, presentaciones y atención en la bahía.'],
+  ['Comprar detergente para lavandería en Puerto Vallarta', '/detergente-para-lavanderias-puerto-vallarta/', 'Qué comparar en una cotización, presentaciones y atención en la bahía.'],
   ['Seguridad y formulación responsable', '/formulacion-responsable/', 'Uso responsable, documentación técnica y criterios de formulación.'],
   ['Rendimiento de productos concentrados', '/blog/calcular-rendimiento-de-un-producto-concentrado/', 'Cómo comparar costo por litro de solución y por servicio.']
 ];
