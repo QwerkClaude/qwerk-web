@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/*  Versiona las URLs de main.js y style.css en TODO el HTML con ?v=<hash>.
+/*  Versiona las URLs de JS, CSS y catálogos PDF en TODO el HTML con ?v=<hash>.
     ─────────────────────────────────────────────────────────────
     Por qué: Cloudflare Pages ignora Cache-Control puesto en _headers para
     assets estáticos (los sirve con max-age=14400 fijo). El HTML, en cambio,
@@ -25,6 +25,11 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const hash = f => createHash('sha256').update(readFileSync(join(ROOT, f))).digest('hex').slice(0, 8);
 const V_JS = hash('main.js');
 const V_CSS = hash('style.css');
+const CATALOGS = [
+  'assets/docs/catalogo-qwerk.pdf',
+  'assets/docs/catalogo-automotriz-qwerk.pdf',
+  'assets/docs/catalogo-lavanderia-qwerk.pdf',
+];
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
@@ -39,9 +44,14 @@ function walk(dir, out = []) {
 let changed = 0;
 for (const file of walk(ROOT)) {
   const src = readFileSync(file, 'utf8');
-  const out = src
+  let out = src
     .replace(/(\bsrc=)(["'])(\/?main\.js)(?:\?v=[a-f0-9]+)?\2/g, `$1$2$3?v=${V_JS}$2`)
     .replace(/(\bhref=)(["'])(\/?style\.css)(?:\?v=[a-f0-9]+)?\2/g, `$1$2$3?v=${V_CSS}$2`);
+  for (const catalog of CATALOGS) {
+    const version = hash(catalog);
+    const escaped = catalog.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    out = out.replace(new RegExp(`(\\bhref=)(["'])(\\/${escaped})(?:\\?v=[a-f0-9]+)?\\2`, 'g'), `$1$2$3?v=${version}$2`);
+  }
   if (out !== src) { writeFileSync(file, out); changed++; }
 }
-console.log(`main.js?v=${V_JS}  ·  style.css?v=${V_CSS}  →  ${changed} archivo(s) actualizado(s)`);
+console.log(`main.js?v=${V_JS}  ·  style.css?v=${V_CSS}  ·  catálogos PDF versionados  →  ${changed} archivo(s) actualizado(s)`);

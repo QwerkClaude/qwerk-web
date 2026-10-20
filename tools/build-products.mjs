@@ -20,6 +20,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // Versión de assets (?v=<hash>) para forzar recarga tras cada deploy.
 const assetV = f => createHash('sha256').update(readFileSync(join(ROOT, f))).digest('hex').slice(0, 8);
 const V_JS = assetV('main.js'), V_CSS = assetV('style.css');
+const V_CATALOG_AUTOMOTRIZ = assetV('assets/docs/catalogo-automotriz-qwerk.pdf');
+const V_CATALOG_LAVANDERIA = assetV('assets/docs/catalogo-lavanderia-qwerk.pdf');
 const SITE = 'https://qwerk.mx';
 const PHONE = '523222202407';
 const TODAY = '2026-08-09';
@@ -390,8 +392,8 @@ ${NAV(cat)}
       <div class="page-hero-actions">
         <a href="${waHref(info.waMsg)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(info.waMsg)}" data-ev="whatsapp_click" data-ev-ctx="hub-${cat}">Pedir recomendación por WhatsApp</a>
         ${cat === 'automotriz'
-          ? '<a href="/assets/docs/catalogo-automotriz-qwerk.pdf" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-automotriz">Descargar catálogo PDF</a>'
-          : '<a href="/assets/docs/catalogo-lavanderia-qwerk.pdf" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-lavanderia">Descargar catálogo PDF</a>'}
+          ? `<a href="/assets/docs/catalogo-automotriz-qwerk.pdf?v=${V_CATALOG_AUTOMOTRIZ}" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-automotriz">Descargar catálogo PDF</a>`
+          : `<a href="/assets/docs/catalogo-lavanderia-qwerk.pdf?v=${V_CATALOG_LAVANDERIA}" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-lavanderia">Descargar catálogo PDF</a>`}
       </div>
     </div>
   </header>
