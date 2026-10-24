@@ -408,6 +408,8 @@ function sitemap() {
   const staticUrls = [
     ['/', '1.0', 'monthly'],
     ['/automotriz/', '0.9', 'monthly'], ['/lavanderia/', '0.9', 'monthly'],
+    ['/hogar/', '0.9', 'monthly'],
+    ['/hogar/detergente-lavatrastes/', '0.8', 'monthly'],
     ['/hoteleria-lavanderias-industriales/', '0.8', 'monthly'],
     ['/formulacion-responsable/', '0.7', 'yearly'],
     ['/politica-de-envios-y-devoluciones/', '0.5', 'yearly'],
