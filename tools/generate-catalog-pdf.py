@@ -50,7 +50,7 @@ AUTOMOTIVE = [
         "name": "APC",
         "description": "Limpiador concentrado de pH neutro para interiores y otras superficies lavables.",
         "performance": "1 L concentrado se diluye para obtener de 5 a 20 L de producto final listo para usar.",
-        "prices": [("1 L", "$90"), ("5 L", "$350"), ("10 L", "$610"), ("20 L", "$1,100")],
+        "prices": [("1 L", "Consultar"), ("5 L", "Consultar"), ("10 L", "Consultar"), ("20 L", "Consultar")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/automotriz/apc-limpiador-multiusos/",
         "image": ROOT / "assets/products/apc-aplicacion.webp",
@@ -60,7 +60,7 @@ AUTOMOTIVE = [
         "name": "Desengrasante de alta concentración",
         "description": "Concentrado para remover grasa y suciedad difícil en motores, piezas, rines y superficies lavables.",
         "performance": "1 L concentrado se diluye para obtener de 3 a 10 L de producto final listo para usar.",
-        "prices": [("1 L", "$55"), ("5 L", "$250"), ("10 L", "$390"), ("20 L", "$700")],
+        "prices": [("1 L", "Consultar"), ("5 L", "Consultar"), ("10 L", "Consultar"), ("20 L", "Consultar")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/automotriz/desengrasante-concentrado/",
         "image": ROOT / "assets/products/desengrasante-aplicacion.webp",
@@ -69,7 +69,7 @@ AUTOMOTIVE = [
         "category": "ACABADO INTERIOR",
         "name": "Crema RAP",
         "description": "Renueva, abrillanta y protege interiores. Seca al tacto, no deja sensación grasosa y no empaña cristales.",
-        "prices": [("500 g", "$80"), ("4 kg", "$340"), ("19 kg", "$1,600")],
+        "prices": [("500 g", "Consultar"), ("4 kg", "Consultar"), ("19 kg", "Consultar")],
         "note": "Uso directo y alto rendimiento.",
         "url": "https://qwerk.mx/automotriz/crema-rap/",
         "image": ROOT / "assets/products/crema-rap-aplicacion.png",
@@ -78,7 +78,7 @@ AUTOMOTIVE = [
         "category": "ACABADO DE LLANTAS",
         "name": "Abrillantador líquido de llantas",
         "description": "Aplicación rápida para dejar un brillo uniforme en el costado de la llanta.",
-        "prices": [("10 L", "$350"), ("20 L", "$650")],
+        "prices": [("10 L", "Consultar"), ("20 L", "Consultar")],
         "note": "Envases retornables.",
         "url": "https://qwerk.mx/automotriz/abrillantador-llantas/",
         "image": ROOT / "assets/products/abrillantador-llantas-liquido-aplicacion.webp",
@@ -87,7 +87,7 @@ AUTOMOTIVE = [
         "category": "ACABADO DE LLANTAS",
         "name": "Abrillantador en gel de llantas",
         "description": "Textura en gel para dosificar con mayor control y obtener un brillo uniforme sin escurrimientos.",
-        "prices": [("4 kg", "$200"), ("19 kg", "$650")],
+        "prices": [("4 kg", "Consultar"), ("19 kg", "Consultar")],
         "note": "Aplicación controlada con esponja.",
         "url": "https://qwerk.mx/automotriz/abrillantador-llantas-gel/",
         "image": ROOT / "assets/products/abrillantador-llantas-gel-aplicacion.webp",
@@ -96,7 +96,7 @@ AUTOMOTIVE = [
         "category": "MÁXIMO BRILLO PARA LLANTAS",
         "name": "Abrillantador hidrofóbico para llantas",
         "description": "Acabado wet look de máximo brillo, negro profundo y película que ayuda a repeler el agua.",
-        "prices": [("250 g", "$99"), ("1 L", "$299")],
+        "prices": [("250 g", "Consultar"), ("1 L", "Consultar")],
         "note": "Consistencia oleosa semiviscosa; se aplica con pad.",
         "url": "https://qwerk.mx/automotriz/abrillantador-hidrofobico-llantas/",
         "image": ROOT / "assets/products/abrillantador-hidrofobico-llantas-aplicacion.webp",
@@ -105,7 +105,7 @@ AUTOMOTIVE = [
         "category": "ACABADO AROMÁTICO INTERIOR",
         "name": "Aromatizante básico automotriz",
         "description": "Acabado aromático final para el interior limpio del vehículo. Los aromas disponibles se confirman antes del pedido.",
-        "prices": [("1 L", "$60"), ("5 L", "$285"), ("10 L", "$320"), ("20 L", "$550")],
+        "prices": [("1 L", "Consultar"), ("5 L", "Consultar"), ("10 L", "Consultar"), ("20 L", "Consultar")],
         "note": "1 L y 5 L incluyen envase; 10 L y 20 L son retornables. Consulta aromas por WhatsApp.",
         "url": "https://qwerk.mx/automotriz/aromatizante-automotriz/",
         "placeholder_accent": HexColor("#7B4AA3"),
@@ -114,7 +114,7 @@ AUTOMOTIVE = [
         "category": "LAVADO COTIDIANO",
         "name": "Shampoo básico automotriz",
         "description": "Opción práctica en presentación de volumen para el lavado automotriz cotidiano y el control del costo por servicio.",
-        "prices": [("20 L", "$400")],
+        "prices": [("20 L", "Consultar")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/automotriz/shampoo-basico/",
         "placeholder_accent": HexColor("#167C82"),
@@ -124,7 +124,7 @@ AUTOMOTIVE = [
         "name": "Snow Foam",
         "description": "Shampoo concentrado de pH neutro que genera espuma densa para el lavado de contacto.",
         "performance": "Espumador de tanque: 1 L prepara hasta 100 L de mezcla. Cañón de espuma: usa 100 ml por cada 1 L de agua.",
-        "prices": [("1 L", "$99"), ("5 L", "$499"), ("10 L", "$699"), ("20 L", "$1,200")],
+        "prices": [("1 L", "Consultar"), ("5 L", "Consultar"), ("10 L", "Consultar"), ("20 L", "Consultar")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/automotriz/snow-foam-ph-neutro/",
         "image": ROOT / "assets/products/snow-foam-aplicacion.webp",
@@ -136,7 +136,7 @@ LAUNDRY = [
         "category": "MAYOR DESEMPEÑO Y FRAGANCIA",
         "name": "Detergente de alto desempeño",
         "description": "Mayor carga activa, alto poder de limpieza y fragancia duradera que permanece después del secado.",
-        "prices": [("20 L", "$530")],
+        "prices": [("20 L", "Consultar")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/jabon-liquido-lavanderia/",
         "image": ROOT / "assets/products/detergente-alto-desempeno-aplicacion.webp",
@@ -145,7 +145,7 @@ LAUNDRY = [
         "category": "LIMPIEZA 8%",
         "name": "Vinagre de limpieza al 8%",
         "description": "Vinagre de limpieza para superficies y procesos que requieren una opción ácida de uso práctico.",
-        "prices": [("20 L", "$180")],
+        "prices": [("20 L", "Consultar")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/vinagre-limpieza-8/",
         "placeholder_accent": HexColor("#D66C18"),
@@ -154,7 +154,7 @@ LAUNDRY = [
         "category": "SUCIEDAD EXTREMA",
         "name": "Desengrasante textil alcalino",
         "description": "Auxiliar alcalino para grasa, aceite y suciedad extrema. Trabaja junto con cualquiera de nuestros detergentes.",
-        "prices": [("20 L", "$299")],
+        "prices": [("20 L", "Consultar")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/limpiador-textil-alcalino/",
         "image": ROOT / "assets/products/desengrasante-textil-alcalino-aplicacion.webp",
@@ -163,7 +163,7 @@ LAUNDRY = [
         "category": "ACABADO AROMÁTICO FINAL",
         "name": "Reforzador de aroma textil",
         "description": "Alta concentración. Se atomiza sin diluir sobre ropa limpia y completamente seca antes de entregar.",
-        "prices": [("1 L", "$59"), ("5 L", "$250"), ("10 L", "$400"), ("20 L", "$700")],
+        "prices": [("1 L", "Consultar"), ("5 L", "Consultar"), ("10 L", "Consultar"), ("20 L", "Consultar")],
         "note": "10 L y 20 L en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/reforzador-aroma-textil/",
         "image": ROOT / "assets/products/reforzador-aroma-textil-aplicacion.webp",
@@ -172,7 +172,7 @@ LAUNDRY = [
         "category": "CUIDADO TEXTIL",
         "name": "Suavizante de telas",
         "description": "Auxiliar de enjuague para aportar suavidad y un acabado aromático agradable a las prendas.",
-        "prices": [("20 L", "$349")],
+        "prices": [("20 L", "Consultar")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/suavizante-de-telas/",
         "image": ROOT / "assets/products/suavizante-telas-aplicacion.webp",
@@ -181,7 +181,7 @@ LAUNDRY = [
         "category": "ROPA BLANCA",
         "name": "Detergente con abrillantador de blancos",
         "description": "Detergente para cargas blancas, con abrillantador óptico para un acabado luminoso.",
-        "prices": [("20 L", "$530")],
+        "prices": [("20 L", "Consultar")],
         "note": "Presentación única en envase retornable.",
         "url": "https://qwerk.mx/lavanderia/detergente-abrillantador-blancos/",
         "placeholder_accent": HexColor("#E7C84A"),
@@ -346,7 +346,7 @@ def product_card(c, product, y_top, height, accent, soft):
 
     price_top = y_top - 157
     draw_text(c, left, price_top, "PRESENTACIÓN", 8.1, accent, True)
-    draw_text(c, right, price_top, "PRECIO", 8.1, accent, True, "right")
+    draw_text(c, right, price_top, "COTIZACIÓN", 8.1, accent, True, "right")
     price_width = (right - left - 8) / 2
     for index, (presentation, price) in enumerate(product["prices"]):
         column = index % 2
@@ -377,7 +377,7 @@ def general_cover(c):
     draw_text(c, 48, 626, "Productos para negocios", 29, white, True)
     draw_text(c, 48, 592, "Automotriz y lavandería", 24, white, True)
     total_products = sum(len(products) for _, products, _, _, _ in SECTIONS)
-    draw_text(c, 48, 556, f"{total_products} productos con función, presentación y precio claros.", 12, white)
+    draw_text(c, 48, 556, f"{total_products} productos con función, presentaciones y asesoría directa.", 12, white)
 
     draw_text(c, 48, 415, "ELIGE TU LÍNEA", 9, GREEN, True)
 
@@ -416,7 +416,7 @@ def line_cover(c, section, products, accent, soft, subtitle):
     draw_text(c, 48, 671, f"CATÁLOGO {section}", 10, accent, True)
     for index, line in enumerate(wrap_text(subtitle, BOLD, 28, PAGE_W - 96, 2)):
         draw_text(c, 48, 626 - index * 34, line, 28, white, True)
-    draw_text(c, 48, 545, f"{len(products)} productos con función, presentación y precio claros.", 12, white)
+    draw_text(c, 48, 545, f"{len(products)} productos con función, presentaciones y asesoría directa.", 12, white)
 
     draw_text(c, 48, 415, "PRODUCTOS DE LA LÍNEA", 9, accent, True)
     c.setFillColor(soft)
