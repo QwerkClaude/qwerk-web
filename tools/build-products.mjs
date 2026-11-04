@@ -20,8 +20,6 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // Versión de assets (?v=<hash>) para forzar recarga tras cada deploy.
 const assetV = f => createHash('sha256').update(readFileSync(join(ROOT, f))).digest('hex').slice(0, 8);
 const V_JS = assetV('main.js'), V_CSS = assetV('style.css');
-const V_CATALOG_AUTOMOTRIZ = assetV('assets/docs/catalogo-automotriz-qwerk.pdf');
-const V_CATALOG_LAVANDERIA = assetV('assets/docs/catalogo-lavanderia-qwerk.pdf');
 const SITE = 'https://qwerk.mx';
 const PHONE = '523222202407';
 const TODAY = '2026-08-09';
@@ -64,24 +62,24 @@ const CATS = {
 
 // Metadatos autoritativos (yo los controlo; el contenido viene del JSON)
 const META = {
-  'snow-foam-ph-neutro':       { cat:'automotriz', code:'Snow Foam',  name:'Snow Foam',                              sku:'SNF7',    img:'/assets/products/snow-foam-aplicacion.webp', schemaImg:'/assets/products/snf7.png',    accent:'#176bb2', price:{low:99,high:1200}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa Snow Foam. Quiero saber qué presentación y dilución me convienen.' },
-  'apc-limpiador-multiusos':   { cat:'automotriz', code:'APC',        name:'APC',                                      sku:'APC7',    img:'/assets/products/apc-aplicacion.webp',       schemaImg:'/assets/products/apc7.png',    accent:'#3aaa35', price:{low:90,high:1100},  pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa APC. Quiero saber qué presentación y dilución me convienen.' },
-  'desengrasante-concentrado': { cat:'automotriz', code:'Desengrasante',   name:'Desengrasante de alta concentración',    sku:'DSGT250', img:'/assets/products/desengrasante-aplicacion.webp', schemaImg:'/assets/products/dsgt250.png', accent:'#c0392b', price:{low:55,high:700},   pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Desengrasante de alta concentración. Quiero saber qué presentación y dilución me convienen.' },
-  'limpiador-textil-alcalino': { cat:'lavanderia', code:'Refuerzo alcalino', name:'Desengrasante textil alcalino', img:'/assets/products/desengrasante-textil-alcalino-aplicacion.png', accent:'#285f46', price:null, priceFrom:299, retornable:true, pres:'20 L', wa:'Hola, me interesa el Desengrasante textil alcalino de 20 L por $299 MXN. Quiero saber cómo usarlo junto con mi detergente.' },
-  'crema-rap':                  { cat:'automotriz', code:'RAP',        name:'Crema RAP alto brillo',                  img:'/assets/products/crema-rap-aplicacion.png', accent:'#1f5fbf', price:{low:80,high:1600}, pres:'500 g · 4 kg · 19 kg', wa:'Hola, me interesa Crema RAP alto brillo. Quiero saber qué presentación me conviene y cómo hacer mi pedido.' },
+  'snow-foam-ph-neutro':       { cat:'automotriz', code:'Snow Foam',  name:'Snow Foam',                              sku:'SNF7',    img:'/assets/products/snow-foam-aplicacion.webp', schemaImg:'/assets/products/snf7.png',    accent:'#176bb2', pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa Snow Foam. Quiero saber qué presentación y dilución me convienen.' },
+  'apc-limpiador-multiusos':   { cat:'automotriz', code:'APC',        name:'APC',                                      sku:'APC7',    img:'/assets/products/apc-aplicacion.webp',       schemaImg:'/assets/products/apc7.png',    accent:'#3aaa35', pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa APC. Quiero saber qué presentación y dilución me convienen.' },
+  'desengrasante-concentrado': { cat:'automotriz', code:'Desengrasante',   name:'Desengrasante de alta concentración',    sku:'DSGT250', img:'/assets/products/desengrasante-aplicacion.webp', schemaImg:'/assets/products/dsgt250.png', accent:'#c0392b', pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Desengrasante de alta concentración. Quiero saber qué presentación y dilución me convienen.' },
+  'limpiador-textil-alcalino': { cat:'lavanderia', code:'Refuerzo alcalino', name:'Desengrasante textil alcalino', img:'/assets/products/desengrasante-textil-alcalino-aplicacion.png', accent:'#285f46', retornable:true, pres:'20 L', wa:'Hola, me interesa el Desengrasante textil alcalino de 20 L. Quiero saber cómo usarlo junto con mi detergente.' },
+  'crema-rap':                  { cat:'automotriz', code:'RAP',        name:'Crema RAP alto brillo',                  img:'/assets/products/crema-rap-aplicacion.png', accent:'#1f5fbf', pres:'500 g · 4 kg · 19 kg', wa:'Hola, me interesa Crema RAP alto brillo. Quiero saber qué presentación me conviene y cómo hacer mi pedido.' },
   'abrillantador-viniles-liquido': { cat:'automotriz', code:'Viniles y plásticos', name:'Abrillantador líquido de viniles y plásticos', img:'/assets/products/abrillantador-viniles-liquido-aplicacion.png', accent:'#65b9de', pres:'Consulta presentaciones disponibles', wa:'Hola, me interesa el Abrillantador líquido de viniles y plásticos Q-WERK. Quiero confirmar presentaciones, precio y disponibilidad.' },
-  'abrillantador-llantas':     { cat:'automotriz', code:'Uso directo', name:'Abrillantador líquido de llantas', img:'/assets/products/abrillantador-llantas-liquido-aplicacion.png', accent:'#f47c14', price:{low:350,high:650},  pres:'10 L · 20 L',             wa:'Hola, me interesa el Abrillantador líquido de llantas. Quiero saber presentación, precio y forma de aplicación.' },
-  'abrillantador-llantas-gel': { cat:'automotriz', code:'Gel', name:'Abrillantador en gel de llantas', img:'/assets/products/abrillantador-llantas-gel-aplicacion.png', accent:'#f47c14', price:{low:200,high:650},  pres:'4 kg · 19 kg',            wa:'Hola, me interesa el Abrillantador en gel de llantas. Quiero saber presentación, precio y forma de aplicación.' },
-  'abrillantador-hidrofobico-llantas':{cat:'automotriz',code:'Hidrofóbico', name:'Abrillantador hidrofóbico para llantas', img:'/assets/products/abrillantador-hidrofobico-llantas-aplicacion.png', accent:'#b5122b', price:{low:99,high:299}, priceFrom:99, pres:'250 g · 1 L', wa:'Hola, me interesa el Abrillantador hidrofóbico para llantas. Quiero confirmar presentación, precio y disponibilidad.', star:true },
-  'aromatizante-automotriz':   { cat:'automotriz', code:'Acabado aromático', name:'Aromatizante automotriz en spray', img:'/assets/products/aromatizante-automotriz-spray.png', accent:'#7b4aa3', offers:[{name:'1 L',price:60,container:'Envase incluido'},{name:'5 L',price:285,container:'Envase incluido'},{name:'10 L',price:320,container:'Envase en consigna'},{name:'20 L',price:550,container:'Envase en consigna'}], consignmentNote:'Las presentaciones de 10 L y 20 L se entregan en consigna y el envase debe devolverse al solicitar reposición.', pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Aromatizante automotriz en spray Q-WERK. Quiero conocer los aromas disponibles y confirmar presentación, precio y entrega.' },
-  'shampoo-basico':            { cat:'automotriz', code:'Lavado cotidiano', name:'Shampoo básico automotriz', img:'/assets/products/shampoo-basico-lavado-manual.png', accent:'#167c82', offers:[{name:'20 L',price:400,container:'Envase en consigna'}], retornable:true, pres:'20 L', wa:'Hola, me interesa el Shampoo básico automotriz de 20 L por $400 MXN. Quiero confirmar disponibilidad y forma de uso.' },
+  'abrillantador-llantas':     { cat:'automotriz', code:'Uso directo', name:'Abrillantador líquido de llantas', img:'/assets/products/abrillantador-llantas-liquido-aplicacion.png', accent:'#f47c14', pres:'10 L · 20 L',             wa:'Hola, me interesa el Abrillantador líquido de llantas. Quiero saber presentación, precio y forma de aplicación.' },
+  'abrillantador-llantas-gel': { cat:'automotriz', code:'Gel', name:'Abrillantador en gel de llantas', img:'/assets/products/abrillantador-llantas-gel-aplicacion.png', accent:'#f47c14', pres:'4 kg · 19 kg',            wa:'Hola, me interesa el Abrillantador en gel de llantas. Quiero saber presentación, precio y forma de aplicación.' },
+  'abrillantador-hidrofobico-llantas':{cat:'automotriz',code:'Hidrofóbico', name:'Abrillantador hidrofóbico para llantas', img:'/assets/products/abrillantador-hidrofobico-llantas-aplicacion.png', accent:'#b5122b', pres:'250 g · 1 L', wa:'Hola, me interesa el Abrillantador hidrofóbico para llantas. Quiero confirmar presentación, precio y disponibilidad.', star:true },
+  'aromatizante-automotriz':   { cat:'automotriz', code:'Acabado aromático', name:'Aromatizante automotriz en spray', img:'/assets/products/aromatizante-automotriz-spray.png', accent:'#7b4aa3', pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Aromatizante automotriz en spray Q-WERK. Quiero conocer los aromas disponibles y confirmar presentación, precio y entrega.' },
+  'shampoo-basico':            { cat:'automotriz', code:'Lavado cotidiano', name:'Shampoo básico automotriz', img:'/assets/products/shampoo-basico-lavado-manual.png', accent:'#167c82', retornable:true, pres:'20 L', wa:'Hola, me interesa el Shampoo básico automotriz de 20 L. Quiero confirmar disponibilidad y forma de uso.' },
   'cera-express-carnauba':     { cat:'automotriz', code:'Cera express', name:'Cera express líquida de carnauba', img:'/assets/products/cera-express-carnauba-aplicacion.png', accent:'#d49b16', pres:'Consulta presentaciones disponibles', wa:'Hola, me interesa la Cera express líquida de carnauba Q-WERK. Quiero confirmar presentaciones, precio y disponibilidad.' },
   'limpia-vidrios-automotriz': { cat:'automotriz', code:'Cristales', name:'Limpia vidrios automotriz', img:'/assets/products/limpia-vidrios-automotriz-aplicacion.png', accent:'#179bc1', pres:'Consulta presentaciones disponibles', wa:'Hola, me interesa el Limpia vidrios automotriz Q-WERK. Quiero confirmar presentaciones, precio y disponibilidad.' },
-  'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'Alto desempeño', name:'Detergente de alto desempeño', img:'/assets/products/detergente-alto-desempeno-aplicacion.png', accent:'#0097a7', price:null, priceFrom:530, retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente de alto desempeño de 20 L por $530 MXN.' },
-  'vinagre-limpieza-8':        { cat:'lavanderia', code:'Limpieza 8%', name:'Vinagre de limpieza al 8%', accent:'#d66c18', price:null, priceFrom:180, retornable:true, pres:'20 L', wa:'Hola, me interesa el Vinagre de limpieza al 8% de 20 L por $180 MXN.' },
-  'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de aroma textil', img:'/assets/products/reforzador-aroma-textil-aplicacion.png', accent:'#b63d65', price:{low:59,high:700}, pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Reforzador de aroma textil. Quiero saber qué presentación me conviene y cómo atomizarlo sobre ropa limpia y seca.' },
-  'suavizante-de-telas':       { cat:'lavanderia', code:'Cuidado textil', name:'Suavizante de telas', img:'/assets/products/suavizante-telas-aplicacion.webp', schemaImg:'/assets/products/suavizante-telas-aplicacion.png', accent:'#7c5aa6', price:null, priceFrom:349, retornable:true, pres:'20 L', wa:'Hola, me interesa el Suavizante de telas Q-WERK de 20 L por $349 MXN.' },
-  'detergente-abrillantador-blancos': { cat:'lavanderia', code:'Ropa blanca', name:'Detergente con abrillantador de blancos', accent:'#e7c84a', price:null, priceFrom:530, retornable:true, pres:'20 L', commercialPdf:'/assets/docs/lavanderia/ficha-comercial-ld100-ld100b.pdf', wa:'Hola, me interesa el Detergente con abrillantador de blancos de 20 L por $530 MXN.' },
+  'jabon-liquido-lavanderia':  { cat:'lavanderia', code:'Alto desempeño', name:'Detergente de alto desempeño', img:'/assets/products/detergente-alto-desempeno-aplicacion.png', accent:'#0097a7', retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente de alto desempeño de 20 L.' },
+  'vinagre-limpieza-8':        { cat:'lavanderia', code:'Limpieza 8%', name:'Vinagre de limpieza al 8%', accent:'#d66c18', retornable:true, pres:'20 L', wa:'Hola, me interesa el Vinagre de limpieza al 8% de 20 L.' },
+  'reforzador-aroma-textil':   { cat:'lavanderia', code:'Reforzador', name:'Reforzador de aroma textil', img:'/assets/products/reforzador-aroma-textil-aplicacion.png', accent:'#b63d65', pres:'1 L · 5 L · 10 L · 20 L', wa:'Hola, me interesa el Reforzador de aroma textil. Quiero saber qué presentación me conviene y cómo atomizarlo sobre ropa limpia y seca.' },
+  'suavizante-de-telas':       { cat:'lavanderia', code:'Cuidado textil', name:'Suavizante de telas', img:'/assets/products/suavizante-telas-aplicacion.webp', schemaImg:'/assets/products/suavizante-telas-aplicacion.png', accent:'#7c5aa6', retornable:true, pres:'20 L', wa:'Hola, me interesa el Suavizante de telas Q-WERK de 20 L.' },
+  'detergente-abrillantador-blancos': { cat:'lavanderia', code:'Ropa blanca', name:'Detergente con abrillantador de blancos', accent:'#e7c84a', retornable:true, pres:'20 L', wa:'Hola, me interesa el Detergente con abrillantador de blancos de 20 L.' },
 };
 
 const GUIDES = {
@@ -96,7 +94,6 @@ const GUIDES = {
 const htmlEsc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
 const waHref = msg => `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
 const jsonld = obj => `<script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n</script>`;
-const money = value => new Intl.NumberFormat('es-MX', { maximumFractionDigits: 0 }).format(value);
 
 const NAV = cat => `
   <nav id="navbar">
@@ -194,18 +191,6 @@ function productPage(slug, c) {
   if (m.sku) product.sku = m.sku;
   const productImages = [m.schemaImg, m.img].filter(Boolean).map(img => SITE + img);
   if (productImages.length) product.image = productImages.length === 1 ? productImages[0] : productImages;
-  if (m.offers?.length) product.offers = m.offers.map(offer => ({
-    '@type': 'Offer',
-    name: `${m.name} ${offer.name}`,
-    price: Number(offer.price).toFixed(2),
-    priceCurrency: 'MXN',
-    availability: 'https://schema.org/InStock',
-    url: `${url}#precios`,
-    seller: { '@type': 'Organization', name: 'Q-WERK' },
-    ...offerPolicies(),
-  }));
-  else if (m.price) product.offers = { '@type': 'AggregateOffer', priceCurrency: 'MXN', lowPrice: m.price.low, highPrice: m.price.high, seller: { '@type': 'Organization', name: 'Q-WERK' }, ...offerPolicies() };
-  else if (m.priceFrom) product.offers = { '@type': 'Offer', priceCurrency: 'MXN', price: m.priceFrom, availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'Q-WERK' }, ...offerPolicies() };
   const breadcrumb = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
@@ -225,18 +210,10 @@ function productPage(slug, c) {
   const guides = (GUIDES[m.cat] || []).map(g => `<li><a href="${g.href}">${htmlEsc(g.label)}</a></li>`).join('');
 
   const s = { ...c.summary, _pres: m.pres };
-  const priceFrom = m.offers?.length ? Math.min(...m.offers.map(offer => offer.price)) : (m.priceFrom ?? m.price?.low);
   const commercialPdfLink = m.commercialPdf
     ? `<a href="${m.commercialPdf}" target="_blank" rel="noopener" class="btn-text" data-ev="download_commercial_sheet" data-ev-product="${htmlEsc(m.name)}">Descargar ficha comercial (PDF)</a>`
     : '<a href="#ficha" class="btn-text">Ver ficha técnica</a>';
-  const publicOffers = m.offers?.length ? `
-      <div class="public-offers" id="precios" style="--accent:${m.accent}">
-        <h2>Presentaciones y precio público</h2>
-        <div class="public-offer-grid">
-          ${m.offers.map(offer => `<article class="public-offer-card"><span>${htmlEsc(offer.name)}</span><strong>$${money(offer.price)} MXN</strong><small>${htmlEsc(offer.container)}</small></article>`).join('')}
-        </div>
-        <p>Precios en MXN con IVA incluido, sujetos a vigencia y disponibilidad.${m.consignmentNote ? ` ${htmlEsc(m.consignmentNote)}` : (m.retornable ? ' El envase se entrega en consigna y debe devolverse al solicitar reposición.' : '')}</p>
-      </div>` : '';
+  const publicOffers = '';
 
   return head({ title: c.title, desc: c.metaDesc, canonical: url, ogImg, ld: [breadcrumb, product, faqLd], waMsg: m.wa }) + `
 <body>
@@ -253,7 +230,7 @@ ${NAV(m.cat)}
           <h1>${htmlEsc(m.name)}</h1>
           <p class="lead">${htmlEsc(c.mainBenefit)}</p>
           <ul class="hero-benefits">${c.benefits.map(b => `<li>${htmlEsc(b)}</li>`).join('')}</ul>
-          <p class="hero-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${priceFrom ? ` — <strong>desde $${money(priceFrom)} MXN</strong>` : ''}${m.retornable ? ' · envase retornable' : ''}</p>
+          <p class="hero-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${m.retornable ? ' · envase retornable' : ''}</p>
           <div class="hero-cta">
             <a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Consultar precio y presentación</a>
             ${commercialPdfLink}
@@ -319,7 +296,6 @@ function hubPage(cat) {
     .sort((a, b) => Number(a === 'snow-foam-ph-neutro') - Number(b === 'snow-foam-ph-neutro'));
   const card = slug => {
     const m = META[slug];
-    const priceFrom = m.offers?.length ? Math.min(...m.offers.map(offer => offer.price)) : (m.priceFrom ?? m.price?.low);
     const media = m.img
       ? `<div class="featured-img" style="--accent:${m.accent}"><img src="${m.img}" alt="${htmlEsc(m.name)} Q-WERK" loading="lazy"></div>`
       : `<div class="featured-img is-placeholder" style="--accent:${m.accent}"><span class="featured-badge">Nuevo</span><span class="ph-code">${htmlEsc(m.name)}</span></div>`;
@@ -328,7 +304,7 @@ function hubPage(cat) {
           ${media}
           <div class="featured-body">
             <h3>${htmlEsc(m.name)}</h3>
-            <p class="featured-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${priceFrom ? ` · desde $${money(priceFrom)}` : ''}${m.retornable ? ' · retornable' : ''}</p>
+            <p class="featured-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${m.retornable ? ' · retornable' : ''}</p>
             <div class="featured-actions">
               <a href="/${cat}/${slug}/" class="btn btn-green btn-sm" data-ev="view_product_details" data-ev-product="${htmlEsc(m.name)}">Ver ficha</a>
               <a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn-text" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Cotizar</a>
@@ -392,8 +368,8 @@ ${NAV(cat)}
       <div class="page-hero-actions">
         <a href="${waHref(info.waMsg)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(info.waMsg)}" data-ev="whatsapp_click" data-ev-ctx="hub-${cat}">Pedir recomendación por WhatsApp</a>
         ${cat === 'automotriz'
-          ? `<a href="/assets/docs/catalogo-automotriz-qwerk.pdf?v=${V_CATALOG_AUTOMOTRIZ}" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-automotriz">Descargar catálogo PDF</a>`
-          : `<a href="/assets/docs/catalogo-lavanderia-qwerk.pdf?v=${V_CATALOG_LAVANDERIA}" target="_blank" rel="noopener" class="btn-text" data-ev="download_catalog" data-ev-ctx="hub-lavanderia">Descargar catálogo PDF</a>`}
+          ? `<a href="${waHref(info.waMsg)}" target="_blank" rel="noopener" class="btn-text">Solicitar cotización por WhatsApp</a>`
+          : `<a href="${waHref(info.waMsg)}" target="_blank" rel="noopener" class="btn-text">Solicitar cotización por WhatsApp</a>`}
       </div>
     </div>
   </header>

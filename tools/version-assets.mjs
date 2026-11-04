@@ -25,11 +25,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const hash = f => createHash('sha256').update(readFileSync(join(ROOT, f))).digest('hex').slice(0, 8);
 const V_JS = hash('main.js');
 const V_CSS = hash('style.css');
-const CATALOGS = [
-  'assets/docs/catalogo-qwerk.pdf',
-  'assets/docs/catalogo-automotriz-qwerk.pdf',
-  'assets/docs/catalogo-lavanderia-qwerk.pdf',
-];
+const CATALOGS = []; // Las cotizaciones se confirman por WhatsApp.
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
