@@ -249,7 +249,7 @@
       "name": "¿Dónde consulto precios y fichas de producto?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Puedes descargar el catálogo general de Q-WERK o compartir por separado el catálogo automotriz y el catálogo de lavandería. Los tres incluyen precios, presentaciones y enlaces a las fichas completas."
+        "text": "Consulta el catálogo web de Hogar, Automotriz o Lavandería y solicita una cotización vigente por WhatsApp."
       }
     }
   ]
@@ -291,8 +291,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&amp;family=Open+Sans:wght@400;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=40a91117">
-  <script src="/main.js?v=03fc0000" defer></script>
+  <link rel="stylesheet" href="style.css?v=2733e162">
+  <script src="/main.js?v=023d6ede" defer></script>
   <style>
     /* ── Reseñas Google ── */
     .reviews-summary{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.5rem;background:#fff;border:1px solid #ebebeb;border-radius:14px;padding:1.5rem 2rem;max-width:560px;margin:0 auto 2.75rem;box-shadow:0 4px 20px rgba(0,0,0,.06)}
@@ -344,15 +344,17 @@
   <section class="hero" id="inicio">
     <div class="hero-text">
       <span class="hero-label">Q-WERK · Puerto Vallarta · Bahía de Banderas</span>
-      <h1>Soluciones profesionales para <span class="accent">hoteles, lavanderías, autolavados y detalladores</span></h1>
-      <p class="hero-sub">Q-WERK ofrece soluciones de lavado profesional para hoteles y lavanderías industriales, además de fórmulas de alto rendimiento y asesoría directa para otros negocios.</p>
-      <div class="hero-cta">
-        <a href="/hogar/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="hogar">Ver productos para hogar</a>
-        <a href="/automotriz/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="automotriz">Ver productos para autolavado</a>
-        <a href="/lavanderia/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="lavanderia">Ver productos para lavandería</a>
-        <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn btn-white" data-wa-msg="Hola, quiero saber qué productos QWERK son adecuados para mi negocio." data-ev="whatsapp_click" data-ev-ctx="hero">Recibir asesoría por WhatsApp</a>
+      <h1>Productos de limpieza para tu negocio y hogar</h1>
+      <p class="hero-sub">Elige tu línea para ver productos y cotizar por WhatsApp.</p>
+      <div class="catalog-routes">
+        <a href="/automotriz/" data-ev="select_product_category" data-ev-cat="automotriz">Autolavado</a>
+        <a href="/lavanderia/" data-ev="select_product_category" data-ev-cat="lavanderia">Lavandería</a>
+        <a href="/hoteleria-lavanderias-industriales/#evaluacion" data-ev="select_product_category" data-ev-cat="hoteleria">Hotelería</a>
+        <a href="/hogar/" data-ev="select_product_category" data-ev-cat="hogar">Hogar</a>
       </div>
+      <a class="hero-help" href="https://wa.me/523222202407?text=Hola%2C+vengo+de+qwerk.mx.+Necesito+ayuda+para+elegir+un+producto." target="_blank" rel="noopener" data-ev="whatsapp_click" data-ev-ctx="hero">Ayúdame a elegir por WhatsApp</a>
     </div>
+    <img class="catalog-photo" src="/assets/products/snow-foam-aplicacion.webp" alt="Aplicación de Snow Foam Q-WERK en un autolavado">
   </section>
 
   <!-- ═══ COLOR STRIPE ═══ -->
@@ -364,6 +366,57 @@
     <span style="background:#f57c00"></span>
     <span style="background:#0097a7"></span>
   </div>
+
+  <!-- ═══ RUTAS PRINCIPALES · elige tu línea ═══ -->
+  <section id="rutas" class="section section-gray">
+    <div class="container">
+      <span class="label" id="productos">Catálogo Q-WERK</span>
+      <h2>Elige tu catálogo</h2>
+      <p class="section-intro">Líneas de limpieza para el hogar y para negocios que buscan resultados constantes.</p>
+      <div class="route-grid">
+
+        <div class="route-card">
+          <div class="route-icon" style="--accent:#3aaa35">
+            <svg viewbox="0 0 24 24" fill="currentColor"><path d="M3 21V9l9-7 9 7v12h-6v-7H9v7H3zm2-2h2v-7h10v7h2V10l-7-5.44L5 10v9z"></path></svg>
+          </div>
+          <span class="route-tag">Línea Hogar</span>
+          <h3>Limpieza para todos los días</h3>
+          <p>Multiusos con aroma, cloro y limpia vidrios para pisos, cocina, baño, cristales y superficies compatibles.</p>
+          <div class="route-actions">
+            <a href="/hogar/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="hogar">Ver línea Hogar</a>
+            <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn-text" data-wa-msg="Hola, quiero información y precios de los productos Q-WERK para hogar." data-ev="whatsapp_click" data-ev-ctx="ruta-hogar">Pedir recomendación</a>
+          </div>
+        </div>
+
+        <div class="route-card">
+          <div class="route-icon" style="--accent:#1a5dc8">
+            <svg viewbox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"></path></svg>
+          </div>
+          <span class="route-tag">Línea automotriz</span>
+          <h3>Autolavados y detalladores</h3>
+          <p>Productos para limpieza, cuidado y presentación de vehículos, desarrollados para autolavados y detalladores.</p>
+          <div class="route-actions">
+            <a href="/automotriz/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="automotriz">Ver línea automotriz</a>
+            <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn-text" data-wa-msg="Hola, quiero información sobre sus productos para autolavado y detallado. ¿Cuál es el proceso completo que recomiendas?" data-ev="whatsapp_click" data-ev-ctx="ruta-automotriz">Pedir recomendación</a>
+          </div>
+        </div>
+
+        <div class="route-card">
+          <div class="route-icon" style="--accent:#0097a7">
+            <svg viewbox="0 0 24 24" fill="currentColor"><path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.11.9 2 2 2h12c1.1 0 2-.89 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5.5a1 1 0 11-2 0 1 1 0 012 0zM12 19a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"></path></svg>
+          </div>
+          <span class="route-tag">Línea de lavandería</span>
+          <h3>Lavanderías y negocios de lavado</h3>
+          <p>Detergentes y auxiliares de lavado diseñados para controlar costos y mantener un desempeño constante.</p>
+          <div class="route-actions">
+            <a href="/lavanderia/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="lavanderia">Ver línea de lavandería</a>
+            <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn-text" data-wa-msg="Hola, quiero información y precios de los productos QWERK para lavandería." data-ev="whatsapp_click" data-ev-ctx="ruta-lavanderia">Pedir recomendación</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ═══ RESEÑAS GOOGLE ═══ -->
   <!--
@@ -597,57 +650,6 @@
     </div>
   </section>
 
-  <!-- ═══ RUTAS PRINCIPALES · elige tu línea ═══ -->
-  <section id="rutas" class="section section-gray">
-    <div class="container">
-      <span class="label">Elige tu línea</span>
-      <h2>Llega a tu producto en un clic</h2>
-      <p class="section-intro">Líneas de limpieza para el hogar y para negocios que buscan resultados constantes.</p>
-      <div class="route-grid">
-
-        <div class="route-card">
-          <div class="route-icon" style="--accent:#3aaa35">
-            <svg viewbox="0 0 24 24" fill="currentColor"><path d="M3 21V9l9-7 9 7v12h-6v-7H9v7H3zm2-2h2v-7h10v7h2V10l-7-5.44L5 10v9z"></path></svg>
-          </div>
-          <span class="route-tag">Línea Hogar</span>
-          <h3>Limpieza para todos los días</h3>
-          <p>Multiusos con aroma, cloro y limpia vidrios para pisos, cocina, baño, cristales y superficies compatibles.</p>
-          <div class="route-actions">
-            <a href="/hogar/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="hogar">Ver línea Hogar</a>
-            <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn-text" data-wa-msg="Hola, quiero información y precios de los productos Q-WERK para hogar." data-ev="whatsapp_click" data-ev-ctx="ruta-hogar">Pedir recomendación</a>
-          </div>
-        </div>
-
-        <div class="route-card">
-          <div class="route-icon" style="--accent:#1a5dc8">
-            <svg viewbox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"></path></svg>
-          </div>
-          <span class="route-tag">Línea automotriz</span>
-          <h3>Autolavados y detalladores</h3>
-          <p>Productos para limpieza, cuidado y presentación de vehículos, desarrollados para autolavados y detalladores.</p>
-          <div class="route-actions">
-            <a href="/automotriz/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="automotriz">Ver línea automotriz</a>
-            <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn-text" data-wa-msg="Hola, quiero información sobre sus productos para autolavado y detallado. ¿Cuál es el proceso completo que recomiendas?" data-ev="whatsapp_click" data-ev-ctx="ruta-automotriz">Pedir recomendación</a>
-          </div>
-        </div>
-
-        <div class="route-card">
-          <div class="route-icon" style="--accent:#0097a7">
-            <svg viewbox="0 0 24 24" fill="currentColor"><path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.11.9 2 2 2h12c1.1 0 2-.89 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5.5a1 1 0 11-2 0 1 1 0 012 0zM12 19a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"></path></svg>
-          </div>
-          <span class="route-tag">Línea de lavandería</span>
-          <h3>Lavanderías y negocios de lavado</h3>
-          <p>Detergentes y auxiliares de lavado diseñados para controlar costos y mantener un desempeño constante.</p>
-          <div class="route-actions">
-            <a href="/lavanderia/" class="btn btn-green" data-ev="select_product_category" data-ev-cat="lavanderia">Ver línea de lavandería</a>
-            <a href="https://wa.me/523222202407" target="_blank" rel="noopener" class="btn-text" data-wa-msg="Hola, quiero información y precios de los productos QWERK para lavandería." data-ev="whatsapp_click" data-ev-ctx="ruta-lavanderia">Pedir recomendación</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- ═══ SELECTOR RÁPIDO · ¿qué necesitas limpiar? ═══ -->
   <section id="selector" class="section">
     <div class="container">
@@ -708,20 +710,7 @@
     </div>
   </section>
 
-<!-- ═══ CATÁLOGO GENERAL ═══ -->
-<section id="productos" class="section section-gray">
-  <div class="container">
-    <span class="label">Catálogo Q-WERK</span>
-    <h2>Elige el catálogo que necesitas</h2>
-    <p class="section-intro">Comparte los quince productos o envía únicamente la línea Automotriz o de Lavandería, según el cliente.</p>
-    <div class="route-actions" style="justify-content:flex-start;margin-top:1.75rem">
-      <a href="https://wa.me/523222202407?text=Hola%2C+quiero+cotizar+Soluciones+profesionales+para+hoteles%2C+lavander%C3%ADas%2C+autolavados+y+detalladores.+Quiero+confirmar+precio%2C+presentaci%C3%B3n+y+entrega." target="_blank" rel="noopener" class="btn btn-green" data-ev="whatsapp_click" data-ev-ctx="home-general">Solicitar cotización por WhatsApp</a>
-      <a href="https://wa.me/523222202407?text=Hola%2C+quiero+cotizar+Soluciones+profesionales+para+hoteles%2C+lavander%C3%ADas%2C+autolavados+y+detalladores.+Quiero+confirmar+precio%2C+presentaci%C3%B3n+y+entrega." target="_blank" rel="noopener" class="btn-text" data-ev="whatsapp_click" data-ev-ctx="home-automotriz">Solicitar cotización por WhatsApp</a>
-      <a href="https://wa.me/523222202407?text=Hola%2C+quiero+cotizar+Soluciones+profesionales+para+hoteles%2C+lavander%C3%ADas%2C+autolavados+y+detalladores.+Quiero+confirmar+precio%2C+presentaci%C3%B3n+y+entrega." target="_blank" rel="noopener" class="btn-text" data-ev="whatsapp_click" data-ev-ctx="home-lavanderia">Solicitar cotización por WhatsApp</a>
-    </div>
-    <p style="margin-top:1.25rem;color:var(--text-soft);font-size:.92rem">Solicita la cotización vigente por WhatsApp. Confirmamos precio, disponibilidad y condiciones del envase según el producto, la presentación y la entrega.</p>
-  </div>
-</section>
+
 
   <!-- ═══ CTA FINAL ═══ -->
   <section class="section section-green cta-final">

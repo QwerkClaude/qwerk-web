@@ -38,6 +38,10 @@ window.addEventListener('scroll', function() {
        general). Para una página nueva, agrega una línea con su slug.
    ► PARA CAMBIAR EL NÚMERO: edita WA_PHONE (formato internacional, sin +).
    ═══════════════════════════════════════════════════════════════════ */
+function websiteWhatsAppMessage(message) {
+  return message.includes('qwerk.mx') ? message : 'Desde qwerk.mx: ' + message;
+}
+
 (function () {
   var WA_PHONE = '523222202407';
 
@@ -69,7 +73,7 @@ window.addEventListener('scroll', function() {
   }
 
   function buildHref(msg) {
-    return 'https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(msg);
+    return 'https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(websiteWhatsAppMessage(msg));
   }
 
   // Ícono para inyectar el botón en páginas que no lo traen (ej. blog)
@@ -100,6 +104,7 @@ window.addEventListener('scroll', function() {
     if (el.getAttribute('data-ev-cat')) p.category = el.getAttribute('data-ev-cat');
     if (el.getAttribute('data-ev-product')) p.product = el.getAttribute('data-ev-product');
     if (el.getAttribute('data-ev-ctx')) p.context = el.getAttribute('data-ev-ctx');
+    if (el.dataset.evSize) p.presentation = el.dataset.evSize;
     track(name, p);
   }
 
@@ -117,15 +122,6 @@ window.addEventListener('scroll', function() {
   }
 
   // ── Ventana flotante contextual ──
-  var panelToggled = false;
-  // Al cerrar con la X, la ventana se vuelve a abrir sola tras unos segundos.
-  var REOPEN_MS = 20000;
-  var reopenTimer = null;
-  function clearReopen() { if (reopenTimer) { clearTimeout(reopenTimer); reopenTimer = null; } }
-  function scheduleReopen() {
-    clearReopen();
-    reopenTimer = setTimeout(function () { togglePanel(true); setTimeout(refresh, 0); }, REOPEN_MS);
-  }
   function ensurePanel() {
     var p = document.querySelector('.wa-panel');
     if (!p) {
@@ -145,9 +141,7 @@ window.addEventListener('scroll', function() {
     var p = ensurePanel();
     var willOpen = (open === undefined) ? !p.classList.contains('open') : open;
     p.classList.toggle('open', willOpen);
-    panelToggled = true;
-    if (willOpen) clearReopen(); // si ya está abierta, no hay reapertura pendiente
-    try { sessionStorage.setItem('waPanelSeen', '1'); } catch (e) {}
+
   }
 
   function refresh() {
@@ -164,32 +158,29 @@ window.addEventListener('scroll', function() {
 
   // ── Enlaces contextuales en contenido (tarjetas, CTAs, hero) ──
   function wireDataWa() {
-    var links = document.querySelectorAll('a[data-wa-msg]');
+    var links = document.querySelectorAll('a[href^="https://wa.me/523222202407"], a[data-wa-msg]');
     for (var i = 0; i < links.length; i++) {
-      links[i].href = buildHref(links[i].getAttribute('data-wa-msg'));
+      var link = links[i];
+      var message = link.getAttribute('data-wa-msg') || new URL(link.href).searchParams.get('text') || baseMessage();
+      link.href = buildHref(message);
     }
   }
 
   function onClick(e) {
     var fab = e.target.closest('.wa-fixed');
     if (fab) { e.preventDefault(); togglePanel(); return; }
-    if (e.target.closest('.wa-close')) { togglePanel(false); scheduleReopen(); return; }
+    if (e.target.closest('.wa-close')) { togglePanel(false); return; }
     var ev = e.target.closest('[data-ev]');
     if (ev) trackFromEl(ev);
-    setTimeout(refresh, 50);
+
   }
 
   function init() {
     wireDataWa();
     refresh();
     document.addEventListener('click', onClick, false);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { togglePanel(false); setTimeout(refresh, 50); } }, false);
-    // Teaser: abre la ventana una vez por sesión en escritorio (no invasivo en móvil)
-    try {
-      if (!sessionStorage.getItem('waPanelSeen') && window.innerWidth > 640) {
-        setTimeout(function () { if (!panelToggled) togglePanel(true); }, 3200);
-      }
-    } catch (e) {}
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { togglePanel(false); } }, false);
+
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
@@ -221,7 +212,7 @@ window.addEventListener('scroll', function() {
       '<h3>' + esc(d.t) + '</h3>' +
       (chips ? '<div class="selector-rec">' + chips + '</div>' : '') +
       '<p>' + esc(d.p) + '</p>' +
-      '<a class="btn btn-green btn-sm" target="_blank" rel="noopener" href="' + WA + encodeURIComponent(d.msg) + '" data-ev="whatsapp_click" data-ev-ctx="selector:' + key + '">Preguntar por WhatsApp</a>';
+      '<a class="btn btn-green btn-sm" target="_blank" rel="noopener" href="' + WA + encodeURIComponent(websiteWhatsAppMessage(d.msg)) + '" data-ev="whatsapp_click" data-ev-ctx="selector:' + key + '">Preguntar por WhatsApp</a>';
     out.hidden = false;
     if (window.qwerkTrack) window.qwerkTrack('select_product_category', { category: d.cat, context: 'selector:' + key });
   }

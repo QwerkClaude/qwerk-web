@@ -1978,3 +1978,30 @@ button.btn-text { background: none; border: none; border-bottom: 2px solid var(-
   .hospitality-metric { min-height: 0; }
   .hospitality-process-list li { grid-template-columns: 48px minmax(0, 1fr); }
 }
+
+#inicio.hero { gap: clamp(1rem, 4vw, 4rem); padding: 7rem 5vw 3rem; }
+#inicio .hero-text { align-items: flex-start; text-align: left; padding: 0; max-width: 36rem; }
+#inicio h1 { font-size: clamp(2rem, 4vw, 3.7rem); }
+#inicio .hero-sub { margin: 1rem 0; }
+.catalog-photo { width: min(34vw, 26rem); aspect-ratio: 1; object-fit: cover; border-radius: var(--r-card); }
+.catalog-routes { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; width: 100%; }
+.catalog-routes a, .quote-size { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .5rem 1rem; border-radius: var(--r-btn); font-weight: 700; text-decoration: none; }
+.catalog-routes a { background: var(--card); color: var(--ink); }
+.catalog-routes a:hover, .quote-size { background: var(--gold); color: var(--ink); }
+.hero-help { color: var(--cream); margin-top: 1rem; }
+.quote-options { display: grid; gap: .5rem; }
+.quote-options > div { display: flex; flex-wrap: wrap; gap: .4rem; }
+.quote-size:hover { background: var(--gold-deep); }
+#productos { scroll-margin-top: 6rem; }
+@media (max-width: 700px) {
+  #inicio.hero { flex-direction: column; align-items: stretch; min-height: auto; padding: 6.5rem 1.25rem 2rem; }
+  #inicio .hero-text { max-width: none; }
+  .catalog-photo { width: 100%; max-height: 12rem; }
+}
+.catalog-guide { padding-block: 2rem; }
+.catalog-guide > div { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.catalog-guide a { padding: .65rem .85rem; background: var(--paper-2); border-radius: var(--r-btn); color: var(--ink); }
+.featured-card[id] { scroll-margin-top: 6rem; }
+.quote-size { font: 700 1rem/1.25 var(--font-body); }
+.featured-actions:has(.quote-options) { align-items: flex-start; flex-direction: column-reverse; }
+.featured-actions:has(.quote-options) > a { background: transparent; color: var(--ink); padding-inline: 0; text-decoration: underline; }

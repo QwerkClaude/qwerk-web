@@ -11,6 +11,7 @@
     BreadcrumbList/FAQPage. Contenido técnico = el que produjo el workflow
     (fiel a los modales). Reejecuta con: node tools/build-products.mjs
 */
+import { quoteLinks } from './quote-links.mjs';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -232,7 +233,7 @@ ${NAV(m.cat)}
           <ul class="hero-benefits">${c.benefits.map(b => `<li>${htmlEsc(b)}</li>`).join('')}</ul>
           <p class="hero-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${m.retornable ? ' · envase retornable' : ''}</p>
           <div class="hero-cta">
-            <a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Consultar precio y presentación</a>
+            ${quoteLinks(m.name, m.pres) || `<a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn btn-green" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Consultar precio y presentación</a>`}
             ${commercialPdfLink}
           </div>
         </div>
@@ -300,14 +301,14 @@ function hubPage(cat) {
       ? `<div class="featured-img" style="--accent:${m.accent}"><img src="${m.img}" alt="${htmlEsc(m.name)} Q-WERK" loading="lazy"></div>`
       : `<div class="featured-img is-placeholder" style="--accent:${m.accent}"><span class="featured-badge">Nuevo</span><span class="ph-code">${htmlEsc(m.name)}</span></div>`;
     return `
-        <article class="featured-card">
+        <article class="featured-card" id="${slug}">
           ${media}
           <div class="featured-body">
             <h3>${htmlEsc(m.name)}</h3>
             <p class="featured-sizes"><strong>Presentaciones:</strong> ${htmlEsc(m.pres)}${m.retornable ? ' · retornable' : ''}</p>
             <div class="featured-actions">
               <a href="/${cat}/${slug}/" class="btn btn-green btn-sm" data-ev="view_product_details" data-ev-product="${htmlEsc(m.name)}">Ver ficha</a>
-              <a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn-text" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Cotizar</a>
+              ${quoteLinks(m.name, m.pres) || `<a href="${waHref(m.wa)}" target="_blank" rel="noopener" class="btn-text" data-wa-msg="${htmlEsc(m.wa)}" data-ev="product_whatsapp_click" data-ev-product="${htmlEsc(m.name)}">Cotizar</a>`}
             </div>
           </div>
         </article>`;
@@ -343,6 +344,24 @@ function hubPage(cat) {
     </div>
   </section>`;
 
+  const needs = cat === 'automotriz' ? [
+    ['Llantas · aplicación rápida', 'abrillantador-llantas'],
+    ['Llantas · aplicación controlada', 'abrillantador-llantas-gel'],
+    ['Llantas · brillo húmedo y repelencia', 'abrillantador-hidrofobico-llantas'],
+    ['Carrocería · lavado con espuma', 'snow-foam-ph-neutro'],
+    ['Interior · limpieza', 'apc-limpiador-multiusos'],
+  ] : [
+    ['Grasa en textiles', 'limpiador-textil-alcalino'],
+    ['Lavado diario', 'jabon-liquido-lavanderia'],
+    ['Ropa blanca', 'detergente-abrillantador-blancos'],
+    ['Suavidad', 'suavizante-de-telas'],
+    ['Aroma', 'reforzador-aroma-textil'],
+  ];
+  const guide = `<nav class="container catalog-guide" aria-label="Elegir por necesidad">
+    <h2>¿Qué resultado buscas?</h2>
+    <div>${needs.map(([label, slug]) => `<a href="#${slug}">${label}</a>`).join(' ')}</div>
+  </nav>`;
+
   const itemList = {
     '@context': 'https://schema.org', '@type': 'ItemList',
     name: cat === 'automotriz' ? 'Productos automotrices para exterior e interior' : info.title,
@@ -373,6 +392,7 @@ ${NAV(cat)}
       </div>
     </div>
   </header>
+${guide}
 ${catalog}
 ${FOOTER}
 ${WA_FIXED(info.waMsg)}
